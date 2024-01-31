@@ -11,7 +11,7 @@ swordland Yuki_kajiura/animenz animation 刀剑神域_OST SSR y
 鸟之诗 key/animenz animation air_OP SR y
 红莲华 LISA/animenz animation 鬼灭之刃_OP UR n
 若能绽放光芒 Goose_House/animenz animation 四月是你的谎言_OP SR y
-善意的忘却 kyoto_animation/animenz animation 凉宫春日的消失_ED B y
+善意的忘却 kyoto_animation/animenz animation 凉宫春日的消失_ED A y
 心动泡芙 ChiMaMe/animenz animation 请问今天要来点兔子吗_ED SSR n
 this_game Suzuki/animenz animation 游戏人生_OP UR y
 snow_halation muse/animenz animation lovelive_OST UR y
@@ -51,96 +51,3 @@ last_stardust aimer/animenz animation fate/stay_night_UBW_OST SSR y
 -
 sincerely 与 若能绽放光芒 同级
 butterfly 与 bios 同级
-
-# basic information
-site_name: why的个人网站
-site_url: https://falling-leaf.github.io/notebook/
-site_author: 王昊元
-site_description: why的个人网站
-
-nav: 
-- 首页: 
-  - home: index.md
-  - 软工/工高课程简述及结构: introduction.md
-- 数理基础:
-  - ./math/index.md
-  - 离散数学及其应用:
-    - ./math/DMIA/index.md
-  - 大学物理:
-    - ./math/PHYSICS/index.md
-  - 微积分:
-    - ./math/CALCULUS/index.md
-  - 线性代数:
-    - ./math/LA/index.md
-  - 数学建模:
-    - ./math/MM/index.md
-- 计算机:
-  - ./computer/index.md
-#  - 计算机构成/计算机系统概论:
-#  - 计算机构成/数字逻辑设计:
-#  - 计算机构成/计算机系统原理:
-#  - 编程语言/C程序设计基础:
-#  - 编程语言/程序设计专题:
-#  - 编程语言/面向对象程序设计:
-#    - ./computer/OOP/index.md
-  - 算法/数据结构基础:
-    - ./computer/FDS/index.md
-- 通识:
-  - ./extra/index.md
-  - 德语I:
-    - ./extra/GERMANY/index.md
-- 音乐:
-  - ./music/index.md
-  - 演奏曲目: ./music/PLAY.md
-  - 原创曲目: ./music/COMPOSE.md
-  - 个人小记: ./music/note.md
-#- 二次元:
-#  - 番剧:
-#  - 游戏（游戏也能算二次元吗）:
-
-
-
-theme:
-  name: material
-
-  palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: teal
-      toggle:
-        icon: material/brightness-4
-        name: 切换至日间模式
-    - media: "(prefers-color-scheme:light)"
-      scheme: default
-      primary: green
-      accent: yellow
-      toggle:
-        icon: material/brightness-7
-        name: 切换至夜间模式
-  language: 'zh'
-markdown_extensions:
-  - admonition
-  - codehilite:
-      guess_lang: false
-      linenums: false
-  - toc:
-      permalink: true
-  - footnotes
-  - meta
-  - def_list
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_png
-  - pymdownx.inlinehilite
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist
-  - pymdownx.tilde
