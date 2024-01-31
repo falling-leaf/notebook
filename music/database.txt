@@ -11,7 +11,7 @@ swordland Yuki_kajiura/animenz animation 刀剑神域_OST SSR y
 鸟之诗 key/animenz animation air_OP SR y
 红莲华 LISA/animenz animation 鬼灭之刃_OP UR n
 若能绽放光芒 Goose_House/animenz animation 四月是你的谎言_OP SR y
-善意的忘却 kyoto_animation/animenz animation 凉宫春日的消失_ED B y
+善意的忘却 kyoto_animation/animenz animation 凉宫春日的消失_ED A y
 心动泡芙 ChiMaMe/animenz animation 请问今天要来点兔子吗_ED SSR n
 this_game Suzuki/animenz animation 游戏人生_OP UR y
 snow_halation muse/animenz animation lovelive_OST UR y
