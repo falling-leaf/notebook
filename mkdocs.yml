@@ -35,6 +35,7 @@ nav:
   - ./extra/index.md
   - 德语I:
     - ./extra/GERMANY/index.md
+    - 字母表及语音: ./extra/GERMANY/alphabet.md
 - 音乐:
   - ./music/index.md
   - 演奏曲目: ./music/PLAY.md
