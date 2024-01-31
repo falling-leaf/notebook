@@ -12,6 +12,7 @@ struct music//曲目的结构
     string src;//曲目来源
     string rank;//难度(A/SR/SSR/UR)
     string clear;//完成与否(y/n)
+    bool visit;
 };
 music sets[1000];
 int main()
@@ -32,6 +33,19 @@ int main()
         cin >> temp;
     }
     fclose(stdin);
-    freopen("", "w", stdout);
-    
+    freopen("COMPOSE.md", "w", stdout);
+    cout << "# 演奏！" << endl;
+    cout << "## 目录（按分类/难度排序）" << endl;
+    cout << "### 动漫" << endl;
+    for (int j = 0; j < i; j++)
+        sets[j].visit = false;
+    for (int j = 0; j < i; j++)
+    {
+        if (sets[j].sort == "animation" && sets[j].rank == "UR" && sets[j].visit == false)
+        {
+            cout << "[" << sets[j].clear << "] " << "UR " << sets[j].name << " " << sets[j].author << endl;
+            sets[j].visit = true;
+        }
+    }
+    fclose(stdout);
 }
