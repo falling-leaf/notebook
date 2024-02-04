@@ -31,6 +31,12 @@ nav:
 #    - ./computer/OOP/index.md
   - 算法/数据结构基础:
     - ./computer/FDS/index.md
+  - +工具/git:
+    - ./computer/GIT/for_git.md
+  - +工具/markdown:
+    - ./computer/MD/md.md
+  - +项目/静态网页设置:
+    - ./computer/PAGES/pages.md
 - 通识:
   - ./extra/index.md
   - 德语I:
