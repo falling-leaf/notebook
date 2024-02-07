@@ -31,6 +31,9 @@ nav:
 #    - ./computer/OOP/index.md
   - 算法/数据结构基础:
     - ./computer/FDS/index.md
+  - 前端/javascript:
+    - 简介: ./computer/JS/javascript.md
+    - chap1-js简介及语法: ./computer/JS/chap1.md
   - 前端/React:
     - 简介: ./computer/REACT/react.md
     - chap1-安装: ./computer/REACT/chap1.md
