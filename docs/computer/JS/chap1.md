@@ -1,4 +1,4 @@
-# Chapter 1: 
+# Chapter 1: js简介及语法
 ## 1.1 javascript的用法
 - js代码必须位于`<script>`与`</script>`标签之间。
 
@@ -66,6 +66,10 @@ var firstcopy = person["first"]; //以上两种方法均可得到值"ab"
 
 6. 函数字面量：定义一个函数
 `function func(a, b){return a * b;}`
+
+可以通过`typeof varname`来查询其字面量的类型（string/number/object/boolean）
+
+*注：此时数组被视作object类型。*
 
 js的变量定义名为*var*，可以用字面量为其赋值。
 
