@@ -31,12 +31,16 @@ nav:
 #    - ./computer/OOP/index.md
   - 算法/数据结构基础:
     - ./computer/FDS/index.md
+  - 算法/高级数据结构及算法分析:
+    - class 1: ./computer/ADS/class1.md
   - 前端/javascript:
     - 简介: ./computer/JS/javascript.md
     - chap1-js简介及语法: ./computer/JS/chap1.md
   - 前端/React:
     - 简介: ./computer/REACT/react.md
     - chap1-安装: ./computer/REACT/chap1.md
+  - 后端/数据库:
+    - class 1: ./computer/db/class1.md
   - +工具/git:
     - ./computer/GIT/for_git.md
   - +工具/markdown:
@@ -47,7 +51,7 @@ nav:
   - ./extra/index.md
   - 德语I:
     - ./extra/GERMANY/index.md
-    - 字母表及语音: ./extra/GERMANY/alphabet.md
+    - class 1: ./extra/GERMANY/class1.md
 - 音乐:
   - ./music/index.md
   - 演奏曲目: ./music/PLAY.md
@@ -58,7 +62,7 @@ nav:
 #  - 游戏（游戏也能算二次元吗）:
 
 
-
+# 在此感谢jpgg的开源代码！jpgg我的超人ovo
 theme:
   name: material
 
@@ -78,6 +82,66 @@ theme:
         icon: material/brightness-7
         name: 切换至夜间模式
   language: 'zh'
+
+  features:
+    # - header.autohide #自动隐藏头栏
+    # - announce.dismiss # 公告栏
+    # - navigation.instant #这玩意跟公式爆了
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.path # 显示当前路径
+    - navigation.prune # 侧边栏自动折叠
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    # - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
+    - navigation.top # 一键回顶部
+    - navigation.footer # 底部导航
+    - search.highlight # 搜索高亮
+    - search.suggest # 搜索建议
+    - toc.follow # toc 跟随
+    - content.code.annotate # 代码行号
+    - content.code.copy # 代码复制
+
+  language: 'zh'
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  #logo: ./images/logo.png
+  #favicon: ./images/icon.jpg
+
+#plugins:
+  #- statistics:
+      #words_per_minute: 200
+  #- search:
+  #    lang:
+  #      - zh
+  #      - en
+  #      - ja
+  #    separator: '[\s\u200b\-]'
+#  - glightbox #git action跑不起来
+  #- git-revision-date-localized:
+  #    type: datetime
+  #    timezone: Asia/Shanghai
+  #    locale: zh
+  #    enable_creation_date: true
+  #    exclude:
+  #      - index.md
+  # - heti: 
+  #   disable_serve: false
+  #   extra_skipped_class:
+  #     - arithmatex
+
+
 markdown_extensions:
   - admonition
   - codehilite:
