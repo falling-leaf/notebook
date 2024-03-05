@@ -33,6 +33,7 @@ nav:
     - ./computer/FDS/index.md
   - 算法/高级数据结构及算法分析:
     - class 1: ./computer/ADS/class1.md
+    - class 2: ./computer/ADS/class2.md
   - 前端/javascript:
     - 简介: ./computer/JS/javascript.md
     - chap1-js简介及语法: ./computer/JS/chap1.md
@@ -40,7 +41,8 @@ nav:
     - 简介: ./computer/REACT/react.md
     - chap1-安装: ./computer/REACT/chap1.md
   - 后端/数据库:
-    - class 1: ./computer/db/class1.md
+    - class 1: ./computer/DB/class1.md
+    - 实验总结: ./computer/DB/labconclusion.md
   - +工具/git:
     - ./computer/GIT/for_git.md
   - +工具/markdown:
