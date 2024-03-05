@@ -2,12 +2,17 @@
 ## chapter 0：课程要求
 评分标准：
 1. homework/10
+
 2. discussion/10
+
 3. project+peer review/30（including bonus）
 
 project共8个，可选其中2个来做
+
 需要pre，从3人中随机抽取1人
+
 4. midterm/10
+
 5. final/40
 
 ## chapter 1：AVL Trees, Splay Trees, and Amortized Analysis
