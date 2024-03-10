@@ -25,3 +25,22 @@ A + T + V = R
 - interception: 非法获取权限（截断）
 - modification: 修改
 - fabrication: 伪造（假扮他人发布信息）
+
+### 密码学：
+- substitution
+  - code
+  - cipher
+- transposition
+
+### 加密(encryption)
+- 置换
+- 位移
+
+置换时，每一个明文的字母被换成了同样的字母。
+
+维戈涅尔密码： 
+- 密钥为一串字母；
+- 加密方式为，对每个字母以对应密钥的顺序进行凯撒密码替换
+- 同时，凯撒密码本身的顺序可以不按照字母表的顺序，可在中间插入另一个密钥
+
+enigma principle：与维戈涅尔密码相似，但加密更为繁琐，利用机器实现。
