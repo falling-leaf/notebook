@@ -1,0 +1,1616 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/IOT/quiz/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>Quiz - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软工/工高课程简述及结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数理基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../GAMES101/lecture_1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机图形学(GAMES101)
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../OS/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    操作系统
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CN/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ES/ES/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/ElasticSearch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../PAGES/pages/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/静态网页设置
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            音乐
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/PLAY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    演奏曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/COMPOSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    原创曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人小记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quiz" class="md-nav__link">
+    <span class="md-ellipsis">
+      quiz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="quiz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chapter-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 一个典型物联网应用架构包括哪些部分？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 物联网开发与传统PC程序开发有什么不同？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cmu-glotto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 在CMU GloTTO项目中，如何保证安全性？机器学习层起到了什么作用？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mosaicpm25" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 在Mosaic项目中，PM2.5测量的原理是什么？使用一元线性模型做数据校准有什么缺陷？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-2800mah20ma05ma" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 一个传感器节点电池总的电量为2800mAh，假设节点工作时电流消耗为20mA，休眠时电流消耗为0.5mA。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 下表描述了两块MCU的部分属性，基于此表回答以下问题：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-uart9600bds2ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 如果UART的波特率设置为9600Bd/s，串口的接收中断处理时间为2ms，接收缓存应为多少字节？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 一系列问题：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 一系列问题：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-thingssmart-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 哪些硬件平台属于Things类别？哪些硬件平台属于Smart Things类别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ramflash" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 RAM和flash有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-4100micaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 如果一个程序声明了一个4100字节的数据，它是否能运行在micaZ节点上？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-atmega" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Atmega系列处理属于什么架构？有什么特点？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-stm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 STM32种一般有几种低功耗模式？哪种功耗最低？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 盾板的功能作用是什么？适用于哪些硬件平台？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 ESP32集成无线模块有哪些？这些无线协议能否同时运行？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-jetson" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 Jetson硬件平台的主要特点是什么？适用于哪些场景？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-tflops" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.9 TFLOPS是什么意思？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-abc10s20s30s" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 给定三个线程a、b、c，它们单独执行完的时间分别为10s、20s、30s
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 差分文件的计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 一系列问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-10111110ieee-802154-iq" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 现有数据流10111110，要通过IEEE 802.15.4 物理层发送，请给出经过物理层调制后，I相位与Q相位上的码元序列。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Quiz</h1>
+
+<h2 id="quiz">quiz<a class="headerlink" href="#quiz" title="Permanent link">&para;</a></h2>
+<h3 id="chapter-1">chapter 1<a class="headerlink" href="#chapter-1" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 一个典型物联网应用架构包括哪些部分？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>一个典型的物联网应用架构包括：<strong>物联网设备、网关、物联网云平台、客户端</strong>。</p>
+<h4 id="2-pc">2. 物联网开发与传统PC程序开发有什么不同？<a class="headerlink" href="#2-pc" title="Permanent link">&para;</a></h4>
+<p>传统PC程序的开发注重**提升性能**，由于有一定的主流终端类型因此可能存在**独裁垄断**；而物联网开发注重**低功耗、小体积**，由于其**碎片化、异构性**的特点，<strong>还没有出现固定的终端类型</strong>，因此没有独裁垄断。</p>
+<h4 id="3-cmu-glotto">3. 在CMU GloTTO项目中，如何保证安全性？机器学习层起到了什么作用？<a class="headerlink" href="#3-cmu-glotto" title="Permanent link">&para;</a></h4>
+<p>CMU GloTTO是卡内基梅隆大学与Google联合开展的智慧校园项目，任何在校学生能够开发和共享物联网应用程序。</p>
+<p>安全性通过如下三层进行实现：</p>
+<ul>
+<li><strong>HTTPS</strong>：在HTTP基础上加密通信</li>
+<li><strong>OAuth 2.0</strong>：用于用户认证授权。用户利用账户名、密码登录中心服务器后，将获得唯一的ID和密钥。当需要访问GIoTTO数据库时，首先必须用ID和密钥获取OAuth令牌，才能获得数据的访问权限。令牌的有效期超时之后必须重新生成。</li>
+<li><strong>访问控制层</strong>：进行访问控制。两种用户类型：管理员和普通用户。管理员具有所有传感器数据的访问权限，还能定义普通用户的访问权限，制定访问控制列表。普通用户根据访问控制列表中定义的权限，访问传感器数据。</li>
+</ul>
+<p>机器学习层的作用是：<strong>帮助用户轻松处理传感数据</strong>。</p>
+<p>机器学习层的工作过程为：</p>
+<ol>
+<li>用户选择特定数据打标签</li>
+<li>机器学习层训练分类器，得到虚拟传感器</li>
+<li>虚拟传感器实施分类，进行状态监测</li>
+</ol>
+<p>机器学习层的优势：向用户隐藏了许多传感器细节，用户只需根据常识选择一些可能适用的传感器进行应用开发，不必纠结如何确定传感器数据阈值等细节，降低了开发难度。</p>
+<h4 id="4-mosaicpm25">4. 在Mosaic项目中，PM2.5测量的原理是什么？使用一元线性模型做数据校准有什么缺陷？<a class="headerlink" href="#4-mosaicpm25" title="Permanent link">&para;</a></h4>
+<p>PM2.5测量的原理是：<strong>传感器一般搭载一个风扇，向上提供稳定的空气流。激光发射器发出一束红外激光。激光照射到空气流上，被空气流中的粒子反射，并被光传感器感知。空气中粒子的数据可以通过反射的强弱程度来测量。</strong></p>
+<p>使用一元线性模型做数据校准会导致**很多细节特征丢失，刻画效果与预测效果均欠佳；例如温湿度、速度、人流密度、车流密度等参数，如果使用一元模型则只能对其中一个参数进行分析。**因此，目前使用的数据校准方法为：多元线性模型和随机森林的二阶段数据校准方法，具体设计如下图：</p>
+<p><img alt="1726730776282" src="../image/quiz/1726730776282.png" /></p>
+<h4 id="5-2800mah20ma05ma">5. 一个传感器节点电池总的电量为2800mAh，假设节点工作时电流消耗为20mA，休眠时电流消耗为0.5mA。<a class="headerlink" href="#5-2800mah20ma05ma" title="Permanent link">&para;</a></h4>
+<ul>
+<li>a. 节点工作占空比为1%，节点工作时长为？</li>
+<li>b. 节点工作占空比为1%，且考虑电池自放电率为0.5%/天时，节点工作时长为？假设电池每天释放初始电量的5%。</li>
+</ul>
+<p>a. 先计算平均耗电情况(注意占空比为**工作时长占全部时长的比重**)：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+I = 20 \times 0.01 + 0.5 \times 0.99 = 0.695mA
+</div>
+<script type="math/tex; mode=display">
+I = 20 \times 0.01 + 0.5 \times 0.99 = 0.695mA
+</script>
+</div>
+<p>再计算工作时长：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T = 2800 / 0.695 = 4028h
+</div>
+<script type="math/tex; mode=display">
+T = 2800 / 0.695 = 4028h
+</script>
+</div>
+<p>b. 这里“初始电量”理解为总的电量，即2800mAh；同理先计算正常情况下一小时的耗电量：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+I = (20 \times 0.01 + 0.5 \times 0.99) \times 1h + \frac{2800 * 0.005 }{24}mAh = 1.2783mAh
+</div>
+<script type="math/tex; mode=display">
+I = (20 \times 0.01 + 0.5 \times 0.99) \times 1h + \frac{2800 * 0.005 }{24}mAh = 1.2783mAh
+</script>
+</div>
+<p>再计算工作时长：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T = 2800 / 1.2783 = 2190h
+</div>
+<script type="math/tex; mode=display">
+T = 2800 / 1.2783 = 2190h
+</script>
+</div>
+<h3 id="chapter-2">chapter 2<a class="headerlink" href="#chapter-2" title="Permanent link">&para;</a></h3>
+<h4 id="1-mcu">1. 下表描述了两块MCU的部分属性，基于此表回答以下问题：<a class="headerlink" href="#1-mcu" title="Permanent link">&para;</a></h4>
+<p><img alt="1726731362486" src="../image/quiz/1726731362486.png" /></p>
+<ul>
+<li>a. 程序中有如下代码片段，为了支持该代码片段，应该选择哪块MCU？</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">10240</span><span class="p">];</span>
+<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));...</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>b. 对于一段给定程序，假设在Msp430F2618和Msp430F5437都执行了10s，当占空比为80%时，谁的能耗低？当占空比为0.1%时，谁的能耗低？（假设两个处理器工作电压恒定为3V）</li>
+</ul>
+<p>a. 注意到，<strong>RAM存数据，Flash存程序</strong>；因此在代码中出现了大小为10KB的数据，必须要大于10KB的RAM提供支持，因此选择Msp430F5437。</p>
+<p>b. 能耗计算方法如下：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+E = \sum_{i = 1}^{n}\Delta t_iI_ip_i
+</div>
+<script type="math/tex; mode=display">
+E = \sum_{i = 1}^{n}\Delta t_iI_ip_i
+</script>
+</div>
+<p>其中t为时间，n为状态数（例如工作状态、休眠状态等），p为功率（IU）；当t大于0时，<span class="arithmatex"><span class="MathJax_Preview">I_i = 1</span><script type="math/tex">I_i = 1</script></span>，当t等于0时，<span class="arithmatex"><span class="MathJax_Preview">I_i = 0</span><script type="math/tex">I_i = 0</script></span></p>
+<p>具体计算不再展开说明。</p>
+<h4 id="2-uart9600bds2ms">2. 如果UART的波特率设置为9600Bd/s，串口的接收中断处理时间为2ms，接收缓存应为多少字节？<a class="headerlink" href="#2-uart9600bds2ms" title="Permanent link">&para;</a></h4>
+<p>需要缓存的原因是：串口处理中断需要一定时间，在这段时间里数据一直传入而未被处理，因此需要缓存存储这部分数据。</p>
+<p>前置信息：每次UART传输11位，其中有8位数据位，2位标识位，1位校验位；忽略串口接收响应时间，假设缓存区只存数据位。</p>
+<p>首先计算传输一位需要的时间：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+t_1 = 1 / 9600s
+</div>
+<script type="math/tex; mode=display">
+t_1 = 1 / 9600s
+</script>
+</div>
+<p>在中断处理时间内到达的数据：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n = \frac{2}{1000} \times t_1 = 96 / 5
+</div>
+<script type="math/tex; mode=display">
+n = \frac{2}{1000} \times t_1 = 96 / 5
+</script>
+</div>
+<p>计算需要存储的数据位：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n_1 = \frac{8}{11}n = 768 / 55
+</div>
+<script type="math/tex; mode=display">
+n_1 = \frac{8}{11}n = 768 / 55
+</script>
+</div>
+<p>计算缓存大小（以字节（Byte）为单位）：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+b = n_1 / 8 = 96 / 55 = 1.74Byte
+</div>
+<script type="math/tex; mode=display">
+b = n_1 / 8 = 96 / 55 = 1.74Byte
+</script>
+</div>
+<p>向上取整，则结果为2Byte。</p>
+<h4 id="3">3. 一系列问题：<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<h5 id="31-thingssmart-things">3.1 哪些硬件平台属于Things类别？哪些硬件平台属于Smart Things类别？<a class="headerlink" href="#31-thingssmart-things" title="Permanent link">&para;</a></h5>
+<p>传感节点、ESP32、Arduino、STM32等属于Things类别；树莓派、Jetson平台等属于Smart Things类别。</p>
+<h5 id="32-ramflash">3.2 RAM和flash有什么区别？<a class="headerlink" href="#32-ramflash" title="Permanent link">&para;</a></h5>
+<p>RAM一般用于存放程序运行时的数据，它具备易失性；</p>
+<p>Flash一般用于存放程序代码，它具备非易失性。</p>
+<h5 id="33-4100micaz">3.3 如果一个程序声明了一个4100字节的数据，它是否能运行在micaZ节点上？<a class="headerlink" href="#33-4100micaz" title="Permanent link">&para;</a></h5>
+<p>MicaZ节点属于传感节点的一种，它的处理器频率为4MHz，处理器位数为8，RAM大小为4KB，Flash大小为128KB。</p>
+<p>也就是说，MicaZ能够承载的最大数据量为4000字节。因此，如果程序中有一个4100字节的数据，它将无法运行在MicaZ上。</p>
+<h5 id="34-atmega">3.4 Atmega系列处理属于什么架构？有什么特点？<a class="headerlink" href="#34-atmega" title="Permanent link">&para;</a></h5>
+<p>Atmega系列处理器属于AVR架构（AVR是由挪威理工学院教授开发出的精简指令集计算机（RISC）体系结构）</p>
+<p>它的特点是：</p>
+<ul>
+<li>能耗低</li>
+<li>存储体系结构为哈佛结构</li>
+<li>具有分离的数据寻址空间和程序寻址空间</li>
+</ul>
+<h5 id="35-stm32">3.5 STM32种一般有几种低功耗模式？哪种功耗最低？<a class="headerlink" href="#35-stm32" title="Permanent link">&para;</a></h5>
+<p>STM32有三种低功耗模式：</p>
+<ul>
+<li>睡眠模式：内核停止运行，外设保持运行状态。一般适用于等待外设的中断时降低功耗。</li>
+<li>停机模式：所有时钟都停止，功耗在20微A左右。</li>
+<li>待机模式：所有时钟都停止，且1.2V区域的电源完全关闭，功耗在2微A左右，功耗最低。</li>
+</ul>
+<h5 id="36">3.6 盾板的功能作用是什么？适用于哪些硬件平台？<a class="headerlink" href="#36" title="Permanent link">&para;</a></h5>
+<p>盾板为Arduino提供了非常强大的扩展能力。它适用于Arduino平台、树莓派。</p>
+<h5 id="37-esp32">3.7 ESP32集成无线模块有哪些？这些无线协议能否同时运行？<a class="headerlink" href="#37-esp32" title="Permanent link">&para;</a></h5>
+<p>ESP32包括蓝牙、Wi-Fi、射频等无线模块，它们能够同时运行。</p>
+<h5 id="38-jetson">3.8 Jetson硬件平台的主要特点是什么？适用于哪些场景？<a class="headerlink" href="#38-jetson" title="Permanent link">&para;</a></h5>
+<p>Jetson平台主要有如下特点：</p>
+<ul>
+<li>强大的计算能力</li>
+<li>低功耗设计</li>
+<li>高度集成</li>
+<li>支持多种AI框架</li>
+</ul>
+<h5 id="39-tflops">3.9 TFLOPS是什么意思？<a class="headerlink" href="#39-tflops" title="Permanent link">&para;</a></h5>
+<ul>
+<li>TOPS：代表处理器每秒钟可进行一万亿次操作。</li>
+<li>TFLOPS：代表处理器每秒钟可进行一万亿次浮点运算。</li>
+<li>GFLOPS：代表处理器每秒钟可进行十亿次浮点运算。</li>
+</ul>
+<h3 id="chapter-3">chapter 3<a class="headerlink" href="#chapter-3" title="Permanent link">&para;</a></h3>
+<h4 id="1-abc10s20s30s">1. 给定三个线程a、b、c，它们单独执行完的时间分别为10s、20s、30s<a class="headerlink" href="#1-abc10s20s30s" title="Permanent link">&para;</a></h4>
+<ul>
+<li>（1）在非抢占式的调度方式下，时间点0s时，a,b,c顺序启动，三个线程完成时间分别是多少？</li>
+<li>（2）在抢占式调度方式下，线程的优先级为c&gt;b&gt;a（优先级高会抢占优先级低的线
+  程），线程a、b、c的就绪时间点分别为第1s、第2s、第15s，三个线程的完成时间为多少？</li>
+<li>（3）在时间片轮转的调度方式下，时间片的长度为10s，线程a、b、c的启动时间点分别为第0s、第10s、第20s，三个线程的完成时间为多少？
+  对CPU调度发那个是有如下几种：</li>
+<li>抢占式：高优先级线程抢占低优先级线程的执行</li>
+<li>非抢占式：系统一旦把处理器分配给某线程后，该线程便一直执行下去</li>
+<li>协作式：只有在线程主动交出CPU的控制权（yield（））时，才可以让其他线程得到CPU的控制权</li>
+<li>时间片轮转：系统默认给每个线程分配了相同时间片的CPU资源，当某个线程的CPU时间片用完时，即使该线程的任务尚未执行完，也必须交出CPU的控制权，让其他线程执行</li>
+</ul>
+<p>那么：</p>
+<p>对问题1，先执行a，再执行b，最后执行c；完成时间分别为第10s，第30s，第60s。</p>
+<p>对问题2，从第1秒先跑a，第2秒到第15秒跑b，之后则为先c再b再a，完成时间分别为第61s，第52s，第45s。</p>
+<p>对问题3，前10秒先跑a，之后跑b，之后跑c，然后每隔10秒切换一次任务，最终完成时间分别为第10s，第40s，第60s。</p>
+<h4 id="2">2. 差分文件的计算<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>假设旧文件为：<code>A B C D E A C B C</code></p>
+<p>新文件为：<code>W A B C D E A C B C X D E A C B</code></p>
+<ol>
+<li>求差分文件的大小以及具体指令</li>
+</ol>
+<p>差分一共有如下两种操作（耗费空间单位均为Byte（字节））：</p>
+<ul>
+<li>增加新字符：<code>ADD n &lt;X, Y, Z, ...&gt;</code>，其中n是这个ADD操作将添加的字符数目。ADD耗费1，n耗费2，每添加一个字符多耗费1</li>
+<li>拷贝原文件：<code>COPY &lt;n&gt; &lt;m&gt;</code>，其中n是拷贝的字符数，m是旧文件开始拷贝的起始位置（从0开始），其中COPY耗费1，n、m格耗费2</li>
+</ul>
+<p>对于上述情况，差分文件为：<code>ADD 1 W, copy 9 0, add 1 X, copy 5 3</code>，大小为<span class="arithmatex"><span class="MathJax_Preview">4+5+4+5=18</span><script type="math/tex">4+5+4+5=18</script></span>字节。</p>
+<ol>
+<li>根据差分的编码方式，在程序头部插入函数和在程序尾部插入函数，哪个差分升级包占用的空间更大？</li>
+</ol>
+<p>在程序头部插入函数占用的空间更大。这里需要注意的是，差分文件升级包是在二进制视角下考虑的，而插入函数是在程序编码时考虑的。当在程序头部插入函数时，后续函数的地址都将发生变化，这意味着需要更新所有函数的调用地址，这将导致程序的大小增加。</p>
+<h4 id="3_1">3. 一系列问题<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Contiki OS的protothreads跟传统的多线程有什么区别？</li>
+</ol>
+<p>protothreads的特点为：</p>
+<ul>
+<li>基于协作式的调度模式（即支持主动yield以让出CPU的调度方式）</li>
+<li>使用单个堆栈实现</li>
+<li>
+<p>不能使用局部变量</p>
+</li>
+<li>
+<p>Contiki OS中的RPL协议与CTP协议有什么区别？</p>
+</li>
+</ul>
+<p>RPL是一种针对低功耗有损网络设计的IPv6距离矢量路由协议。</p>
+<p>CTP仅提供了多对一的通信模式</p>
+<p>RPL支持多种网络通信模式，例如一对多（数据分发模式）、多对一（数据收集模式）与一对一（点对点模式）</p>
+<ol>
+<li>RIOT GNRC中哪一层实现了对下层的各类网络协议的一个抽象，使得GNRC可以兼容大量的链路层协议而无需对其代码进行修改</li>
+</ol>
+<p>是gnrc_netdev层。</p>
+<p>GNRC协议栈的结构如下所示：</p>
+<ul>
+<li>gnrc_sock：在应用层为开发者提供socket API使用GNRC协议栈的功能</li>
+<li>gnrc_udp与gnrc_tcp：实现了UDP和TCP协议</li>
+<li>gnrc_ipv6：完全实现了6LowPAN协议，向上提供对IPv6、UDP、TCP的支持</li>
+<li>gnrc_sixlowpan：实现了6LowPAN协议</li>
+<li>
+<p>gnrc_netdev：实现了对各种网络协议的抽象，向上提供统一的网络接口</p>
+</li>
+<li>
+<p>RIOT中一个外围设备对应SAUL中哪个数据结构？其传感器数据和控制执行器的参数存在哪个数据结构中？</p>
+</li>
+</ul>
+<p>每个外围设备在SAUL中使用了saul_reg_t类型的数据结构进行抽象，包含一个名为saul_driver_t的数据结构。所有的设备通过链表的形式进行存储。</p>
+<p>SAUL通过这种方式为用户提供统一的读写接口，包括统一的phydat_t数据类型用于存储传感器数据和用于控制执行器的参数。</p>
+<ol>
+<li>AliOS Things基于哪种实时操作系统内核？其主要特点是什么？</li>
+</ol>
+<p>AliOS Things的内核是基于Rhino的实时操作系统进行研发的。</p>
+<p>它具有如下特点：</p>
+<ul>
+<li>小FootPrint（内存占用小）</li>
+<li>低功耗</li>
+<li>实时性（提供基于优先级的抢占式调度与循环调度）</li>
+<li>
+<p>多任务运行</p>
+</li>
+<li>
+<p>AliOS Things中哪个协议实现自组织网络功能？哪个协议实现轻量级的TCP/IP功能？</p>
+</li>
+</ul>
+<p>AliOS Things有如下协议栈：</p>
+<ul>
+<li>uMesh: 提供了自组织网络和实现设备间本地互联的能力。uMesh的特点是自组织、自我修复和多跳，适用于需要大规模部署的场景。</li>
+<li>SAL: 加速具有不同连接能力的MCU通信芯片的开发</li>
+<li>LwIP: 深度定制和优化的协议栈，包括IPv4/IPv6、TCP/UDP、ICMP、ARP等</li>
+<li>
+<p>LoRaWAN支持：支持LoRaWAN的Class A和Class C两种模式的开发</p>
+</li>
+<li>
+<p>HarmonyOS中LiteOS-A、LiteOS-M分别适用哪些场景？</p>
+</li>
+<li>
+<p>LiteOS-A主要针对标准设备（参考内存≥128MB），可以支持有MMU的设备进行虚拟内存映射</p>
+</li>
+<li>
+<p>LiteOS-M则主要针对微设备（参考内存≥1MB）及迷你设备（参考内存≥128KB）这类没有MMU的设备</p>
+</li>
+<li>
+<p>HarmonyOS分布式软总线是什么意思？</p>
+</li>
+<li>
+<p>分布式软总线：参考计算机硬件总线，在1+8+N设备间搭建一条“无形”的总线，具备自发现、自组网、高带宽、低时延特点。全场景设备间可以基于软总线完成设备虚拟化、跨设备服务调用、多屏协同、文件分享等分布式业务。</p>
+</li>
+<li>分布式数据管理：基于分布式软总线实现应用程序数据和用户数据的分布式管理。用户数据不再与单一物理设备绑定，业务逻辑与数据存储分离，应用跨设备运行时数据无缝衔接，为打造一致、流畅的用户体验创造了基础条件。</li>
+<li>分布式任务调度：基于分布式软总线、分布式数据管理，构建统一的分布式服务管理（发现、同步、注册、调用）机制，支持对跨设备的应用进行远程启动、远程调用、绑定/解绑、迁移等操作，能够根据不同设备的能力、位置、业务运行状态、资源使用情况并结合用户的习惯和意图，选择最合适的设备运行分布式任务。</li>
+<li>分布式设备虚拟化：分布式设备虚拟化平台可以实现不同设备的资源融合、设备管理、数据处理，将周边设备作为手机能力的延伸，共同形成一个超级虚拟终端。</li>
+</ul>
+<h3 id="chapter-4">chapter 4<a class="headerlink" href="#chapter-4" title="Permanent link">&para;</a></h3>
+<h4 id="1-10111110ieee-802154-iq">1. 现有数据流10111110，要通过IEEE 802.15.4 物理层发送，请给出经过物理层调制后，I相位与Q相位上的码元序列。<a class="headerlink" href="#1-10111110ieee-802154-iq" title="Permanent link">&para;</a></h4>
+<p>根据码元序列的对应表（如下所示）：</p>
+<p><img alt="1729697235908" src="../image/quiz/1729697235908.png" /></p>
+<p>可导出10111110对应的码片序列如下：</p>
+<p><code>0110000001110111101110001100100110011100001101010010001011101101</code></p>
+<p>之后，分别提取其中的偶数位和奇数位（从0开始），则分别为I相位和Q相位上的码元序列。</p>
+<p>I相位为：<code>01000101111010101010010001011110</code></p>
+<p>Q相位为：<code>10001111010010010110011100001011</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>

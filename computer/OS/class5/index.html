@@ -1,0 +1,1924 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/OS/class5/">
+      
+      
+        <link rel="prev" href="../class4/">
+      
+      
+        <link rel="next" href="../class6/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>class 5 - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-5-cpu" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              class 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软工/工高课程简述及结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数理基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../GAMES101/lecture_1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机图形学(GAMES101)
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    操作系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            操作系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    class 5
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    class 5
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 5: CPU调度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 5: CPU调度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scheduling-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 调度准则（Scheduling Criteria）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 调度准则（Scheduling Criteria）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 基本定义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scheduling-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 调度算法（Scheduling Algorithms）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 调度算法（Scheduling Algorithms）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-first-come-first-served-fcfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 先来先服务（First-come, first-served, FCFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-shortest-job-first-sjf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 短作业优先（Shortest-job-first, SJF）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-priority-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 优先级调度（Priority Scheduling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 优先级调度（Priority Scheduling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-highest-response-ratio-next-hrrn" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 高响应比优先（Highest Response Ratio Next, HRRN）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-round-robin-schedulingrr" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 时间片轮转调度（Round-robin scheduling，RR）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-multilevel-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 多级队列（multilevel queue）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-multilevel-feedback-queue-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 多级反馈队列调度（Multilevel Feedback Queue Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multiprocessor-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 多处理器调度（Multiprocessor Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-real-time-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 实时系统调度（Real-Time Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-thread-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 线程调度（Thread Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-operating-system-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 操作系统实例（Operating System Examples）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CN/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ES/ES/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/ElasticSearch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../PAGES/pages/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/静态网页设置
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            音乐
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/PLAY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    演奏曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/COMPOSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    原创曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人小记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 5: CPU调度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 5: CPU调度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scheduling-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 调度准则（Scheduling Criteria）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 调度准则（Scheduling Criteria）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 基本定义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scheduling-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 调度算法（Scheduling Algorithms）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 调度算法（Scheduling Algorithms）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-first-come-first-served-fcfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 先来先服务（First-come, first-served, FCFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-shortest-job-first-sjf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 短作业优先（Shortest-job-first, SJF）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-priority-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 优先级调度（Priority Scheduling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 优先级调度（Priority Scheduling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-highest-response-ratio-next-hrrn" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 高响应比优先（Highest Response Ratio Next, HRRN）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-round-robin-schedulingrr" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 时间片轮转调度（Round-robin scheduling，RR）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-multilevel-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 多级队列（multilevel queue）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-multilevel-feedback-queue-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 多级反馈队列调度（Multilevel Feedback Queue Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multiprocessor-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 多处理器调度（Multiprocessor Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-real-time-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 实时系统调度（Real-Time Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-thread-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 线程调度（Thread Scheduling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-operating-system-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 操作系统实例（Operating System Examples）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>class 5</h1>
+
+<h2 id="chapter-5-cpu">chapter 5: CPU调度<a class="headerlink" href="#chapter-5-cpu" title="Permanent link">&para;</a></h2>
+<h3 id="0-overview">0. overview<a class="headerlink" href="#0-overview" title="Permanent link">&para;</a></h3>
+<p>回顾：进程有如下几种状态变化：</p>
+<p><img alt="1728701925364" src="../image/class5/1728701925364.png" /></p>
+<p>因此，通过调度CPU资源，分配何时哪些线程/进程可用CPU，就是CPU调度的任务。</p>
+<h3 id="1">1. 基本概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>目标：在多道程序（multiprogramming）任务中，令CPU使用效率达到最高。</p>
+<p>CPU-I/O Burst Cycle: CPU资源有限，I/O操作需要长时间等待，而一个程序往往是CPU burst-&gt;I/O burst-&gt;CPU burst的循环。</p>
+<blockquote>
+<p>CPU burst，即CPU任务爆发（很多），I/O burst同理</p>
+<p>CPU burst与CPU bound，一个是描述进程内的活动，一个是描述进程本身的特点。</p>
+</blockquote>
+<p><img alt="1728702569246" src="../image/class5/1728702569246.png" /></p>
+<p>可以根据CPU-burst的分布来分析调度算法的设计方式：</p>
+<p><img alt="1728703233160" src="../image/class5/1728703233160.png" /></p>
+<p>可见，CPU-burst往往会集中爆发在较短的时间内，因此一个好的CPU调度算法应当具备：</p>
+<ul>
+<li>高频性（frequently）：能够在CPU-burst量级的时间下进行切换</li>
+<li>高效性（efficient）：能够在高频的前提下完成大量的调度任务（为了实现它，往往要求调度算法本身不宜太过复杂）</li>
+</ul>
+<p>CPU调度器：从memory中选取ready队列中的一个进程，并且分配一个CPU。</p>
+<p>CPU调度可以在如下情况发生：</p>
+<ul>
+<li>
+<ol>
+<li>当一个进程从running状态变为waiting状态时（因为waiting、I/O等原因）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>当一个进程从running状态变为ready状态时（因为interrupt等原因）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>当一个线程从blocked状态变为ready状态时（因为I/O完成等原因）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>当一个进程终止</li>
+</ol>
+</li>
+</ul>
+<p>在1、4情况下的调度叫做**非抢占式**调度（nonpreemptive scheduling）</p>
+<p>在2、3情况下的调度叫做**抢占式**调度（preemptive scheduling）。</p>
+<p>dispatcher module（调度员模块）：负责控制CPU调度中线程切换的过程控制，例如：</p>
+<ul>
+<li>上下文切换（switching context）</li>
+<li>切换到user mode（<strong>这一步不一定需要</strong>）</li>
+<li>跳转到新进程的地址，并开始执行任务（program）</li>
+</ul>
+<p>dispatch latency（调度延迟）：上述过程控制中消耗的时间</p>
+<p><img alt="1728703982799" src="../image/class5/1728703982799.png" /></p>
+<h3 id="2-scheduling-criteria">2. 调度准则（Scheduling Criteria）<a class="headerlink" href="#2-scheduling-criteria" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 基本定义<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>CPU utilization（CPU利用率）：让CPU尽可能一直保持繁忙</p>
+<p>Thoughput（吞吐率）：每个时间单位（time unit）内完成的作业数量</p>
+<p>Turnaround time（周转时间）：对一个特定的进程，执行它所需的总时间（从提交到CPU到执行完毕（terminated））</p>
+<ul>
+<li>周转时间 = 等待时间 + 运行时间</li>
+</ul>
+<p>Waiting time（等待时间）：一个进程在ready queue中等待的总时间</p>
+<ul>
+<li><strong>Waiting time不是等待I/O的时间，而是进程在ready queue中等待CPU的时间</strong></li>
+<li>再次注意：等待的时间**不包括**I/O!画甘特图时要注意：并不是所有等待时间都是waiting time</li>
+<li><strong>等待时间 = 进程开始的时间 - 进程提交的时间，要记得减去提交时间！</strong></li>
+</ul>
+<p>Response time（响应时间）：从一个进程提交到CPU到进程返回第一个response的总时间（对于分时系统，并非截止到第一个output，而是第一个response）</p>
+<p>下面图片是计算的例子（可以通过甘特图分析）：</p>
+<p><img alt="1728871312500" src="../image/class5/1728871312500.png" /></p>
+<p>如果换个顺序，先运行<span class="arithmatex"><span class="MathJax_Preview">P_2</span><script type="math/tex">P_2</script></span>、<span class="arithmatex"><span class="MathJax_Preview">P_3</span><script type="math/tex">P_3</script></span>，则结果如下：</p>
+<p><img alt="1728871787306" src="../image/class5/1728871787306.png" /></p>
+<p>可以发现：<strong>运行的顺序会影响最终的性能。</strong></p>
+<h3 id="3-scheduling-algorithms">3. 调度算法（Scheduling Algorithms）<a class="headerlink" href="#3-scheduling-algorithms" title="Permanent link">&para;</a></h3>
+<h4 id="31-first-come-first-served-fcfs">3.1 先来先服务（First-come, first-served, FCFS）<a class="headerlink" href="#31-first-come-first-served-fcfs" title="Permanent link">&para;</a></h4>
+<ul>
+<li>最简单的调度算法，即按**提交顺序**进行调度，先提交的任务先运行。</li>
+</ul>
+<p>显然，这是一种**非抢占式**调度。</p>
+<blockquote>
+<p>注意到，进程提交的先后顺序会影响调度算法的性能。</p>
+</blockquote>
+<p>其特点如下：</p>
+<ul>
+<li>较常见</li>
+<li>非抢占式</li>
+<li>简单</li>
+<li>护航效应（Convoy effect）：即短时间进程在长时间进程后面，平均等待时间会很长，导致I/O或CPU长时间处于空闲状态。</li>
+<li>有利于长作业，不利于短作业</li>
+<li>有利于CPU-bound，不利于I/O-bound（这是因为CPU-bound运行较快（I/O等待时间较短），I/O-bound运行较慢（CPU等待时间较长））</li>
+</ul>
+<h4 id="32-shortest-job-first-sjf">3.2 短作业优先（Shortest-job-first, SJF）<a class="headerlink" href="#32-shortest-job-first-sjf" title="Permanent link">&para;</a></h4>
+<ul>
+<li>根据每个进程的**下一个PCU burst的长度**进行调度，即先运行**最短的进程**，再运行**第二短的进程**，以此类推。</li>
+</ul>
+<p>它分为两种不同的策略：</p>
+<ul>
+<li>非抢占式：一旦CPU分配给了一个进程，它就必须运行完CPU burst区块，再进行调度。</li>
+<li>抢占式：如果在运行过程中有一个新的进程插入，其CPU burst长度小于当前进程，则直接调度给新进程。这种策略又叫**最短时间优先**（shortest-remaining-time-first, SRTF）。</li>
+</ul>
+<p>举例：对如下这些进程：</p>
+<table>
+<thead>
+<tr>
+<th>进程</th>
+<th>到达时间</th>
+<th>burst time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>SJF（非抢占式）：P1先运行（必须运行完），再调度P3（burst time最小），再P2、P4（burst time次小）。</li>
+</ol>
+<p><img alt="1728873093546" src="../image/class5/1728873093546.png" /></p>
+<p><strong>要注意对waiting time和scheduling time的计算。</strong></p>
+<p>第一次调度（即从idle到P1）也算作一次scheduling time。</p>
+<ol>
+<li>SJF（抢占式）：P1运行到2时由于2的burst更小因此转到P2，以此类推进行调度。</li>
+</ol>
+<p><img alt="1728873149436" src="../image/class5/1728873149436.png" /></p>
+<p>需要注意的是：并不能确定**next CPU burst**的大小。但我们可以预测它的大致长度。</p>
+<p>例如：指数平均法（exponential averaging）：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+t_n 为当前实际的CPU~burst长度 \\
+\tau _{n+1} 为预测的下一次CPU~burst长度 \\
+\alpha 为衰减因子: 0 \leq \alpha \leq 1 \\
+定义公式为：\tau_{n+1} = \alpha \cdot t_n + (1 - \alpha) \cdot \tau_n
+</div>
+<script type="math/tex; mode=display">
+t_n 为当前实际的CPU~burst长度 \\
+\tau _{n+1} 为预测的下一次CPU~burst长度 \\
+\alpha 为衰减因子: 0 \leq \alpha \leq 1 \\
+定义公式为：\tau_{n+1} = \alpha \cdot t_n + (1 - \alpha) \cdot \tau_n
+</script>
+</div>
+<p>即：<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>月接近0，对上一次预测结果的倾向性越大；<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>接近1，对上一次实际结果的倾向性越大。</p>
+<p><img alt="1728874450343" src="../image/class5/1728874450343.png" /></p>
+<p>预测效果大致如下：</p>
+<p><img alt="1728874302318" src="../image/class5/1728874302318.png" /></p>
+<p>SJF的特点如下：</p>
+<ul>
+<li>是最优解（平均等待时间最短）</li>
+<li>抢占式/非抢占式不一定哪个更好，需要根据CPU burst进行判断</li>
+<li>饥荒（在ready queue中有一个最大的进程，但不断进入短作业，导致它一直无法被运行）</li>
+<li>对长作业（long process）不利</li>
+</ul>
+<p>证明SJF为最优解：</p>
+<ol>
+<li>非抢占式：对第<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>个进程，其等待时间为<span class="arithmatex"><span class="MathJax_Preview">\sum_{j=1}^{i-1}T_j</span><script type="math/tex">\sum_{j=1}^{i-1}T_j</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">T_j</span><script type="math/tex">T_j</script></span>为第<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>个进程的周转时间。在非抢占式SJF中，它是取<span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>中的前<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>个最小值，因此必然有<span class="arithmatex"><span class="MathJax_Preview">T_i</span><script type="math/tex">T_i</script></span>最小。因此，非抢占式SJF的平均等待时间最短。</li>
+<li>抢占式：可用数学归纳法解决。</li>
+</ol>
+<h4 id="33-priority-scheduling">3.3 优先级调度（Priority Scheduling）<a class="headerlink" href="#33-priority-scheduling" title="Permanent link">&para;</a></h4>
+<p>即，每个进程伴随着一个优先级（priority），CPU分配给优先级最高的进程。</p>
+<p>优先级的值越小，优先级越高（但我们之后只取后者的语义）</p>
+<p>事实上，SJF也是一种优先级调度，其优先级就是next CPU burst time</p>
+<p>优先级的定义分为两种方式：</p>
+<ul>
+<li>静态优先级（static priority）：在进程创建时就确定，并不再更改。</li>
+<li>问题：饥荒（stavation）：优先级低的进程长期得不到调度，导致长时间等待。</li>
+<li>动态优先级（dynamic priority）：根据进程的行为（如CPU burst time）进行动态调整。</li>
+<li>解决方法：老化（Aging）：进程的优先级伴随时间的增长而增长。</li>
+</ul>
+<h5 id="331-highest-response-ratio-next-hrrn">3.3.1 高响应比优先（Highest Response Ratio Next, HRRN）<a class="headerlink" href="#331-highest-response-ratio-next-hrrn" title="Permanent link">&para;</a></h5>
+<p>将响应比作为优先级的判定标准。响应比的计算方法为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+响应比=1 + \frac{waiting~time}{CPU~burst}
+</div>
+<script type="math/tex; mode=display">
+响应比=1 + \frac{waiting~time}{CPU~burst}
+</script>
+</div>
+<p>每次调度后，更新等待时间，并重新计算所有线程的响应比。</p>
+<p>它的特点如下：</p>
+<ul>
+<li>它一般理解为一种**非抢占式**的算法。</li>
+<li>它是一种FCFS和SJF的折中（compromise）。</li>
+<li>但它需要进行额外的（对响应比）计算。</li>
+<li>尽量保证每个进程都能运行到。</li>
+</ul>
+<h4 id="34-round-robin-schedulingrr">3.4 时间片轮转调度（Round-robin scheduling，RR）<a class="headerlink" href="#34-round-robin-schedulingrr" title="Permanent link">&para;</a></h4>
+<p>每个进程有一个时间片（time quantum），即一个很小的CPU运行时间，当时间片耗尽后，CPU将被抢占，进程会排到ready queue的末尾。</p>
+<p><strong>注意：如果进程所需时间小于时间片，则不需等到时间片耗尽再被抢占。</strong></p>
+<p><img alt="1728876251028" src="../image/class5/1728876251028.png" /></p>
+<p>它的周转时间（average turnaround）更高，但响应(response)更好</p>
+<p>它的特点如下：</p>
+<ul>
+<li>假设一共有n个进程，时间片为q，那么没有进程等待时间会超过<span class="arithmatex"><span class="MathJax_Preview">(n-1)q</span><script type="math/tex">(n-1)q</script></span>。</li>
+<li>性能：当q较大时与FCFS相似；当q较小时，q应当比上下文切换开销时间更大，否则overhead会很大。</li>
+<li>应用场景：分时系统（time-sharing system/ multi-tasking system）</li>
+</ul>
+<h4 id="35-multilevel-queue">3.5 多级队列（multilevel queue）<a class="headerlink" href="#35-multilevel-queue" title="Permanent link">&para;</a></h4>
+<p>与KLT/ULT架构中的**two level**架构相似，在不同的进程模块使用不同的调度算法。（例如在前端使用RR，后端使用FCFS）</p>
+<p>注：多级队列中**进程无法在队列间转移**。</p>
+<p>队列间的调度有如下两种方法：</p>
+<ul>
+<li>固定的优先级调度（例如先完成前端的所有进程，再完成后端的）</li>
+<li>时间片（在不同队列之间使用类似时间片调度的算法）</li>
+</ul>
+<h4 id="36-multilevel-feedback-queue-scheduling">3.6 多级反馈队列调度（Multilevel Feedback Queue Scheduling）<a class="headerlink" href="#36-multilevel-feedback-queue-scheduling" title="Permanent link">&para;</a></h4>
+<p>与多级队列相似，但**进程可以在队列间转移**。</p>
+<p>由于不同队列的优先级不同，因此进程的转移就相当于实现了进程的动态优先级调整（即aging可被实现）。</p>
+<p>它往往由如下参数构成：</p>
+<ul>
+<li>队列的数量</li>
+<li>不同队列的调度算法</li>
+<li>进程何时转移到优先级更高的队列（upgrade）</li>
+<li>进程何时转移到优先级更低的队列（demote）</li>
+<li>新进程需要被处理时，它初始应当在哪个队列</li>
+</ul>
+<p>一个简单的调度方法如下：</p>
+<ul>
+<li>设置多个ready queue, 优先级依次降低</li>
+<li>优先级越高，时间片越短</li>
+<li>每个队列都采用FCFS，若在时间片内完成则terminated，否则转到下一优先级队列</li>
+<li>按照队列优先级调度，仅当上一级为空时才运行下一级</li>
+</ul>
+<h3 id="4-multiprocessor-scheduling">4. 多处理器调度（Multiprocessor Scheduling）<a class="headerlink" href="#4-multiprocessor-scheduling" title="Permanent link">&para;</a></h3>
+<p>multiprocessor scheduling就需要对多个CPU资源进行调度。首先要关注如下问题：</p>
+<ul>
+<li>暂时假设CPU都是**同构**(Homogeneous)的（即算力、性能等完全一致）</li>
+<li>注意负载平衡(load balancing)，使不同CPU的运行时间尽量平衡</li>
+<li>非对称式调度（asymmetric multiprocessing）：一个CPU负责调度所有CPU的进程，其他CPU只负责运行进程即可（问题在于中心CPU崩掉，整个系统就无法运行了）</li>
+<li>对称式调度（symmetric multiprocessing）：每个CPU都有自己的调度器，但它们之间需要通信。</li>
+</ul>
+<h3 id="5-real-time-scheduling">5. 实时系统调度（Real-Time Scheduling）<a class="headerlink" href="#5-real-time-scheduling" title="Permanent link">&para;</a></h3>
+<p>实时系统，就是指某些进程必须在**规定时间内**完成，加之这个限制的系统。</p>
+<ul>
+<li>硬实时系统（hard real-time systems）：要求系统必须在规定时间内完成，否则系统会崩溃（例如军事、航天领域系统）。</li>
+<li>软实时系统（soft real-time systems）：要求系统在规定时间内完成，但如果超时了也不会有太大问题（例如视频通话）。</li>
+</ul>
+<p>经典的几个调度算法如下：</p>
+<ul>
+<li>最早截止时间优先（Earliest Deadline First, EDF）：按到期时间排序，最先到期的任务优先运行。</li>
+<li>最低松弛度优先（Least Laxity First）：进程的松弛度=A必须完成的时间点-当前时间点-A运行需要的时间。</li>
+</ul>
+<h3 id="6-thread-scheduling">6. 线程调度（Thread Scheduling）<a class="headerlink" href="#6-thread-scheduling" title="Permanent link">&para;</a></h3>
+<p>就是对不同等级（KLT、ULT）的线程进行调度。</p>
+<ul>
+<li>
+<ol>
+<li>本地调度（local scheduling）（process-contention scope），对Threads library如何对用户级线程进行调度。</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>全局调度（global scheduling）（system-contention scope），对操作系统如何调度内核级线程进行调度。</li>
+</ol>
+</li>
+<li>
+<p>Many to one</p>
+</li>
+<li>one the one</li>
+</ul>
+<h3 id="7-operating-system-examples">7. 操作系统实例（Operating System Examples）<a class="headerlink" href="#7-operating-system-examples" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Solaris调度算法</li>
+<li>Windows XP调度算法</li>
+<li>Linux调度算法</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../class4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: class 4">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                class 4
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../class6/" class="md-footer__link md-footer__link--next" aria-label="下一页: class 6">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                class 6
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>

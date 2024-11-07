@@ -2,162 +2,407 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://falling-leaf.github.io/notebook/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/introduction/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/animation/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/article/p1/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/computer/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/computer/ADS/class1/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/FDS/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/class2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/class3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/class4/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/class5/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/class6/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ADS/hw/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/AI/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/AI/review/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/BC/class_1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/BS/class_1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/class2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/class3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/class4/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/class5/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/hw_1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/hw_2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CN/hw_3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/CS188/lec1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/chapter16/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/class2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/class7/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/labconclusion/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/lab1/report1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/lab2/report2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/lab3/report3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/DB/lab4/report4/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/ES/ES/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/discussion1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/discussion2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/discussion3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/discussion4/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%88%86%E5%B7%A5/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/%E7%94%A8%E6%88%B7%E5%9C%BA%E6%99%AF/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/FSE/%E8%AE%BE%E8%AE%A1%E5%B1%95%E7%A4%BA%E5%88%86%E5%B7%A5/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/GAMES101/lecture_1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/GAMES101/lecture_2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/GAMES101/lecture_3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/GAMES101/lecture_4/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/computer/GIT/for_git/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/IOT/class_1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/IOT/class_2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/IOT/quiz/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/computer/IS/class1/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/JS/chap1/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/IS/class2/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/JS/chap2/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/IS/class3/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/JS/javascript/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/IS/class4/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/MD/md/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/ahaslides/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/OOP/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class2/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class4/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class5/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class6/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/computer/OS/class7/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/computer/PAGES/pages/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/REACT/chap1/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/REACT/chap2/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://falling-leaf.github.io/notebook/computer/REACT/react/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <loc>https://falling-leaf.github.io/notebook/computer/SP/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/extra/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://falling-leaf.github.io/notebook/extra/GERMANY/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://falling-leaf.github.io/notebook/extra/GERMANY/alphabet/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://falling-leaf.github.io/notebook/extra/GERMANY/class1/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/CALCULUS/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/DMIA/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/math/IT/class1/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/LA/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/MM/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/math/PHYSICS/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/music/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/music/COMPOSE/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/music/PLAY/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://falling-leaf.github.io/notebook/music/note/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/music/PTEXT.md/HF_3/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/music/PTEXT.md/call_of_silence/</loc>
+         <lastmod>2024-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://falling-leaf.github.io/notebook/robot/ROBOTS/class_1/</loc>
+         <lastmod>2024-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

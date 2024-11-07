@@ -1,0 +1,1665 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/DB/labconclusion/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>数据库实验总结 - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据库实验总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软工/工高课程简述及结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数理基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../GAMES101/lecture_1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机图形学(GAMES101)
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../OS/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    操作系统
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CN/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ES/ES/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/ElasticSearch
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../PAGES/pages/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/静态网页设置
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            音乐
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/PLAY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    演奏曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/COMPOSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    原创曲目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人小记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-1-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      lab 1-4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="lab 1-4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库相关：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库相关：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立数据库：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用数据库：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      表相关：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="表相关：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      建表：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      视图相关：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="视图相关：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      索引相关：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="索引相关：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      完整性限制：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      断言(assertion)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      权限相关：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">数据库实验总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="lab-1-4">lab 1-4<a class="headerlink" href="#lab-1-4" title="Permanent link">&para;</a></h2>
+<p>这4个lab比较简单，本人春一周报告基本就打完了（乐</p>
+<p>主要还是对sql语句的熟悉和掌握：</p>
+<p>这里将4个lab涉及到的sql语句列在下面，以便速查：</p>
+<h3 id="_2">数据库相关：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">建立数据库：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">base_name</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="_4">使用数据库：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">use</span><span class="w"> </span><span class="n">base_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 也可在引用表时用base_name.table来替换</span>
+</code></pre></div>
+<h3 id="_5">表相关：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="_6">建表：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>设置主键：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span>
+<span class="w">    </span><span class="n">attr1</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 令attr1为primary key</span>
+<span class="w">    </span><span class="n">attr2</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">attr3</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">attr2</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 令attr2为primary key</span>
+<span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>设置外键：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span>
+<span class="w">    </span><span class="n">attr1</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span>
+<span class="w">    </span><span class="n">attr2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">attr2</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">another_table</span>
+<span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>设置not null（即插入时，这个值不能为空）：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span>
+<span class="w">    </span><span class="n">attr1</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 注：primary key默认not null</span>
+<span class="w">    </span><span class="n">attr2</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="_7">更新：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>插入：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 无论如何，insert语句必须值与属性一一对应，没有的也要用null补</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="n">value3</span><span class="p">);</span>
+<span class="c1">-- 等价于下面的语句：</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">attr1</span><span class="p">,</span><span class="w"> </span><span class="n">attr2</span><span class="p">,</span><span class="w"> </span><span class="n">attr3</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="n">value3</span><span class="p">);</span>
+<span class="c1">-- 后面的值同样不一定要用values定义：</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">attr1</span><span class="p">,</span><span class="w"> </span><span class="n">attr2</span><span class="p">,</span><span class="w"> </span><span class="n">attr3</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>删除：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="c1">-- 删除表内的所有内容</span>
+<span class="c1">-- 可以加where限定</span>
+
+<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除表本身</span>
+</code></pre></div>
+<ul>
+<li>调整：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="k">domain</span><span class="w"> </span><span class="c1">-- 增加attr属性</span>
+<span class="c1">-- 注：对于新增的属性，已插入的元组的该属性为NULL</span>
+
+<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="c1">-- 删除attr属性</span>
+</code></pre></div>
+<ul>
+<li>更新：
+<div class="highlight"><pre><span></span><code><span class="k">update</span><span class="w"> </span><span class="n">instructor</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">05</span><span class="p">;</span>
+<span class="c1">-- 对表内的所有值进行更新操作。</span>
+<span class="c1">-- 同样可用where限定</span>
+</code></pre></div></li>
+</ul>
+<h4 id="_8">查询：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>查询语句比较广泛，基础结构如下：</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">attr1</span><span class="p">,</span><span class="w"> </span><span class="n">attr2</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_name1</span><span class="p">,</span><span class="w"> </span><span class="n">table_name2</span>
+<span class="k">where</span><span class="w"> </span><span class="n">constaint</span>
+</code></pre></div>
+<p>对于其他关键词，使用说明如下：</p>
+<ul>
+<li>distinct/all:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="c1">-- 相同值的attr只取一次</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span>
+
+<span class="k">select</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="c1">-- 默认为select all</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span>
+</code></pre></div>
+<ul>
+<li>*/特殊的查询结构:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 选取所有的属性</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span>
+
+<span class="k">select</span><span class="w"> </span><span class="s1">&#39;437&#39;</span><span class="w"> </span><span class="c1">-- 返回一个值为437，但属性名未定义的表</span>
+
+<span class="k">select</span><span class="w"> </span><span class="s1">&#39;437&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">FOO</span><span class="w"> </span><span class="c1">-- 返回一个属性名为FOO，值为437的表（但基本不可用）</span>
+
+<span class="k">select</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="c1">-- 返回一个以table_name行数为行数的，列数为1，内容全为&#39;A&#39;的表</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span>
+</code></pre></div>
+<ul>
+<li>运算符：（sql支持在语句内进行运算）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">salary</span><span class="o">/</span><span class="mi">12</span><span class="w"> </span><span class="c1">-- 返回的表格中salary值会被除12</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span><span class="w"> </span><span class="c1">-- 但实际的值不会改变</span>
+</code></pre></div>
+<ul>
+<li>where中可用的逻辑运算符</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">attr1</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span>
+<span class="k">where</span><span class="w"> </span><span class="n">attr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">attr3</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">attr4</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;c&#39;</span>
+<span class="c1">-- and/or/not 可以被使用</span>
+<span class="c1">-- &lt;/&lt;=/&gt;/&gt;=/=/&lt;&gt;(不等于) 可以被使用</span>
+<span class="c1">-- 也可以使用如下语句：</span>
+<span class="k">select</span><span class="w"> </span><span class="n">attr1</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span>
+<span class="k">where</span><span class="w"> </span><span class="n">attr2</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="c1">-- 意为 attr2 &gt;= 100 and attr2 &lt;= 1000</span>
+</code></pre></div>
+<ul>
+<li>as(重命名)：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">attr1</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="c1">-- 在重命名语句之前/后都可以用</span>
+<span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">attr2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">-- as的生命周期仅在一个完整语句内</span>
+
+<span class="k">select</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">attr2</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="c1">-- as可以省略</span>
+</code></pre></div>
+<p><strong>自连接问题：</strong>
+可以将同一张表命名为两个，这样可以间接寻找二次关系：
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">supervisor</span>
+<span class="k">from</span><span class="w"> </span><span class="n">selfconnect</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">selfconnect</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">s2</span>
+<span class="k">where</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Bob&quot;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">supervisor</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 寻找Bob的supervisor的supervisor</span>
+</code></pre></div></p>
+<p>注：多重关系可能需要用递归，现在暂且按下不表。</p>
+<ul>
+<li>
+<p>正则表达式（字符串操作符）
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%dar%&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- %表示位置内可有任意字符（没有也行）</span>
+
+<span class="k">select</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%d%r%&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 这样也可以的</span>
+
+<span class="k">select</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;_dar_&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- _表示位置内有且仅有一个字符</span>
+
+<span class="c1">-- 如果需要匹配&#39;%&#39;这个字符，可以使用转义（默认为&#39;\&#39;）</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>格式设置（order by）
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="k">desc</span><span class="o">/</span><span class="k">asc</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 按照name降序/升序排列（默认升序）</span>
+
+<span class="err">也可以这样：</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ID</span><span class="p">;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>集合运算：可以对提取出的表们进行集合运算：
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">attr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="k">union</span>
+<span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">attr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">-- A并B</span>
+<span class="c1">-- 可以将union换为intersect/except，分别为</span>
+<span class="c1">-- A交B，A差B</span>
+<span class="c1">-- 这些操作默认是distinct的，如果想要保留重复数据，使用：</span>
+<span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="c1">-- 其他二者类似</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>空位判断（null）
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span><span class="w"> </span>
+<span class="k">where</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="c1">-- salary值为空</span>
+<span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="c1">-- 这个也可以用</span>
+<span class="c1">-- 注：对null的所有算数运算结果全为null</span>
+<span class="c1">-- 对比较运算符：null参与的任意运算结果为unknown</span>
+<span class="c1">-- 对逻辑运算符：</span>
+<span class="c1">-- and：一方为false时必为false，之后一方为unknown时必为unknown</span>
+<span class="c1">-- or：一方为true时必为true，之后一方为unknown时必为unknown</span>
+<span class="c1">-- 如果where后结果为unknown，则返回值为false</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>select内的函数使用
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 选取salary的平均值</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span><span class="p">;</span>
+<span class="c1">-- 相似可用的还有：</span>
+<span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 选取salary的个数</span>
+<span class="k">select</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 选取salary的最小值</span>
+<span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 选取salary的最大值</span>
+<span class="k">select</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 选取salary的和</span>
+
+<span class="c1">-- 可以通过group by限定选取的范围：</span>
+<span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">dept_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 返回值为以dept_name种类行数的avg</span>
+<span class="c1">-- 如果select再加上dept_name，直接返回对应每个dept的avg</span>
+
+<span class="c1">-- 同时，在group by后再对group进行选取，可用having来做：</span>
+<span class="k">select</span><span class="w"> </span><span class="n">dept_name</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">dept_name</span>
+<span class="k">having</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">42000</span><span class="w"> </span><span class="c1">-- group by后每个值以组为单位</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>嵌套查询/对集合运算的扩展
+<div class="highlight"><pre><span></span><code><span class="c1">-- in/not in:</span>
+<span class="k">select</span><span class="w"> </span><span class="n">id</span>
+<span class="k">from</span><span class="w"> </span><span class="n">section</span>
+<span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="k">and</span><span class="w"> </span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">id</span>
+<span class="w">            </span><span class="k">from</span><span class="w"> </span><span class="n">section</span>
+<span class="w">            </span><span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2018</span><span class="p">);</span>
+<span class="c1">-- 元素属于集合</span>
+<span class="c1">-- not in同理，元素不属于集合</span>
+<span class="c1">-- some/all:</span>
+<span class="k">select</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="k">where</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">some</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">salary</span>
+<span class="w">                    </span><span class="k">from</span><span class="w"> </span><span class="n">instructor</span>
+<span class="w">                    </span><span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2018</span><span class="p">);</span>
+<span class="c1">-- some: 集合中有一个元素满足，即返回true</span>
+<span class="c1">-- 这意味着 a = some(A)与 a &lt;&gt; some(A)可能结果一样</span>
+<span class="c1">-- all: 集合中每一个元素满足，即返回true</span>
+<span class="c1">-- exists/not exists:</span>
+<span class="k">select</span><span class="w"> </span><span class="n">id</span>
+<span class="k">from</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">S</span>
+<span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2017</span><span class="w"> </span><span class="k">and</span>
+<span class="w">    </span><span class="k">exists</span><span class="p">(</span><span class="k">select</span><span class="o">*</span>
+<span class="w">            </span><span class="k">from</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span>
+<span class="w">            </span><span class="k">where</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2018</span>
+<span class="w">            </span><span class="k">and</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+<span class="c1">-- exists为单目对集合的运算符，如果集合不为空则返回true</span>
+<span class="c1">-- not exists同理</span>
+<span class="c1">-- unique同样为单目对集合运算符，如果集合无重复值则返回true</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>预定义：with
+<div class="highlight"><pre><span></span><code><span class="k">with</span><span class="w"> </span><span class="n">max_budget</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="p">(</span><span class="c1">--这是一个表，所以需要定义一个表作为承接</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">budget</span><span class="p">)</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">department</span>
+<span class="p">)</span>
+<span class="k">select</span><span class="w"> </span><span class="n">department</span><span class="p">.</span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="n">max_budget</span>
+<span class="k">where</span><span class="w"> </span><span class="n">department</span><span class="p">.</span><span class="n">budget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_budget</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+<span class="c1">--给函数预先定义的空间</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>join类语句（用于from条目中）
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">natural</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 将a和b自然结合（所有相同的属性合并在一起）</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">attr1</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 针对attr1，将a和b结合在一起</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="p">(</span><span class="n">a_attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b_attr</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 更细致化合并的方式，利用on这个语句</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">natural</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+<span class="c1">-- 对table_a和table_b不同的部分，只保留table_a的多余项（换言之，它的输出比natural join多了a的部分（对应b不存在的部分为null））</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">natural</span><span class="w"> </span><span class="k">right</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+<span class="c1">-- 同理，但只保留b多余的部分</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">natural</span><span class="w"> </span><span class="k">full</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+<span class="c1">-- 对a和b多余的部分全部保留</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="w"> </span><span class="k">natural</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table_b</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="p">(</span><span class="n">a_attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b_attr</span><span class="p">);</span>
+<span class="c1">-- 取a和b的交集</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="_9">视图相关：<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="_10">建立：<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>用如下语句建立一个视图：
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="p">;</span>
+</code></pre></div></p>
+<p>同时，可以通过别的视图来建立视图：
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">table_a</span><span class="p">;</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
+</code></pre></div></p>
+<h4 id="_11">更新：<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">);</span><span class="w"> </span><span class="c1">-- 这时，插入操作会转化为对视图对应的表格的插入操作。</span>
+<span class="c1">-- 但是，这有极大的限定条件，因为v是通过选择来获取的，对应的表不一定为1个，表中数据不一定对应等等</span>
+</code></pre></div>
+<h3 id="_12">索引相关：<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h4 id="_13">建立：<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">attr1</span><span class="p">);</span><span class="w"> </span><span class="c1">-- 针对table中的attr1创建一个索引</span>
+</code></pre></div>
+<h3 id="_14">完整性限制：<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>not null(前文提过，限定该变量不可为空)</li>
+<li>primary key(前文提过，限定该变量为主键)</li>
+<li>foreign key(前文提过，限定该变量引用自其他表)</li>
+<li>unique(前文提过，限定某一列/某几列值是唯一的（但可为空）)</li>
+<li>
+<p>check语句（具体的限定范围等）
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">a</span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="w">    </span><span class="n">sec_id</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="w">    </span><span class="n">semester</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<span class="w">    </span><span class="k">check</span><span class="w"> </span><span class="p">(</span><span class="n">semester</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Fall&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Winter&#39;</span><span class="p">))</span><span class="w"> </span><span class="c1">-- 限定插入的范围</span>
+<span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>cascade语句（一般只用在外键/触发器中）</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">a</span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="w">    </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">o_id</span><span class="p">)</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="k">cascade</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">-- 这指的是当b中o_id被删除一条时，所有a中关于这一条的内容也被删除</span>
+<span class="w">    </span><span class="c1">-- 同理亦有on update cascade</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="assertion">断言(assertion)<a class="headerlink" href="#assertion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">assertion</span><span class="w"> </span><span class="n">assertion_name</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="p">(...);</span>
+<span class="c1">-- 全局生效</span>
+</code></pre></div>
+<h3 id="_15">权限相关：<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 注：可通过base_name.table_name.attr1避免二义性</span>
+<span class="c1">-- 注：主键默认不可为空（not null）</span>
+<span class="c1">-- 注：primary key/foreign key可以为多个</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span>
+<span class="w">    </span><span class="n">attr1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 设置attr1</span>
+<span class="w">    </span><span class="n">attr2</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 设置attr2</span>
+<span class="w">    </span><span class="n">attr3</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 设置attr3</span>
+<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">attr1</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 令attr1为primary key</span>
+<span class="w">    </span><span class="k">check</span><span class="p">(</span><span class="n">attr1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">attr1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 限制attr1在0和100之间</span>
+<span class="w">    </span><span class="k">check</span><span class="p">(</span><span class="n">attr2</span><span class="w"> </span><span class="k">in</span><span class="p">(</span><span class="ss">&quot;value1&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;value2&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;value3&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">-- 限制attr2在value1,value2,value3之间</span>
+<span class="p">);</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">subtable</span><span class="p">(</span>
+<span class="w">    </span><span class="n">attr1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">attr4</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 要求attr4不能为空</span>
+<span class="w">    </span><span class="n">attr5</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 设置attr5为primary key</span>
+<span class="w">    </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">attr1</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">attr1</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 令table_name的attr1作为foreign key</span>
+<span class="p">)</span>
+
+
+<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">attr4</span><span class="w"> </span><span class="nb">float</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 在table_name表中增加类型为float的attr4作为属性</span>
+
+<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="n">attr4</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除table_name表中的attr4属性</span>
+
+<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除表table_name</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">attr1_index</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">attr1</span><span class="p">);</span><span class="w"> </span><span class="c1">-- 在table_name中，对attr1创建索引</span>
+
+<span class="k">drop</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">attr1_index</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除索引attr1_index</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">table_name_view</span><span class="w"> </span><span class="c1">-- 创建视图table_name_view</span>
+<span class="k">as</span><span class="w"> </span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 选取内容自行定义（*代表全部选取）</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="c1">-- 从table_name中创建</span>
+<span class="k">where</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 限制内容自行定义</span>
+
+<span class="k">drop</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">table_name_view</span><span class="w"> </span><span class="c1">-- 删除视图table_name_view</span>
+
+
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="n">value3</span><span class="p">);</span><span class="w"> </span><span class="c1">-- 在表table_name中插入数据</span>
+
+<span class="k">update</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="c1">-- 更新表table_name中的数据</span>
+<span class="k">set</span><span class="w"> </span><span class="n">attr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value4</span><span class="w"> </span><span class="c1">-- 对满足限制的元组，设置attr2为value4</span>
+<span class="k">where</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 限制内容自行定义</span>
+
+<span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="c1">-- 删除表table_name中的数据</span>
+<span class="k">where</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 限制内容自行定义</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 选取内容自行定义（*代表全部选取）</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="c1">-- 从table_name中选取</span>
+<span class="k">where</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 限制内容自行定义</span>
+<span class="c1">-- 注：select/from/where后面的值都可以为多个或者是语句块，中间可以进行算数运算</span>
+<span class="c1">-- 注：视图的查询/修改与表查询/修改相同</span>
+
+<span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">attr1</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
+
+<span class="k">select</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">attr1</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
+<span class="c1">-- 以上两句中，前一句attr1不可出现重复的值，而后一句是可以的。</span>
+<span class="c1">-- 默认是all</span>
+
+<span class="k">select</span><span class="w"> </span><span class="s1">&#39;437&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">FOO</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 返回值就是一个一行一列，行值为“437”的，属性名字为FOO的表（无from/where）</span>
+
+<span class="k">select</span><span class="w"> </span><span class="s1">&#39;A&#39;</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 返回值是多行一列，行数取决于table_name的行数，值全为&#39;A&#39;</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w"> </span><span class="n">subtable</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 返回值是这两个表的笛卡尔积</span>
+
+<span class="k">select</span><span class="w"> </span><span class="n">attr</span>
+<span class="k">from</span><span class="w"> </span><span class="k">table</span>
+<span class="k">where</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%abc_&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 类似正则表达式，选取含有abc的attr（%表示任意字符串，_表示任意字符）</span>
+
+<span class="c1">-- order by语句补充</span>
+
+
+<span class="k">delimiter</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="c1">-- 设置//作为语句块的分割符，允许trigger语句中出现分号</span>
+<span class="k">create</span><span class="w"> </span><span class="k">trigger</span><span class="w"> </span><span class="n">value_present</span>
+<span class="w">    </span><span class="k">after</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="k">row</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="k">update</span><span class="w"> </span><span class="n">subtable</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">attr4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;value4&quot;</span><span class="w"> </span><span class="c1">-- 令符合条件的attr4为value4</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="c1">-- 可自行加限定语句</span>
+<span class="k">end</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="c1">-- 结束trigger</span>
+<span class="k">delimiter</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- 设置分号作为语句块的分隔符</span>
+
+
+<span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 新建用户/地址/密码</span>
+
+<span class="k">grant</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">base_name</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 赋予user1在base_name中create的权限</span>
+
+<span class="k">revoke</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">base_name</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 收回user1在base_name中create的权限</span>
+
+<span class="k">show</span><span class="w"> </span><span class="n">grants</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查看user1的权限</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>
