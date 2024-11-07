@@ -4,17 +4,11 @@
 
 ## 正在学习！（课堂笔记同步更新）
 
-- 数据库
-- ADS
-- 计算机图形学
-- Python程序设计
-- 德语
-
-## 正在练的曲目！（until 2024/1/31）
-
-- ninelie(by animenz)
-- call of silence(by animenz)
-- 肖邦第一叙事曲
-- (编曲)崩坏·星穹铁道pv：星间旅行
+- 操作系统
+- 计算机网络
+- 正在练的曲目！（until 2024/9/10）
+- glorio's theme(by animenz)
+- 人生的旋转木马(by animenz)
+- 肖练1：逃亡圣咏
 
 ![1706681632199](image/index/1706681632199.png)

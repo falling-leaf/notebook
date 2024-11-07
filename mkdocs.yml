@@ -22,6 +22,27 @@ nav:
   #  - ./math/MM/index.md
 - 计算机:
   - ./computer/index.md
+  - 计算机图形学(GAMES101):
+    - lecture 1: ./computer/GAMES101/lecture_1.md
+    - lecture 2: ./computer/GAMES101/lecture_2.md
+    - lecture 3: ./computer/GAMES101/lecture_3.md
+    - lecture 4: ./computer/GAMES101/lecture_4.md
+  - 操作系统:
+    - class 1: ./computer/OS/class1.md
+    - class 2: ./computer/OS/class2.md
+    - class 3: ./computer/OS/class3.md
+    - class 4: ./computer/OS/class4.md
+    - class 5: ./computer/OS/class5.md
+    - class 6: ./computer/OS/class6.md
+    - class 7: ./computer/OS/class7.md
+  - 计算机网络:
+    - class 1: ./computer/CN/class1.md
+    - class 2: ./computer/CN/class2.md
+    - class 3: ./computer/CN/class3.md
+    - class 4: ./computer/CN/class4.md
+    - class 5: ./computer/CN/class5.md
+#  - 物联网技术基础与应用开发:
+#    - class 1: ./computer/IOT/class_1.md
 #  - 计算机构成/计算机系统概论:
 #  - 计算机构成/数字逻辑设计:
 #  - 计算机构成/计算机系统原理:
@@ -29,34 +50,37 @@ nav:
 #  - 编程语言/程序设计专题:
 #  - 编程语言/面向对象程序设计:
 #    - ./computer/OOP/index.md
-  - 编程语言/Python程序设计:
-    - class 2: ./computer/PYTHON/class2.md
-  - 算法/数据结构基础:
-    - ./computer/FDS/index.md
-  - 算法/高级数据结构及算法分析:
-    - class 1: ./computer/ADS/class1.md
-    - class 2: ./computer/ADS/class2.md
-  - 前端/javascript:
-    - 简介: ./computer/JS/javascript.md
-    - chap1-js简介及语法: ./computer/JS/chap1.md
-  - 前端/React:
-    - 简介: ./computer/REACT/react.md
-    - chap1-安装: ./computer/REACT/chap1.md
-  - 后端/数据库:
-    - class 1: ./computer/DB/class1.md
-    - class 2: ./computer/DB/class2.md
-    - 实验总结: ./computer/DB/labconclusion.md
-  - +工具/git:
-    - ./computer/GIT/for_git.md
-  - +工具/markdown:
-    - ./computer/MD/md.md
-  - +项目/静态网页设置:
+#  - 编程语言/Python程序设计:
+#    - class 2: ./computer/PYTHON/class2.md
+#  - 算法/数据结构基础:
+#    - ./computer/FDS/index.md
+#  - 算法/高级数据结构及算法分析:
+#    - class 1: ./computer/ADS/class1.md
+#    - class 2: ./computer/ADS/class2.md
+#    - class 3: ./computer/ADS/class3.md
+#  - 前端/javascript:
+#    - 简介: ./computer/JS/javascript.md
+#    - chap1-js简介及语法: ./computer/JS/chap1.md
+#  - 前端/React:
+#    - 简介: ./computer/REACT/react.md
+#    - chap1-安装: ./computer/REACT/chap1.md
+#  - 后端/数据库:
+#    - class 1: ./computer/DB/class1.md
+#    - class 2: ./computer/DB/class2.md
+#    - 实验总结: ./computer/DB/labconclusion.md
+#  - +工具/git:
+#    - ./computer/GIT/for_git.md
+#  - +工具/markdown:
+#    - ./computer/MD/md.md
+  - +工具/ElasticSearch:
+    - ./computer/ES/ES.md
+  - +工具/静态网页设置:
     - ./computer/PAGES/pages.md
-- 通识:
-  - ./extra/index.md
-  - 德语I:
-    - ./extra/GERMANY/index.md
-    - class 1: ./extra/GERMANY/class1.md
+#- 通识:
+#  - ./extra/index.md
+#  - 德语I:
+#    - ./extra/GERMANY/index.md
+#    - class 1: ./extra/GERMANY/class1.md
 - 音乐:
   - ./music/index.md
   - 演奏曲目: ./music/PLAY.md
