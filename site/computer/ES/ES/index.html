@@ -1,0 +1,1939 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/ES/ES/">
+      
+      
+        <link rel="prev" href="../../CN/class5/">
+      
+      
+        <link rel="next" href="../../PAGES/pages/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>ES - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75M8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.5 4.5 0 0 1-.563-1.191 3.84 3.84 0 0 1-.05-2.063 4.65 4.65 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4 2.4 0 0 1-.507-.441 3.1 3.1 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19.01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.7 3.7 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elastic-search" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ES
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../GAMES101/lecture_1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机图形学(GAMES101)
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../OS/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    操作系统
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../CN/class1/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机网络
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    +工具/ElasticSearch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            +工具/ElasticSearch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ES
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ES
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Elastic Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 部署方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 部署方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Docker基本环境配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Elastic Search安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Kibana安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 IK插件安装
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 基本介绍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 基本介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Elastic Search简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Kibana简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 IK插件简介
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 IK插件简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 IK分词器基本使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 IK自定义词库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 具体操作：索引库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 具体操作：索引库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 创建索引库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 查询、删除索引库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 索引库的更新
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 具体操作：文档
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 具体操作：文档">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 插入文档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 查询、删除文档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 修改文档
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. DSL语法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DSL语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 查询语法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../PAGES/pages/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    +工具/静态网页设置
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../music/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Elastic Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 部署方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 部署方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Docker基本环境配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Elastic Search安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Kibana安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 IK插件安装
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 基本介绍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 基本介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-elastic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Elastic Search简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Kibana简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 IK插件简介
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 IK插件简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 IK分词器基本使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-ik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 IK自定义词库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 具体操作：索引库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 具体操作：索引库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 创建索引库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 查询、删除索引库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 索引库的更新
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 具体操作：文档
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 具体操作：文档">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 插入文档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 查询、删除文档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 修改文档
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. DSL语法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DSL语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 查询语法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>ES</h1>
+
+<h2 id="elastic-search">Elastic Search<a class="headerlink" href="#elastic-search" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 部署方式<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>本方案中Elastic Search使用Docker（基于Windows 11操作系统）部署。</p>
+<p>本方案中<code>Elastic Search</code>，<code>Kibana</code>，<code>IK</code>均使用8.12.2版本。</p>
+<blockquote>
+<p>在安装过程中需注意如下问题：  <br />
+1. 在下载镜像文件时，可能需要打开代理；但在尝试通过浏览器访问端口时需关闭代理（否则需要额外配置代理文件） <br />
+2. 所有容器的版本应当一致（建议先搜索IK是否具备所需版本） <br />
+3. 配置过程中可以通过docker ps/docker images等命令查看容器状态和镜像信息  <br />
+4. 如需访问容器的文件系统，可以直接通过docker desktop的UI操作（在进行文件系统的修改后需要重启对应的docker）   </p>
+</blockquote>
+<h4 id="11-docker">1.1 Docker基本环境配置<a class="headerlink" href="#11-docker" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>在<a href="https://www.docker.com/">Docker官网</a>中下载<code>Docker Desktop</code>并安装。</p>
+</li>
+<li>
+<p>配置Hyper-V环境并最终完成WSL2的基本配置（具体可参考<a href="https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP">链接</a>）</p>
+</li>
+<li>
+<p>配置成功后，在命令行中输入<code>docker --version</code>命令，若能正常显示版本号，则说明Docker环境配置成功。</p>
+</li>
+<li>
+<p>输入以下命令，创建一个docker网络，使Elastic Search容器能够互相通信：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>es-net
+</code></pre></div>
+<h4 id="12-elastic-search">1.2 Elastic Search安装<a class="headerlink" href="#12-elastic-search" title="Permanent link">&para;</a></h4>
+<ol>
+<li>输入以下命令，拉取Elastic Search镜像：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>elasticsearch:8.12.2
+</code></pre></div>
+<ol>
+<li>输入以下命令，运行Elastic Search容器（注意：<code>--name</code>，<code>--network</code>名字可以改变，但需与其他步骤一致）：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>es<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;ES_JAVA_OPTS=-Xms512m -Xmx1024m&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;discovery.type=single-node&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;xpack.security.enabled=true&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>es-data:/usr/share/elasticsearch/data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>es-plugins:/usr/share/elasticsearch/plugins<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--privileged<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--network<span class="w"> </span>es-net<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">9200</span>:9200<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">9300</span>:9300<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>elasticsearch:8.12.2
+</code></pre></div>
+<ol>
+<li>
+<p>运行成功后，Elastic Search将会在<code>http://localhost:9200/</code>提供服务。通过浏览器或<code>CURL</code>语句尝试访问可获得JSON格式的响应。</p>
+</li>
+<li>
+<p>输入以下命令，进入Elastic Search虚拟环境并对Elastic Search的密码进行配置：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>es<span class="w"> </span>/bin/bash
+
+bin/elasticsearch-setup-passwords<span class="w"> </span>interactive
+</code></pre></div>
+<ol>
+<li>在配置密码后，再次进入<code>http://localhost:9200/</code>需要输入用户名和密码才能访问Elastic Search。</li>
+</ol>
+<h4 id="13-kibana">1.3 Kibana安装<a class="headerlink" href="#13-kibana" title="Permanent link">&para;</a></h4>
+<ol>
+<li>输入以下命令，拉取Kibana镜像：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>kibana:8.12.2
+</code></pre></div>
+<ol>
+<li>输入以下命令，运行Kibana容器（注意：<code>--name</code>，<code>--network</code>名字可以改变，但需与其他步骤一致；<code>ELASTICSEARCH_PASSWORD</code>字段要改成在Elastic Search中配置的密码）：   </li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>kibana<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--net<span class="w"> </span>es-net<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5601</span>:5601<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;ELASTICSEARCH_HOSTS=http://es:9200&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;ELASTICSEARCH_USERNAME=kibana_system&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;ELASTICSEARCH_PASSWORD=&lt;your_kibana_system_password&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>kibana:8.12.2
+</code></pre></div>
+<ol>
+<li>运行成功后，Kibana将会在<code>http://localhost:5601/</code>提供服务。通过浏览器或<code>CURL</code>语句尝试访问可获得Kibana的登录页面。</li>
+</ol>
+<h4 id="14-ik">1.4 IK插件安装<a class="headerlink" href="#14-ik" title="Permanent link">&para;</a></h4>
+<ol>
+<li>进入ES内部</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>es<span class="w"> </span>/bin/bash
+</code></pre></div>
+<ol>
+<li>下载IK插件</li>
+</ol>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span>https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.12.2/elasticsearch-analysis-ik-8.12.2.zip
+</code></pre></div>
+<ol>
+<li>安装IK插件</li>
+</ol>
+<div class="highlight"><pre><span></span><code>elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>file:///usr/share/elasticsearch/elasticsearch-analysis-ik-8.12.2.zip
+</code></pre></div>
+<ol>
+<li>重启ES</li>
+</ol>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>restart<span class="w"> </span>es
+</code></pre></div>
+<h3 id="2">2. 基本介绍<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21-elastic-search">2.1 Elastic Search简介<a class="headerlink" href="#21-elastic-search" title="Permanent link">&para;</a></h4>
+<p>Elastic Search(ES)是一种封装好的搜索引擎，它通过JSON文件格式存储数据，为用户提供搜索、分析、存储、分布式处理等功能。</p>
+<p>相比于MySQL数据库，ES不具备基本的ACID特性，但它长于在海量数据中快速搜索、高效存储、分布式处理等功能（这是因为它的索引采用了 <strong>倒排索引</strong> ，这意味着ES能够更高效地完成搜索任务）。</p>
+<p>同时，它提供Restful API接口，可以方便地与其他程序进行交互。（具体通过DSL等语法实现）</p>
+<h4 id="22-kibana">2.2 Kibana简介<a class="headerlink" href="#22-kibana" title="Permanent link">&para;</a></h4>
+<p>kibana是Elastic Search官方提供的可视化工具，它可以帮助用户快速地检索、分析、过滤和可视化数据。</p>
+<p>在其中，可以尝试搜索<code>dev tools</code>并使用，以通过快捷命令行的方式对ES进行操作。</p>
+<h4 id="23-ik">2.3 IK插件简介<a class="headerlink" href="#23-ik" title="Permanent link">&para;</a></h4>
+<p>在ES中，采用了倒排索引作为构建方式，这意味着ES需要一个工具来对文本进行分词，并生成索引。IK插件就是这样一个工具，它能够对中文、英文、数字等文本进行分词，并生成索引。</p>
+<p>IK是一种 <strong>分词器</strong> ，其作用是将文本分割成一个个单词，并为每个单词生成一个索引，以便于搜索引擎快速检索。</p>
+<p>例如：<strong>计算机程序员</strong> 通过IK分词后，可以生成不同类型的索引：如“计算机”、“程序员”等。</p>
+<h5 id="231-ik">2.3.1 IK分词器基本使用<a class="headerlink" href="#231-ik" title="Permanent link">&para;</a></h5>
+<p>IK分词器还支持不同粒度的分词，例如在上例中，更细粒度的分词会出现“程序”、“员”等词汇。</p>
+<p>具体分词操作举例如下（可在<code>kibana</code>的<code>dev tools</code>工具中进行尝试）：</p>
+<div class="highlight"><pre><span></span><code>POST<span class="w"> </span>/_analyze
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;text&quot;</span>:<span class="w"> </span><span class="s2">&quot;程序员why程序员&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;analyzer&quot;</span>:<span class="w"> </span><span class="s2">&quot;ik_smart&quot;</span><span class="w"> </span>//<span class="w"> </span>ik_smart是粗粒度的划分
+<span class="w">  </span>//<span class="w"> </span><span class="s2">&quot;analyzer&quot;</span>:<span class="w"> </span><span class="s2">&quot;ik_max_word&quot;</span><span class="w"> </span>//<span class="w"> </span>ik_max_word是细粒度的划分
+<span class="o">}</span>
+</code></pre></div>
+<h5 id="232-ik">2.3.2 IK自定义词库<a class="headerlink" href="#232-ik" title="Permanent link">&para;</a></h5>
+<p>同时，IK也支持自定义词库，用户可以根据自己的需求添加、删除、修改词库（例如添加新兴词汇等）</p>
+<p>其添加方法如下：</p>
+<ol>
+<li>在es文件系统内找到：<code>/usr/share/elasticsearch/plugins/analysis-ik/IKAnalyzer.cfg.xml</code>并打开后，可找到用户自定义的词库配置：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;</span>
+<span class="nt">&lt;properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;comment&gt;</span>IK<span class="w"> </span>Analyzer<span class="w"> </span>扩展配置<span class="nt">&lt;/comment&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置自己的扩展字典 --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ext_dict&quot;</span><span class="nt">&gt;&lt;/entry&gt;</span>
+<span class="w">     </span><span class="cm">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span>
+<span class="w">    </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ext_stopwords&quot;</span><span class="nt">&gt;&lt;/entry&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置远程扩展字典 --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置远程扩展停止词字典--&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</code></pre></div>
+<ol>
+<li>
+<p>在其中的<code>ext_dict</code>和<code>ext_stopwords</code>标签下，可以添加自定义词库和停止词文件（文件置于与<code>IKAnalyzer.cfg.xml</code>同一目录下，需要用户自行新建）。</p>
+</li>
+<li>
+<p>参考同目录下其他文件的设置方法（例如<code>extra_stopword.dic</code>）对自定义词库和停止词文件进行配置，即可完成自定义词库的添加。</p>
+</li>
+</ol>
+<h4 id="24">2.4 总结<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p>总而言之，我们可以将ES看作一个“巨大的文档”，其中通过不同的构建方式（在下一部分详述）将数据存储在不同的索引中。而使用ES的目的就是希望能够快速对文档中的任意组合的数据进行搜索、分析、过滤、可视化等操作。</p>
+<h3 id="3">3. 具体操作：索引库<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>索引库对应MySQL的表（table），其定义了不同字段的类型、约束条件等。定义约束条件的方式称之为 <strong>mapping</strong> 。</p>
+<p>在ES中，mapping有如下的属性：</p>
+<ul>
+<li>type: 字段数据类型，常见的类型有：<ul>
+<li>字符串<ul>
+<li>text：可以被分词的文本</li>
+<li>keyword：不能被分词的文本（例如姓名、邮箱等）</li>
+</ul>
+</li>
+<li>数值：long/integer/short/byte/double/float</li>
+<li>布尔：boolean</li>
+<li>日期：date</li>
+<li>对象：object（用于嵌套定义）</li>
+<li>
+<blockquote>
+<p>注：mapping没有数组类型，但支持多值字段，例如"score": [1, 2, 3]</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>index: 是否创建索引（默认为true）</li>
+<li>analyzer: 分词器</li>
+<li>properties: 该字段的子字段</li>
+</ul>
+<h4 id="31">3.1 创建索引库<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<p>通过如下DSL语句，可以创建索引库：</p>
+<div class="highlight"><pre><span></span><code><span class="err">PUT</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ik_max_word&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;field5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ik_max_word&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其中：</p>
+<ul>
+<li><code>index_name</code>表示索引库的名称（自定义）</li>
+<li><code>field1</code>等表示字段的名称（自定义）</li>
+<li><code>type</code>表示字段的数据类型</li>
+<li><code>analyzer</code>表示字段的分词器</li>
+</ul>
+<p>同时，例子中还提供了嵌套字段的写法，可以参考。</p>
+<h4 id="32">3.2 查询、删除索引库<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<p>由于使用的是Restful API，所以查询、删除索引库的操作也比较简单：</p>
+<ol>
+<li>查询索引库：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">GET</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me</span>
+</code></pre></div>
+<ol>
+<li>删除索引库：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">DELETE</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me</span>
+</code></pre></div>
+<h4 id="33">3.3 索引库的更新<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<p>严格来讲，ES不允许对索引库进行更新操作（这与MySQL是一致的）。</p>
+<p>但ES仍然提供了“在索引库中添加新的字段”这一操作，具体方法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="err">PUT</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_mappi</span><span class="kc">n</span><span class="err">g</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;new_field&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ik_max_word&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>需要注意的是，new_field必须与之前的mapping中的字段名称不同，否则会报错。</strong></p>
+<h3 id="4">4. 具体操作：文档<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>文档对应MySQL的行（row），其包含了具体的数据。</p>
+<h4 id="41">4.1 插入文档<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<p>插入文档的操作如下：</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_doc/doc_id</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;subvalue1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其中：</p>
+<ul>
+<li><code>doc_id</code>表示文档的唯一标识符（自定义）</li>
+<li><code>field1</code>等表示字段的名称</li>
+<li><code>value1</code>等表示字段的值</li>
+</ul>
+<p>如果操作成功，返回的json我呢见中会包含如下字段：
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;created&quot;</span>
+</code></pre></div></p>
+<h4 id="42">4.2 查询、删除文档<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<p>同理，查询、删除文档的操作也比较简单：</p>
+<ol>
+<li>查询文档：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">GET</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_doc/doc_id</span>
+</code></pre></div>
+<ol>
+<li>删除文档：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">DELETE</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_doc/doc_id</span>
+</code></pre></div>
+<p>同样地，删除文档的操作会返回如下字段：</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deleted&quot;</span>
+</code></pre></div>
+<h4 id="43">4.3 修改文档<a class="headerlink" href="#43" title="Permanent link">&para;</a></h4>
+<p>修改文档分为两种方式：</p>
+<ul>
+<li>全量修改：修改文档的所有字段（即删除旧文档，插入新文档）</li>
+<li>
+<p>增量修改：仅修改文档中的部分字段</p>
+</li>
+<li>
+<p>全量修改：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">PUT</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_doc/doc_id</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_value1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_value2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field3&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-02T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;field5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;subfield1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_subvalue1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subfield2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>上述操作会将<code>doc_id</code>对应文档删除，并插入新的文档。</p>
+<p>特别地，如果<code>doc_id</code>不存在，则不会删除任何文档，而是直接插入新文档。</p>
+<ol>
+<li>增量修改：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">POST</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_upda</span><span class="kc">te</span><span class="err">/doc_id</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;doc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;field1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_value1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;field2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_value2&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>上述操作会仅修改<code>doc_id</code>对应文档的<code>field1</code>和<code>field2</code>字段。</p>
+<p>上述操作成功后，返回的json中会包含如下字段：</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;updated&quot;</span>
+</code></pre></div>
+<h3 id="5-dsl">5. DSL语法<a class="headerlink" href="#5-dsl" title="Permanent link">&para;</a></h3>
+<p>DSL语法对应MySQL的SQL语句，其提供了丰富的查询、分析、过滤、聚合等功能。</p>
+<h4 id="51">5.1 查询语法<a class="headerlink" href="#51" title="Permanent link">&para;</a></h4>
+<p>查询语法分为如下几种方法：</p>
+<ul>
+<li>查询所有：查询出所有数据<ul>
+<li>例如：<code>match_all</code></li>
+</ul>
+</li>
+<li>全文检索（full text）查询：利用分词器对用户输入内容进行分词，然后去倒排索引库中进行匹配<ul>
+<li>例如：<code>match_query</code>，<code>multi_match_query</code></li>
+</ul>
+</li>
+<li>精确查询：根据精确词条值查找数据，一般查找keyword、数值、日期、boolean等类型字段<ul>
+<li>例如：<code>ids</code>, <code>range</code>, <code>term</code></li>
+</ul>
+</li>
+<li>地理查询：根据经纬度查询<ul>
+<li>例如：<code>geo_distance</code>, <code>geo_bounding_box</code></li>
+</ul>
+</li>
+<li>复合查询：组合上述查询条件<ul>
+<li>例如：<code>bool</code>, <code>constant_score</code>, <code>function_score</code></li>
+</ul>
+</li>
+</ul>
+<p>基本语法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_search</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;query_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;query_body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;query_value&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其中：</p>
+<ul>
+<li><code>query_type</code>表示查询类型，如<code>match_all</code>、<code>match_query</code>等</li>
+<li><code>query_body</code>表示查询条件（这个字段并非必须）</li>
+</ul>
+<p>举例：对于“查询所有”操作，可以使用如下语句：</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET</span><span class="w"> </span><span class="err">/i</span><span class="kc">n</span><span class="err">dex_</span><span class="kc">na</span><span class="err">me/_search</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;match_all&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>其 <strong>返回值</strong> 格式如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../CN/class5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: class 5">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                class 5
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../PAGES/pages/" class="md-footer__link md-footer__link--next" aria-label="下一页: 静态网页的设置">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                静态网页的设置
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
