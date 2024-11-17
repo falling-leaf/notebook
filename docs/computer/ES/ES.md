@@ -480,6 +480,39 @@ GET /index_name/_search
 
 ```
 
-其 **返回值** 格式如下：
+### 6. ES在Django中的使用
+
+1. 安装ES环境依赖
+
+在Python环境中，通过`pip install elasticsearch-dsl`进行相关插件的安装。
+
+2. 配置ES连接
+
+在`settings.py`中设置默认的ES连接：
+
+```python
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200',
+        'http_auth': ('elastic', 'anonymous')
+    },
+}
+
+```
+
+> 注：这里的`http_auth`字段分别对应ES的用户名和密码。
 
 
+3. 启用ES连接
+
+在启动Django的位置（`manage.py`的`main`中），使用如下语句以建立与ES的连接：
+
+
+```python
+
+connections.create_connection(alias='default', hosts=['127.0.0.1:9200'], http_auth=('elastic', 'anonymous'))
+
+```
+
+> 注：这里的`http_auth`字段分别对应ES的用户名和密码。
