@@ -1034,6 +1034,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-esdjango" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. ES在Django中的使用
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1429,6 +1438,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-esdjango" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. ES在Django中的使用
+    </span>
+  </a>
   
 </li>
         
@@ -1836,7 +1854,34 @@ bin/elasticsearch-setup-passwords<span class="w"> </span>interactive
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>其 <strong>返回值</strong> 格式如下：</p>
+<h3 id="6-esdjango">6. ES在Django中的使用<a class="headerlink" href="#6-esdjango" title="Permanent link">&para;</a></h3>
+<ol>
+<li>安装ES环境依赖</li>
+</ol>
+<p>在Python环境中，通过<code>pip install elasticsearch-dsl</code>进行相关插件的安装。</p>
+<ol>
+<li>配置ES连接</li>
+</ol>
+<p>在<code>settings.py</code>中设置默认的ES连接：</p>
+<div class="highlight"><pre><span></span><code><span class="n">ELASTICSEARCH_DSL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost:9200&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;http_auth&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;elastic&#39;</span><span class="p">,</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>注：这里的<code>http_auth</code>字段分别对应ES的用户名和密码。</p>
+</blockquote>
+<ol>
+<li>启用ES连接</li>
+</ol>
+<p>在启动Django的位置（<code>manage.py</code>的<code>main</code>中），使用如下语句以建立与ES的连接：</p>
+<div class="highlight"><pre><span></span><code><span class="n">connections</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">hosts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;127.0.0.1:9200&#39;</span><span class="p">],</span> <span class="n">http_auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;elastic&#39;</span><span class="p">,</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">))</span>
+</code></pre></div>
+<blockquote>
+<p>注：这里的<code>http_auth</code>字段分别对应ES的用户名和密码。</p>
+</blockquote>
 
 
 
