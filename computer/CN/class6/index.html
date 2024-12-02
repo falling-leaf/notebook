@@ -1,0 +1,1658 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/CN/class6/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Class6 - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75M8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.5 4.5 0 0 1-.563-1.191 3.84 3.84 0 0 1-.05-2.063 4.65 4.65 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4 2.4 0 0 1-.507-.441 3.1 3.1 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19.01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.7 3.7 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../music/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 6: 传输层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 6: 传输层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 概述与传输层服务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 socket编程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 socket编程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-socket-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 socket API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-udpecho" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.3 举例：使用UDP套接字实现Echo服务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#624-tcpecho" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.4 举例：使用TCP套接字实现Echo服务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 传输层的复用和分用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 UDP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 TCP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.1 TCP概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.2 TCP报文段结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#653-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.3 TCP可靠数据传输
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#654-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.4 TCP流量控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#655-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.5 TCP连接管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5.5 TCP连接管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6551" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.5.1 两次握手连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6552" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.5.2 三次握手连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6553-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.5.3 关闭TCP连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6554" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.5.4 安全问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 理解网络拥塞
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 TCP拥塞控制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.7 TCP拥塞控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7.1 TCP的慢启动
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#672" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7.2 其他问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8 传输层协议的发展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Class6</h1>
+
+<h2 id="chapter-6">chapter 6: 传输层<a class="headerlink" href="#chapter-6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 概述与传输层服务<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p>传输层的位置：应用层和网络层之间；基于网络层提供的服务，向分布式应用程序提供通信服务。</p>
+<p>按照 <strong>端到端</strong> 的设计原则：应用程序只运行在终端上（路由器、交换机等中间网络设备都不具备传输层）</p>
+<p>对于应用程序而言：传输层应当提供进程之间本地通信的抽象（运行在不同终端上的应用进程仿佛是直接连在一起的）</p>
+<p>socket（套接字）：是应用层和传输层的接口，也是应用程序和网络之间的API。</p>
+<hr />
+<p>传输层提供的服务：</p>
+<ul>
+<li>Internet的网络层提供 <strong>尽力而为</strong> 的服务（尽可能在终端间交付分组，但不保证交付/按序交付/数据完整/延迟/带宽等）</li>
+<li>传输层 <strong>有所为，有所不为</strong> ：可以通过差错恢复/重排序等手段提供可靠、按序的交付服务；但不保证延迟/带宽。</li>
+</ul>
+<p>具体而言，传输层提供如下服务：</p>
+<ul>
+<li>最低限度的传输服务</li>
+<li>将端到端的数据交付扩展到进程到进程的数据交付</li>
+<li>报文检错</li>
+<li>增强服务</li>
+<li>可靠数据传输</li>
+<li>流量控制</li>
+<li>拥塞控制</li>
+<li>UDP传输服务：最低限度的传输服务</li>
+<li>TCP传输服务：提供基础服务和增强服务</li>
+</ul>
+<h3 id="62-socket">6.2 socket编程<a class="headerlink" href="#62-socket" title="Permanent link">&para;</a></h3>
+<h4 id="621">6.2.1 简介<a class="headerlink" href="#621" title="Permanent link">&para;</a></h4>
+<p>socket事实上就是传输层为应用层提供的接口。</p>
+<p>创建一个网络应用：编写一个分布式程序、使其运行在不同的端系统上，并通过网络通信。</p>
+<p>传统及主流的客户-服务器体系结构（C/S）：客户（C）只与服务器（S）通信；客户之间不通信。</p>
+<p>通过主机的端口号（port number）来作为一台主机的不同进程的标识。</p>
+<blockquote>
+<p>因此，进程标识包括：主机地址 + 端口号。</p>
+</blockquote>
+<h4 id="622-socket-api">6.2.2 socket API<a class="headerlink" href="#622-socket-api" title="Permanent link">&para;</a></h4>
+<p>应用应当 <strong>显式</strong> 地创建、使用和释放套接字。</p>
+<p>举例：回音服务（Echo Service）：客户端向服务器发送数据，服务器将数据原样返回给客户端。</p>
+<p>一个典型套接字的接口类型如下：</p>
+<p>套接字地址有一个通用地址作为虚父类，根据IPv4/IPv6等不同创建不同的继承类。</p>
+<p>以IPv4为例：</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sa_family_t</span><span class="w"> </span><span class="n">sin_family</span><span class="p">;</span><span class="w"> </span><span class="c1">// 地址族，IPv4对应AF_INET</span>
+<span class="w">    </span><span class="n">in_port_t</span><span class="w"> </span><span class="n">sin_port</span><span class="p">;</span><span class="w"> </span><span class="c1">// 端口号，16位</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">sin_addr</span><span class="p">;</span><span class="w"> </span><span class="c1">// IP地址</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">sin_zero</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="c1">// 填充字节</span>
+<span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">s_addr</span><span class="p">;</span><span class="w"> </span><span class="c1">// 32位IP地址</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>创建套接字：<code>socket()</code></li>
+</ol>
+<p>客户或服务器调用socket()创建本地套接字，返回套接字描述符</p>
+<ul>
+<li>domain指明网络层地址类型（IPv4则为AF_INET）</li>
+<li>type指明传输层协议：</li>
+<li>SOCK_STREAM代表TCP字节流</li>
+<li>SOCK_DGRAM代表UDP数据报</li>
+<li>protocol指明协议族（0表示默认协议族）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">socket</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">domain</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">protocol</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>套接字描述符：<code>fd</code></li>
+</ol>
+<p>套接字描述符在类型上和文件描述符完全兼容；</p>
+<p>可以通过 <code>read()</code>和 <code>write()</code>来读写套接字。</p>
+<p>具体而言：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>绑定套接字地址：<code>bind()</code></li>
+</ol>
+<p>用于将 <strong>服务器</strong> 本地套接字地址sa与描述符socket_fd绑定；</p>
+<p>客户程序不需要调用bind()，操作系统为其在1024-5000之间分配一个端口号。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">bind</span><span class="p">(</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">socket_fd</span><span class="p">,</span><span class="w">  </span><span class="c1">// 指定套接字描述符</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">,</span><span class="w">    </span><span class="c1">// 指定套接字绑定的地址端口</span>
+<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">addrlen</span><span class="w">   </span><span class="c1">// 地址的长度</span>
+<span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>关闭套接字：<code>close()</code>，使用套接字描述符直接调用即可关闭：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">close</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="623-udpecho">6.2.3 举例：使用UDP套接字实现Echo服务<a class="headerlink" href="#623-udpecho" title="Permanent link">&para;</a></h4>
+<p>通过 <code>sendto()</code>和 <code>recvfrom()</code>来发送和接收数据报。</p>
+<p><img alt="1732155759313" src="../image/class6/1732155759313.png" /></p>
+<p>服务器端：</p>
+<ul>
+<li>
+<ol>
+<li>服务器创建并配置socket（由于是UDP实现，所以用SOCK_DGRAM）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>服务器将套接字和服务器地址进行绑定，使用 <code>bind()</code></li>
+</ol>
+</li>
+<li>服务器开始监听（建立死循环，里面不断调用 <code>recvfrom()</code>接收数据报）</li>
+</ul>
+<p>客户端：</p>
+<ul>
+<li>
+<ol>
+<li>创建并配置socket</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>不必进行绑定，直接进行发送和接收数据报</li>
+</ol>
+</li>
+</ul>
+<h4 id="624-tcpecho">6.2.4 举例：使用TCP套接字实现Echo服务<a class="headerlink" href="#624-tcpecho" title="Permanent link">&para;</a></h4>
+<p>首先要建立一对套接字之间的一条封闭管道，发送端和接收端通过管道进行传输</p>
+<ul>
+<li>可以保证管道中传输的字节不丢失，且保持顺序。</li>
+</ul>
+<p>注意：服务器可以通过多个套接字来服务客户：</p>
+<ul>
+<li>当服务器的 <strong>监听套接字</strong> 收到了链接请求时，服务器会临时创建一个套接字（称为 <strong>连接套接字</strong> ）和一个新的服务器进程，与客户进程进行通信。</li>
+<li>服务器进程回到监听套接字上继续等待。</li>
+<li>结束服务后，服务器销毁进程，并关闭连接套接字。</li>
+</ul>
+<blockquote>
+<p>即：监听套接字只负责监听连接请求；连接套接字只负责与建立请求的客户端通信。</p>
+</blockquote>
+<ol>
+<li><code>listen(int socket_fd; int backlog;)</code>: 将主动套接字转变为被动套接字，进入监听状态（backlog中为监听队列的长度）</li>
+<li><code>accept(int socket_fd; struct sockaddr *addr; socklen_t *addrlen;)</code>：服务器取出与对应客户端通信的套接字，返回一个套接字描述符（使用后需要close）。当服务器准备好与下一个客户端通信时，它会再次调用accept()。</li>
+</ol>
+<p>在accept()调用后，其返回值为 <strong>连接套接字描述符</strong> ，可以用来进行通信。</p>
+<ol>
+<li><code>connect(int socket_fd; const struct sockaddr *addr; socklen_t addrlen;)</code>：客户端主动发起连接请求（服务器IP和端口信息在sockaddr中），连接成功后，两个套接字之间建立一条管道。</li>
+</ol>
+<p><img alt="1732156479063" src="../image/class6/1732156479063.png" /></p>
+<h3 id="63">6.3 传输层的复用和分用<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<ul>
+<li>（发送端）复用：传输层从多个套接字收集数据，交给网络层发送</li>
+<li>（接收端）分用：网络层从网络中收到数据，交给传输层分发给正确的套接字</li>
+</ul>
+<p>套接字的标识与端口号：</p>
+<p>端口号（16位）：每个套接字在本地关联一个端口号。</p>
+<p>端口号的分类：</p>
+<ul>
+<li>熟知端口：0-1023，由公共域协议使用</li>
+<li>注册端口：1024-49151，需要向IANA注册才能使用</li>
+<li>动态/私有端口：49152-65535，一般程序使用</li>
+</ul>
+<blockquote>
+<p>例如：web服务中，在尚未明确服务器socket端口时，一般会使用默认端口80，即HTTP协议的默认端口</p>
+</blockquote>
+<p>在TCP/UDP报文中，会携带两个端口号：源端口号和目的端口号。</p>
+<p>端口号的分配：</p>
+<ul>
+<li>自动分配（客户端通常使用）：创建套接字时不指定端口号，由操作系统从49152-65535之间分配一个端口号</li>
+<li>使用指定端口号创建套接字（服务器通常使用）：创建套接字时指定端口号；公共域协议的服务器应分配众所周知的端口号（0-1023）</li>
+</ul>
+<p>UDP分用方法：</p>
+<ul>
+<li>UDP套接字使用 <code>&lt;IP地址，端口号&gt;</code>二元组进行标识。</li>
+<li>接收方收到UDP时：</li>
+<li>检测报文段中的目的端口号，将UDP交付到具有这个端口号的套接字</li>
+<li><strong>目的地址和目的端口号相同的UDP报文段被交付到同一个套接字</strong> ，与源地址、源端口号无关。</li>
+<li>源地址、源端口号用于发送响应报文。</li>
+</ul>
+<p>TCP分用方法：</p>
+<ul>
+<li>TCP使用两种套接字：</li>
+<li>
+<ol>
+<li>监听套接字：用于监听，使用众所周知的端口号</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>连接套接字：用于通信，使用临时分配的端口号</li>
+</ol>
+</li>
+<li>
+<p><strong>每个连接套接字只与一个客户通信，只有在源地址、目的地址、源端口号、目的端口号完全相同的报文段才会被分发到这个套接字</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>具体而言，一个连接套接字只与一个地址的一个端口通信。</p>
+</blockquote>
+<h3 id="64-udp">6.4 UDP<a class="headerlink" href="#64-udp" title="Permanent link">&para;</a></h3>
+<p>UDP提供的服务：</p>
+<ul>
+<li>进程到进程之间的报文交付</li>
+<li>报文的完整性检查（可选）：检测并丢弃出错的报文</li>
+</ul>
+<p>需要实现的功能：</p>
+<ul>
+<li>复用和分用</li>
+<li>报文检错</li>
+</ul>
+<p>UDP报文段结构：</p>
+<ul>
+<li>用于服用和分用的字段：源端口号+目的端口号</li>
+<li>用于检测报文错误的字段：报文总长度+校验和（可选，如果不需要校验和服务，直接对校验和部分全置为0）</li>
+<li>数据载荷</li>
+</ul>
+<p>注：UDP报文段结构中，报文总长度以字节为单位。</p>
+<p><img alt="1732157835338" src="../image/class6/1732157835338.png" /></p>
+<p>计算UDP校验和时，需要包括伪头、UDP头和数据三个部分。</p>
+<ul>
+<li>UDP伪头取自IP报头：包括源IP地址、目的IP地址、协议号（UDP）、UDP报文段总长度</li>
+<li>计算校验和时包含伪头信息，是为了避免由于IP地址错误等造成的误投递</li>
+</ul>
+<p>（显然，IP头在UDP头的外面，所以理论上可以读到对应的信息，但从层次上并不合理，只是为了保证正确。）</p>
+<p><img alt="1732157995114" src="../image/class6/1732157995114.png" /></p>
+<p>UDP的作用：</p>
+<ul>
+<li>应用可以尽可能快地发送报文</li>
+<li>不需要建立连接</li>
+<li>不限制发送速率（不进行拥塞控制和流量控制）</li>
+<li>报头开销小</li>
+<li>协议处理简单</li>
+</ul>
+<p>UDP适合的应用：</p>
+<ul>
+<li>容忍丢包但对延迟敏感的应用：</li>
+<li>如流媒体</li>
+<li>以单次请求/响应为主的应用：</li>
+<li>如DNS</li>
+<li>若应用要求基于UDP进行可靠传输，由应用层实现可靠性</li>
+</ul>
+<h3 id="65-tcp">6.5 TCP<a class="headerlink" href="#65-tcp" title="Permanent link">&para;</a></h3>
+<h4 id="651-tcp">6.5.1 TCP概述<a class="headerlink" href="#651-tcp" title="Permanent link">&para;</a></h4>
+<p>TCP模型：在一对通信的进程之间提供一套理想的管道，其特点为：</p>
+<ul>
+<li>点对点通信</li>
+<li>全双工</li>
+<li>可靠、有序的字节流</li>
+<li>不保留报文边界</li>
+</ul>
+<p>需要的机制：</p>
+<ul>
+<li>建立连接</li>
+<li>可靠数据传输</li>
+<li>流量控制</li>
+</ul>
+<h4 id="652-tcp">6.5.2 TCP报文段结构<a class="headerlink" href="#652-tcp" title="Permanent link">&para;</a></h4>
+<p>TCP报文段结构（仍以32bits为一行）：</p>
+<ul>
+<li>
+<ol>
+<li>source port(16) + dest port(16): 目的端口号与源端口号</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>sequence number(32)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>acknowledgement number(32)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>head len(4) + not used(6) + U/A/P/R/S/F(6) + Receive window(16): TCP头长度（以4字节为单位），各种TCP包本身的标识符，接收窗口大小</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>checksum(16) + Urg data pnter(16): 校验和与紧急指针</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>options（可变长度）</li>
+</ol>
+</li>
+<li>具体的数据</li>
+</ul>
+<p>其中：</p>
+<ul>
+<li>发送序号（sequence number）：发送方发送的第一个字节在字节流中的序号</li>
+<li>确认序号（acknowledgement number）：期望收到的下一个字节的序号（发送的ACK序号本身没被收到，表示的是它之前的东西都收到了）</li>
+</ul>
+<blockquote>
+<p>注意：发送序号和确认序号不是包的编号，而是字节流中的序号。</p>
+</blockquote>
+<p>对于Options字段，有如下重要的可选项：</p>
+<ul>
+<li>最大段长度（MSS）：TCP段中可以携带的最大数据字节数</li>
+<li>窗口比例因子（window scale）：实际接收窗口大小为：<code>window size * 2^window scale</code></li>
+<li>选择确认（SACK）：引入选择确认，允许接收端指出缺失的数据字节。</li>
+</ul>
+<h4 id="653-tcp">6.5.3 TCP可靠数据传输<a class="headerlink" href="#653-tcp" title="Permanent link">&para;</a></h4>
+<p>TCP在不可靠的IP服务上建立可靠的数据传输，其基本机制为：</p>
+<ul>
+<li>发送端：流水线式的发送数据，等待确认，超时重传</li>
+<li>接收端：进行插座检测，采用累积确认</li>
+<li>乱序段处理机制：无明确规定</li>
+<li>接收端无缓存：可以正常工作，处理简单，但效率低</li>
+<li>接收端有缓存：效率高，但处理复杂</li>
+</ul>
+<p>先考虑一个高度简化的TCP协议：只考虑可靠传输机制，且数据仅在一个方向上传输</p>
+<ul>
+<li>接收方：</li>
+<li>确认方式：采用累积确认；正确、按序收到报文段后才更新确认序号；否则重复上次的确认序号（与GBN类似）</li>
+<li>失序处理：缓存失序的报文段（与SR类似）</li>
+<li>发送方：</li>
+<li>使用流水线式进行报文段发送</li>
+<li>定时器的使用：仅对最早的，未被确认的报文段使用定时器，超时重传（与GBN类似）</li>
+<li>重发策略：仅在超时后重发最早的未被确认的报文段（与SR类似）</li>
+</ul>
+<p>对于发送方：</p>
+<ul>
+<li>收到应用数据：</li>
+<li>创建并发送TCP报文段</li>
+<li>若当前没有定时器在运行（没有已发送、未确认的报文段），启动定时器</li>
+<li>超时:</li>
+<li>重传包含最小序号的、未确认的报文段</li>
+<li>重启定时器</li>
+<li>收到ACK：</li>
+<li>如果确认序号大于基序号（已发送未确认的最小序号）：<ul>
+<li>推进发送窗口（更新基序号）</li>
+<li>如果发送窗口中还有未确认的报文段，启动定时器，否则终止定时器</li>
+</ul>
+</li>
+</ul>
+<p><img alt="1732160377245" src="../image/class6/1732160377245.png" /></p>
+<ul>
+<li>使用一个定时器的好处：当超时时间过短时，可以减少无效的重复包的传输次数（即第二种情形下，避免两个包都被重传）</li>
+<li>同时，设置流水线发送以及累积确认的策略，当某些ACK丢失时，可以避免在ACK丢失时重传某些序列号较早的报文段。</li>
+</ul>
+<p>设置超时值（RTO）的思想：</p>
+<ul>
+<li>超时值太小，容易产生不必要的重传</li>
+<li>超时值太大，丢包的恢复时间太长</li>
+<li>直观上，超时值应当大于RTT（等待一个完整的发送-ACK的时间），但RTT时时刻变化的。</li>
+</ul>
+<p>估算RTT的方法：</p>
+<ul>
+<li>实时测量从发出某个报文段到收到确认报文段经过的时间（SampleRTT）</li>
+<li>计算平均值（EstimatedRTT）: 公式如下：</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+EstimatedRTT = (1-\alpha) * EstimatedRTT + \alpha * SampleRTT
+</div>
+<script type="math/tex; mode=display">
+EstimatedRTT = (1-\alpha) * EstimatedRTT + \alpha * SampleRTT
+</script>
+</div>
+<p>(典型地， <span class="arithmatex"><span class="MathJax_Preview">\alpha=0.125</span><script type="math/tex">\alpha=0.125</script></span>)</p>
+<p><img alt="1732160843149" src="../image/class6/1732160843149.png" /></p>
+<p>这两种RTT具备很大的偏差，因此需要在EstimatedRTT加一个安全距离，其大小与RTT的波动幅度有关。</p>
+<p>对安全距离的计算，需要估算二者的偏差（DevRTT）</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+DevRTT = (1-\beta) * DevRTT + \beta * |SampleRTT - EstimatedRTT|
+</div>
+<script type="math/tex; mode=display">
+DevRTT = (1-\beta) * DevRTT + \beta * |SampleRTT - EstimatedRTT|
+</script>
+</div>
+<p>（典型地， <span class="arithmatex"><span class="MathJax_Preview">\beta=0.25</span><script type="math/tex">\beta=0.25</script></span>）</p>
+<p>因此可以设置重传定时器地超时值：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Timeout = EstimatedRTT + 4 * DevRTT
+</div>
+<script type="math/tex; mode=display">
+Timeout = EstimatedRTT + 4 * DevRTT
+</script>
+</div>
+<p>TCP确认的二义性：由于重传的TCP报文段使用与原报文段相同的序号，发送端收到确认后，无法得知是对哪个报文段进行的确认，那么测量的RTT会出现问题（可能是SEQ与ACK非对应的一次数据传输）</p>
+<p>解决方法：可以只对一次发送成功的报文段测量SampleRTT，并更新EstimtedRTT；重传时停止测量SampleRTT</p>
+<p>通过定时器确认补偿进一步优化重传后的RTT。</p>
+<ul>
+<li>即：重传意味着超时值可能偏小</li>
+<li>因此，让发送方每重传一次，都让超时值增大一倍</li>
+</ul>
+<p>例如：Karn算法：</p>
+<ul>
+<li>使用EstimatedRTT估计初始的超时值</li>
+<li>若发生超时，每次重传时对定时器进行补偿，直到成功传输一个报文段为止</li>
+<li>若收到上层应用数据、或某个报文段没有重传就被确认了，用最近的EstimatedRTT估计超时值</li>
+</ul>
+<p>对于接收端，为了减少传输的次数，允许 <strong>推迟确认</strong> （即连续收到多个包后，只发送最后一个确认）</p>
+<ul>
+<li>由于这样会导致RTO计算出现问题，因此规定至少每隔一个报文段就用正常方式传输一个段</li>
+<li>为避免因延迟过大造成不必要地重传，设置推迟确认的最大时间为500ms</li>
+</ul>
+<p><img alt="1732241940774" src="../image/class6/1732241940774.png" /></p>
+<p>快速重传：发送方利用重复的ACK检测报文段的丢失，当收到三次 <strong>重复的确认</strong> 时，立即重发包含该序号的报文段：</p>
+<p>注意：是 <strong>重复的确认</strong> ，而不是 <strong>更新的确认</strong> 。 </p>
+<p><img alt="1732161436778" src="../image/class6/1732161436778.png" /></p>
+<p>小结：TCP的差错恢复机制可以看成是GBN和SR的混合体；TCP在减小定时器开销和重传开销方面要优于GBN和SR</p>
+<hr />
+<p>崩溃恢复：在于接收方和发送方之间的同步：</p>
+<ol>
+<li>服务器崩溃的处理方式：</li>
+</ol>
+<p>服务器直接向所有客户端广播一个crash信息，让所有客户端记录当前的状态（可能处于已经传输完的状态S0，也可能处于发送了一个包但没有收到ACK的状态S1）。</p>
+<p>当服务器恢复后，只需要让所有处于S1状态的客户端进行重传。此时可能出现两种情况：</p>
+<ul>
+<li>
+<ol>
+<li>服务器发出了ACK，但在写入的过程中出现了crash。由于客户端收到了ACK因此不会再重传这个包，导致数据 <strong>丢失</strong> （LOST）。</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>服务器先写入了数据，但在发送ACK前出现了crash。由于客户端误以为服务器没收到包，因此会重传，导致 <strong>重复传输</strong> （DUP.）。</li>
+</ol>
+</li>
+</ul>
+<p><img alt="1732162211121" src="../image/class6/1732162211121.png" /></p>
+<p>可见：无论如何调整发送方和接收方的程序（限制在本层次中操作），总有一种可能会导致崩溃时无法正确恢复。</p>
+<blockquote>
+<p>无法使用seqno来检测duplicate，这是因为在接收方崩溃后，seqno状态可能会丢失，导致无法判断是否是重复报文段。</p>
+</blockquote>
+<p>因此可以得出结论：从在第N层发生的崩溃，恢复方式只能通过第N+1层进行控制（如果N+1层能够记录足够多的状态信息）。</p>
+<blockquote>
+<p>例如：上述场景中的“写”操作只有应用层才能够得到状态信息，因此传输层在未知写操作是否发生时是无法完全的实现状态恢复的。</p>
+</blockquote>
+<h4 id="654-tcp">6.5.4 TCP流量控制<a class="headerlink" href="#654-tcp" title="Permanent link">&para;</a></h4>
+<p>接收缓存：</p>
+<ul>
+<li>TCP接收端有一个接收缓存：将收到的数据放入接收缓存；应用进程从接收缓存中读取数据</li>
+<li>进入其中接收缓存的数据不一定被立即取走</li>
+<li>这意味着如果到达的数据量过大，可能导致缓存溢出而丢失。</li>
+</ul>
+<p>而在GBN/SR中，不需要考虑流量控制，因为它们已经假设上层处理能力无限大，收到即立即交付。</p>
+<p>在UDP中，同样不需要考虑流量控制，因为它不负责考虑报文数据因流量问题溢出的问题。</p>
+<p>TCP流量控制的方法：</p>
+<ul>
+<li>接收缓存中的可用空间为 <strong>接收窗口</strong> 。</li>
+<li>接收方通过将接收窗口放在报头，向发送方通告接收缓存的可用空间</li>
+<li>发送方限制未确认的字节数不能超过接收窗口的大小。</li>
+</ul>
+<blockquote>
+<p>特别地，如果接收方通告接收窗口为0，发送方必须停止发送</p>
+</blockquote>
+<p><img alt="1732243439984" src="../image/class6/1732243439984.png" /></p>
+<ul>
+<li>注：在接收方接收窗口发生更新时，都会向发送方返回一个ACK，表示接收窗口的变化。</li>
+</ul>
+<p>在上述图片中的16，可能出现死锁的情况，具体情况如下：</p>
+<ul>
+<li>B一次性释放了多个buf，且接收窗口为最大值，此时B向A发送了ACK通告接收窗口的变化</li>
+<li>ACK通告丢失，此时A仍然认为B的接收窗口为0，因此不会发送新的包</li>
+<li>而B由于接收窗口不会变化（已经为最大值，且没有再收到A传输的包），因此也不会向A发送ACK。</li>
+<li>结果就是：A误以为B没有空间，B误以为A没有新的数据，造成互相等待的情况。</li>
+</ul>
+<p>解决方法：非零窗口通告：</p>
+<ul>
+<li>当发送方收到接收方传来的零窗口信号时，会停止发送，并且开启 <strong>坚持计时器</strong> 。</li>
+<li>当坚持计时器超时时，发送方会发送一次 <strong>零窗口探测</strong> 的报文段，让接收方能够通过它进行响应，将当前的接收窗口情况发给发送方。</li>
+<li>如果发送方收到的接收窗口仍为0，则重置计时器，实现定时检测的功能。</li>
+</ul>
+<p>这样的方式可能出现：糊涂窗口综合症（即：如果接收方消化信息较慢，一直不发ACK，那么发送方就会一直发送零窗口探测。）</p>
+<p>解决方法：</p>
+<ul>
+<li>接收端：<ul>
+<li>在接收窗口较小时，推迟发送确认</li>
+<li>仅当窗口显著增加时，才通告新的窗口大小</li>
+</ul>
+</li>
+<li>发送端：<ul>
+<li>使用Nagle算法，确定发送时机</li>
+</ul>
+</li>
+</ul>
+<h4 id="655-tcp">6.5.5 TCP连接管理<a class="headerlink" href="#655-tcp" title="Permanent link">&para;</a></h4>
+<p>建立连接的定义：</p>
+<ul>
+<li>前提：双方都同意连接</li>
+<li>内容：初始化连接参数</li>
+</ul>
+<h5 id="6551">6.5.5.1 两次握手连接<a class="headerlink" href="#6551" title="Permanent link">&para;</a></h5>
+<p>即：发送方发送连接请求；接收方发送连接确认</p>
+<p>问题：2次握手在不可靠的网络中，不一定总是可行的，会出现如下意外：</p>
+<ul>
+<li>包传输的延迟变化很大</li>
+<li>存在重传的报文段</li>
+<li>存在报文的重排序</li>
+</ul>
+<p>在两次握手连接的模型中，可能出现 <strong>半开连接</strong> （即：一方认为连接没有建立，但是另一方认为连接已经建立了）</p>
+<p>有两种情形可能造成半开连接：</p>
+<ul>
+<li>
+<ol>
+<li>服务器发送的接收请求的包传输较慢，导致客户端重传了建立连接请求的包；这个包传输得更慢，甚至到当前连接已经失效才重传（形成半开连接，没有client）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>在1情况的基础上，甚至数据也可能在不属于当前连接建立的位置进行传输（形成半开连接，没有client）</li>
+</ol>
+</li>
+</ul>
+<p><img alt="alt text" src="../image/class6/%7B90E0DC9F-2BA3-4E1E-AB12-7E42C33A86EF%7D.png" /></p>
+<p>另外存在 <strong>延迟重传</strong> （delayed duplicates problem）：即第一次发的包传输延迟极大，导致它在重传包之后才到达接收方。</p>
+<p>解决方法：</p>
+<ul>
+<li>接收方通过判断seq是否见过进行discard</li>
+</ul>
+<p>新的问题：如果发生了wrap around或者发送方或接收方发生崩溃，那么seq可能会出现二义性。</p>
+<ul>
+<li>解决wrap around的方法：规定包的失效时间；如果seq见过且间隔时间较小（重传的概率较大），就discard；如果seq见过且间隔时间较长（发生了wrap around的概率较大），就accept。</li>
+</ul>
+<p><img alt="alt text" src="../image/class6/%7B22F0082A-CED6-4D8D-B3F1-69BE82930903%7D.png" /></p>
+<p>实现步骤：</p>
+<ol>
+<li>限制一个包的lifetime</li>
+</ol>
+<p>packet lifetime设置为一个包在某跳中存活的最大时间。</p>
+<p>通过限制<span class="arithmatex"><span class="MathJax_Preview">T=n*packet~lifetime</span><script type="math/tex">T=n*packet~lifetime</script></span>，可以保证在时间T之后，传输的包不可能为重传包。</p>
+<ol>
+<li>使用time-of-day clock来限制sending rate</li>
+</ol>
+<p>这个方法是用于避免当发送方/接收方在崩溃后恢复时，重置seqno的方法。（如果随机重置seqno，这就有可能发生wrap around）</p>
+<p>因此，对于ISN不再使用随机数，而是使用<code>time-of-day clock</code>，取其低位32位的bit作为ISN。</p>
+<p>具体实现方法为：在每个主机设置一个时钟，每隔一段时间<span class="arithmatex"><span class="MathJax_Preview">\Delta T</span><script type="math/tex">\Delta T</script></span>加一，将其末尾32位作为ISN。</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">\Delta T</span><script type="math/tex">\Delta T</script></span>应当取较小的值（例如4微秒），确保发送序号的速度不超过起始序号的增加速度（如果超过了，就会发生起始序号刚好设置为发送过的序号，于是出现wrap around）</li>
+</ul>
+<p>对于上述方法，会出现forbidden region of seqno:</p>
+<p><img alt="alt text" src="../image/class6/%7B32053A4E-6C7B-46D6-889B-2A47C5565196%7D.png" /></p>
+<p>假设出现了发送方崩溃，在更新后的ISN小于了上一次发送的包seq。</p>
+<p>那么在更新后的ISN开始逐一发包，直到与上一次发送的包seq相同时出现问题：</p>
+<ul>
+<li>对于恢复后的发包情况，只有当t'-t&gt;T时，新发的包才能被识别为 <strong>新的包</strong> ；否则它会被误以为是之前发的包，而导致被丢弃。</li>
+</ul>
+<p>因此，对于发送方，存在一个forbidden region：它在恢复后ISN向左偏移<code>t'-t</code>的时间，这一时间区域内的某些seq包会出现 <strong>干扰新的包的传输</strong> 的情况。</p>
+<p><img alt="alt text" src="../image/class6/%7BD16820D9-37EE-4044-91B8-BB754AEF78D5%7D.png" /></p>
+<p>因此这就意味着发包速度既不能太快，也不能太慢。发送方同样需要控制发包速度，让包的seq不至于落在forbidden region中。</p>
+<h5 id="6552">6.5.5.2 三次握手连接<a class="headerlink" href="#6552" title="Permanent link">&para;</a></h5>
+<p>对于三次握手连接：</p>
+<ul>
+<li>
+<ol>
+<li>客户端选择ISN=x，发起连接请求<code>SYN</code>（SYN=1，Seq=x）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>服务器接收请求后，确认客户端的ISN，并选择服务器ISN=y，并发送连接确认<code>SYNACK</code>（SYN=1，Seq=y，ACK=1，ACKno=x+1）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>客户端收到确认后并且确认服务器已经收到了接受请求（ACKno=x+1），就会确认服务器的ISN，并对<code>SYNACK</code>发一个<code>ACK</code>到服务器（ACK=1，ACKno=y+1）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>服务器收到ACK后，连接建立完成</li>
+</ol>
+</li>
+</ul>
+<p><img alt="alt text" src="../image/class6/%7BCD112BD1-6FA6-465A-98CE-FBA0B2B43927%7D.png" /></p>
+<p><strong>注意：SYN和SYNACK包都不包含数据，但对SYNACK的ACK包可能包含数据</strong></p>
+<p>这样的模型能够实现：在任何情况下都不会出现半开的连接。</p>
+<h5 id="6553-tcp">6.5.5.3 关闭TCP连接<a class="headerlink" href="#6553-tcp" title="Permanent link">&para;</a></h5>
+<p>释放连接分为：</p>
+<ul>
+<li>非对称释放（asymmetric release）：一旦其中一方挂起，那么就结束连接</li>
+<li>对称释放（symmetric release）：双方都挂起，等待对方的确认</li>
+</ul>
+<p>非对称释放会存在abrupt disconnection导致的数据丢失。（例如：当接收方关闭了连接，但发送方并不知道连接关闭了，就导致数据的丢失）</p>
+<p><img alt="alt text" src="../image/class6/%7BE9B03287-07ED-4250-A896-B0FE9816367C%7D.png" /></p>
+<p>对称释放：</p>
+<ol>
+<li>客户端发送关闭连接请求（FIN=1, seq=x），状态变为FIN_WAIT_1</li>
+<li>服务器收到请求后，发送一个FINACK（ACK=1，ACKno=x+1），状态变为CLOSE_WAIT</li>
+<li>客户端收到FINACK后，只进行接收数据，等待服务器把还没传完的数据全都传完（状态变为FIN_WAIT_2）</li>
+<li>服务器发送完所有的包后，发送一个结束的包（FIN=1，seq=y），状态变为LAST_ACK</li>
+<li>客户端收到从服务器传来的FIN包后，发送一个ACK（ACK=1，ACKno=y+1），状态变为TIME_WAIT</li>
+<li>服务器收到了ACK，关闭连接</li>
+<li>客户端等待2MSL（最长报文段寿命），然后释放连接（避免ACK丢失的情况出现）</li>
+</ol>
+<p><img alt="alt text" src="../image/class6/%7B517F0439-247B-4216-9AFF-6A847C41DF51%7D.png" /></p>
+<p>问题：two army problem:</p>
+<p><img alt="alt text" src="../image/class6/%7B33B22A5B-7A8D-4DB4-ACE9-E37DAB54E082%7D.png" /></p>
+<p>两个blue army需要约定一个时间共同进攻，设计一个协议。</p>
+<p>问题在于：</p>
+<ul>
+<li>A发信息给B</li>
+<li>B知道了信息并回复确认，此时B不知道A是否收到信息</li>
+<li>A收到信息，但又不知道B是否收到A收到确认，又需要发送一个确认信息</li>
+<li>...</li>
+</ul>
+<p>于是形成了一个死循环：A和B都不知道对方是否收到信息，于是一直在发送确认信息。（无论几次握手都无法确定是否完成了信息同步）</p>
+<p>因此，对于连接释放也是同理，无法互相确认 <strong>是否准备好了释放连接</strong> ，因此只能使用上面介绍的方法完成连接释放。</p>
+<h5 id="6554">6.5.5.4 安全问题<a class="headerlink" href="#6554" title="Permanent link">&para;</a></h5>
+<p>SYN洪泛攻击：</p>
+<p>TCP建立连接的方式是：服务器收到SYN后，需要返回SYNACK并且分配资源（因为如果没有收到用户第二次发送的ACK，服务器需要进行超时重传）</p>
+<p>服务器在等待一段时间后，会丢弃没有完成的连接（SYN的超时值一般为30s-120s）</p>
+<p>那么，攻击者就可以采用伪造的IP地址，发送大量的SYN包，但不发送对SYNACK的ACK包，导致服务器资源耗尽，甚至导致服务器崩溃。</p>
+<p>解决方法：</p>
+<ul>
+<li>通过类似比特币的方法，让两侧的计算量不均等（例如：让客户端的seqno必须为计算哈希后满足一些特征（前nbit为0）），这样正向验证是容易的，但反向验证是困难的。因此攻击者需要的代价要比服务器防御的代价高得多。</li>
+<li>SYN cookie等方式：先不分配资源；直到收到ACK再分配</li>
+</ul>
+<hr />
+<p>TCP端口扫描：服务器向端口发送SYN段，观察目标端口是否会回复SYNACK。如果：
+- 收到SYNACK，说明有服务运行
+- 收到RST：说明无服务运行
+- 没有收到包：表明路径有防火墙</p>
+<p>与上面的SYN扫描相对的，还有FIN扫描（即向端口发送FIN包）：
+- 若收到ACK=1，RST=1的TCP段，说明目标端口没有服务监听
+- 如果没有响应，表明有服务在监听（RFC 973的规定）
+- 某些系统的实现不符合RFC 973的规定，例如Microsoft的实现中，总是返回ACK=1, RST=1的TCP段。</p>
+<h3 id="66">6.6 理解网络拥塞<a class="headerlink" href="#66" title="Permanent link">&para;</a></h3>
+<p>流量控制与拥塞控制：</p>
+<ul>
+<li>流量控制：限制发送速度，不超过 <strong>接收端</strong> 的处理能力，利用接收窗口（rwnd）控制。</li>
+<li>拥塞控制：限制发送速度，不超过 <strong>网络</strong> 的承载能力，利用拥塞窗口（cwnd）控制。</li>
+</ul>
+<blockquote>
+<p>因此，发送窗口的大小应当取rwnd与cwnd的最小值。</p>
+</blockquote>
+<p>网络拥塞的后果：</p>
+<ul>
+<li>丢包（由于路由器缓存溢出）</li>
+<li>分组延迟增大（链路接近满载）</li>
+</ul>
+<p>大量的网络资源用于：</p>
+<ul>
+<li>重传丢失的分组</li>
+<li>（不必要地）重传延迟过大的分组</li>
+<li>转发最终被丢弃的分组</li>
+</ul>
+<p>最终导致：进入网络的负载很重，但是网络的吞吐量很低。</p>
+<p>解决方法：</p>
+<ul>
+<li>网络辅助的拥塞控制<ul>
+<li>路由器向端系统提供显式的反馈：例如设置拥塞指示比特；给出发送速率的指示</li>
+<li>ATM、X.25采用此类方法</li>
+</ul>
+</li>
+<li>端到端拥塞控制<ul>
+<li>网络层不向端系统提供反馈</li>
+<li>端系统通过观察丢包和延迟，自行推断拥塞的发生</li>
+<li>TCP采用此类方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="67-tcp">6.7 TCP拥塞控制<a class="headerlink" href="#67-tcp" title="Permanent link">&para;</a></h3>
+<ol>
+<li>发送方如何感知拥塞：</li>
+</ol>
+<p>通过丢包事件：</p>
+<ul>
+<li>重传定时器超时</li>
+<li>
+<p>发送端收到了三个重复的ACK</p>
+</li>
+<li>
+<p>发送方采用什么机制限制发送速率：</p>
+</li>
+</ul>
+<p>使用拥塞窗口（cwnd）限制已发送、未确认的数据量：</p>
+<p><code>Last Byte Sent - Last Byte Acked &lt;= cwnd</code></p>
+<p>cwnd伴随发送方感知的网络拥塞程度的变化而变化</p>
+<ol>
+<li>
+<p>拥塞调节的策略：AIMD</p>
+</li>
+<li>
+<p>乘性减（Multiplicative Decrease）：检测到丢包时，cwnd的大小减半（但不能小于一个MSS）</p>
+</li>
+<li>加性增（Additive Increase）：若无丢包，没经过一个RTT，将cwnd增大一个MSS，直到检测到丢包</li>
+</ol>
+<p><img alt="alt text" src="../image/class6/%7B05DAE4BA-E146-4463-8411-455DFFCFECBA%7D.png" /></p>
+<h4 id="671-tcp">6.7.1 TCP的慢启动<a class="headerlink" href="#671-tcp" title="Permanent link">&para;</a></h4>
+<p>由于采用AIMD的策略，其中加性增的方式增大发送窗口太慢。</p>
+<p>因此：采用在新建连接上指数增大cwnd，直到检测到丢包。</p>
+<p>慢启动的实施方法：</p>
+<ul>
+<li>每经过一个RTT，将cwnd加倍<ul>
+<li>具体操作方法：每收到一个ACK段，cwnd增加一个MSS</li>
+<li>上述方法就已经可以实现cwnd加倍的效果。</li>
+</ul>
+</li>
+</ul>
+<p>在上述的策略中：与早期TCP按接收窗口发送数据的策略相比，采用慢启动的发送速率增长会较慢。</p>
+<p>区分丢包的事件：</p>
+<ul>
+<li>超时：说明网络的交付能力很差<ul>
+<li>设置ssthresh（门限） = cwnd / 2</li>
+<li>cwnd = 1MSS</li>
+<li>使用慢启动增大cwnd到门限</li>
+<li>使用AIMD调节cwnd</li>
+</ul>
+</li>
+<li>收到3个重复的ACK：说明网络仍然有一定的交付能力<ul>
+<li>将cwnd降到一半</li>
+<li>使用AIMD调节cwnd</li>
+</ul>
+</li>
+</ul>
+<p>具体逻辑实现：</p>
+<ul>
+<li>发送方维护一个变量ssthresh</li>
+<li>当发送丢包时：ssthresh = cwnd / 2</li>
+<li>ssthresh是从慢启动转化为拥塞避免的分水岭：<ul>
+<li>cwnd低于门限时：执行慢启动</li>
+<li>cwnd高于门限时：执行拥塞避免(即AIMD)</li>
+</ul>
+</li>
+<li>拥塞避免阶段：每当收到ACK：cwnd = cwnd + MSS * (MSS / cwnd)<ul>
+<li>这样最终的效果，就是当过了RTT后，cwnd加一个MSS。</li>
+</ul>
+</li>
+<li>检测到三个重复的ACK后：<ul>
+<li>TCP Reno: cwnd = ssthresh + 3，之后继续线性增长</li>
+<li>TCP Tahoe: cwnd = 1MSS，执行慢启动</li>
+</ul>
+</li>
+</ul>
+<p>总结： </p>
+<p><img alt="alt text" src="../image/class6/%7B4E70559B-7833-4698-A813-4769B5753DAB%7D.png" /></p>
+<h4 id="672">6.7.2 其他问题<a class="headerlink" href="#672" title="Permanent link">&para;</a></h4>
+<p>wireless issue: 因为此时丢包就是常态，那么根据丢包判断网络拥塞情况就不再准确了。</p>
+<p>分析TCP拥塞控制的性能：</p>
+<ul>
+<li>忽略慢启动阶段，只考虑拥塞避免阶段</li>
+<li>令W为发生丢包时的拥塞窗口，那么through put = W / RTT</li>
+<li>发生后cwnd=W / 2,则through put = W / RTT / 2</li>
+<li>因此平均的吞吐量为：0.75 W / RTT</li>
+</ul>
+<p>TCP的公平性：当K条TCP连接共享带宽为R的链路，每条连接应当具有平均速度R/K。</p>
+<p><img alt="alt text" src="../image/class6/%7B55A98CA1-5E78-483E-9E9D-9CF37E65928B%7D.png" /></p>
+<p>在上图中，左上到右下为最大利用的情况；左下到右上为公平性的情况。</p>
+<p>可以看到，AIMD算法（图中A-B-C）逐渐在逼近等带宽共享的情况。</p>
+<p>因此，AIMD恰好解决了TCP的公平性问题。</p>
+<p>但是，对于更复杂的情形（例如一个用户与服务器建立了多个TCP连接），那么就无法保证带宽的公平分配。</p>
+<h3 id="68">6.8 传输层协议的发展<a class="headerlink" href="#68" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
