@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/CN/class7/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Class7 - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75M8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.5 4.5 0 0 1-.563-1.191 3.84 3.84 0 0 1-.05-2.063 4.65 4.65 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4 2.4 0 0 1-.507-.441 3.1 3.1 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19.01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.7 3.7 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-7" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../music/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 7: 应用层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 7: 应用层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 网络应用层概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 域名系统DNS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 域名系统DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.1 概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.2 域名服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#723" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.3 域名解析过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#724" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.4 域名系统查询和响应
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#725" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.5 域名系统的安全性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#726" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.6 域名系统高速缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#727" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.7 域名系统的隐私
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 电子邮件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 电子邮件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.1 电子邮件系统体系结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#732-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.2 SMTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.3 邮件格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#734" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.4 最后传递
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-www" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 WWW
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4 WWW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#741-www" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.1 WWW体系结构与协议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#742-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.2 静态Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#743-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.3 动态Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#744-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.4 HTTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#745-webweb" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.5 Web缓存技术与Web代理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#746-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4.6 Web安全与隐私
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5 流式音频和视频
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.5 流式音频和视频">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#751" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5.1 流媒体概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#752" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5.2 数字音视频与编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#753" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5.3 流式存储媒体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#754" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5.4 直播与实时音视频
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#755" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5.5 流媒体动态自适应传输
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.6 内容分发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.6 内容分发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#761-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.6.1 内容和Internet流量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7 其他应用层协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.7 其他应用层协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#771-telnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7.1 Telnet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#772-ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7.2 文件传输协议FTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#773-snmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7.3 SNMP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Class7</h1>
+
+<h2 id="chapter-7">chapter 7: 应用层<a class="headerlink" href="#chapter-7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 网络应用层概述<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>每个应用层协议都是为了解决某一应用问题。</p>
+<ul>
+<li>两台主机的通信，实际上是对应的连个应用进程在通信</li>
+<li>应用进程：为解决具体应用问题而彼此通信的进程</li>
+</ul>
+<p>应用进程在通信时所遵循的方式：</p>
+<ul>
+<li>C/S</li>
+<li>B/S</li>
+<li>P2P</li>
+</ul>
+<p>C/S：客户/服务器方式，客户作为服务请求方，服务器作为服务提供方</p>
+<ul>
+<li>可以面向连接，也可以无连接</li>
+<li>面向连接时，C/S通信关系一旦成立，通信就是双向的。</li>
+</ul>
+<p>B/S：可以看作为C/S方式的特例</p>
+<ul>
+<li>采用浏览器请求、服务器响应的工作方式</li>
+<li>采用三层架构：数据层/处理层/表现层实现</li>
+</ul>
+<p>B/S架构的特点：</p>
+<ul>
+<li>界面统一，使用简单（兼容性好）；客户端只需要安装浏览器软件</li>
+<li>易于维护</li>
+<li>可扩展性好</li>
+<li>信息共享度高</li>
+</ul>
+<p>P2P：对等方式，通信双方不再是服务器和客户，而是直接对等的。</p>
+<ul>
+<li>一般使用于音视频流量</li>
+</ul>
+<hr />
+<p>服务器进程工作方式：</p>
+<ul>
+<li>循环方式（iterative mode）：<ul>
+<li>一次只运行一个服务进程</li>
+<li>多个客户进程请求服务时，按照请求的先后顺序依次响应（阻塞方式）</li>
+<li>UDP一般使用循环方式</li>
+</ul>
+</li>
+<li>并发方式（concurrent mode）：<ul>
+<li>可以同时运行多个服务进程</li>
+<li>每个服务进程都对某个特定的客户进程做出响应（非阻塞方式）</li>
+<li>TCP一般使用并发方式</li>
+</ul>
+</li>
+</ul>
+<h3 id="72-dns">7.2 域名系统DNS<a class="headerlink" href="#72-dns" title="Permanent link">&para;</a></h3>
+<h4 id="721">7.2.1 概述<a class="headerlink" href="#721" title="Permanent link">&para;</a></h4>
+<p>一开始，通过<code>Hosts.txt</code>文件配置了所有计算机名称和它们的IP地址，所有主机在同一时刻进行这个文件的同步。</p>
+<p>伴随互联放的发展，<code>Hosts.txt</code>越来越大，并且需要集中管理来防止主机名的冲突。</p>
+<p>因此，采用分布式数据库系统实现 <strong>层次的，基于域</strong> 的命名模式，将主机名映射为IP地址。</p>
+<p>域名系统（DNS，Domain Name System）是因特网的一项服务，它提供域名到IP地址的转换服务。</p>
+<p>Internet采用层次结构的命名树作为主机名，并采用分布式的域名系统。</p>
+<p><img alt="alt text" src="../image/class7/%7B84147938-BF72-483A-A46D-81B4F6E8CC5C%7D.png" /></p>
+<ol>
+<li>
+<p>顶级域名：</p>
+</li>
+<li>
+<p>国家或地区顶级域nTLD（ccTLD），例如：.cn表示中国，.uk表示英国等（目前有300多个）</p>
+</li>
+<li>基础设施域<code>.arpa</code>(address and routing parameter area)：专用于Internet基础设施目的</li>
+<li>通用顶级域名gTLD：如<code>.com</code>、<code>.org</code>、<code>.net</code>、<code>.edu</code></li>
+</ol>
+<p><img alt="alt text" src="../image/class7/%7B211ACE5B-C4C6-4FF5-B0DF-7AC297D84CC8%7D.png" /></p>
+<ol>
+<li>二级域名：</li>
+</ol>
+<p>（在.cn下的二级域名有：）</p>
+<ul>
+<li>类别域名7个：<ul>
+<li>.edu.cn</li>
+<li>.gov.cn</li>
+<li>.org.cn</li>
+<li>.mil.cn</li>
+<li>.com.cn</li>
+<li>.net.cn</li>
+<li>.ac.cn</li>
+</ul>
+</li>
+<li>行政区域名34个（省、直辖市等）</li>
+<li>无类别域名（<a href="http://www.baidu.com等">www.baidu.com等</a>）</li>
+</ul>
+<p>分级负责域名的注册（例如：二级域名由国家自行决定，三级域名由二级域名所属机构负责，以此类推）</p>
+<h4 id="722">7.2.2 域名服务器<a class="headerlink" href="#722" title="Permanent link">&para;</a></h4>
+<p>域名服务器（名字服务器）保存域树（domain tree），负责域名解析工作</p>
+<ul>
+<li>域名与IP地址可以是一对一、一对多、多对一的关系</li>
+</ul>
+<p>同时，域名服务器系统也按照域名层次树状安排，每个名字服务器管辖一部分域</p>
+<ul>
+<li>一个名字服务器所负责的范围称为管辖区（zone）（而不是以域为单位）</li>
+<li>管辖区可以小于等于域，但不可能大于域</li>
+</ul>
+<p><img alt="alt text" src="../image/class7/%7BE63C5533-4F48-4D9F-9DCF-5B2B84A82A66%7D.png" /></p>
+<p>域名服务器的类别：</p>
+<ul>
+<li>权威名字服务器（authoritative name server）：无需查询其他服务器<ul>
+<li>每个DNS区至少要有一个IPv4可访问的权威名字服务器提供服务</li>
+</ul>
+</li>
+<li>递归解析器（recursive resolver）：以递归方式运行的，使用户程序联系域名字服务器的程序</li>
+</ul>
+<p>进一步，权威名字服务器的类别由对应域层次划分：</p>
+<ul>
+<li>根名字服务器（root name server）/根服务器（root server）</li>
+<li>顶级域名字服务器（TLD name server）</li>
+<li>二级域名字服务器（second-level domain name server）</li>
+<li>...</li>
+<li>三级域以下的名字服务器（例如zju.edu.cn）通常在用户本地区域，因此三级域以下的名字服务器统称为 <strong>本地域名服务器</strong> </li>
+</ul>
+<p>根服务器：</p>
+<ul>
+<li>根服务器使特定的任意播（anycast）实例，回答关于根区域内容查询的权威名字服务器</li>
+<li>每个根服务器直到所有顶级域名服务器的域名及IP地址</li>
+<li>路由器把查询转发到距离递归服务器最近的一个根服务器(采用了任意播技术)，提高了查询效率</li>
+<li><strong>根服务器并不直接把主机用户所查的域名转换成IP地址</strong> </li>
+</ul>
+<p>根服务器一共有13套（不是13台）：相应的域名分别为：<code>a.rootservers.net - m.rootservers.net</code></p>
+<p>更改根服务器数据只在<code>a.rrotservers.net</code>上进行，然后同步到另外12套中。</p>
+<p>对于每套根服务器，又具备多个镜像（mirrored）根服务器，内容定期与上述对应的根服务器进行同步，来减少用户域名解析请求的时延。</p>
+<p>二级域名字服务器：</p>
+<ul>
+<li>各个单位根据自己的具体情况把本单位的域名划为若干个域名管辖区(zone)，也可简称为区</li>
+<li>每个区设置相应的权威名字服务器，用来保存该区中的所有主机的
+域名到IP地址的映射</li>
+<li>一般来说，每个名字服务器只负责解析本辖域的域名</li>
+</ul>
+<h4 id="723">7.2.3 域名解析过程<a class="headerlink" href="#723" title="Permanent link">&para;</a></h4>
+<p>当某一进程需要域名解析时：</p>
+<ul>
+<li>应用进程将域名放在DNS请求报文（UDP数据报， <strong>端口号为53</strong> ）发给递归服务器；递归服务器得到查询结果后，将对应IP地址放在应答报文中返回给应用进程</li>
+<li>域名查询有<ul>
+<li>递归查询（recursive query）：一般在主机向递归解析器/本地域名字服务器的查询中使用</li>
+<li>迭代查询（iterative query）：一般在本地域名服务器向根服务器的查询中使用</li>
+</ul>
+</li>
+</ul>
+<p>递归查询：由下一步应查询的域名服务器来回应查询请求，直到查询到最终的IP地址（即替递归服务器继续查询），较少使用</p>
+<p><img alt="alt text" src="../image/class7/%7BEF892513-48A6-4A8D-8E0D-8F3723D4EA54%7D.png" /></p>
+<p>迭代查询：由本地域名服务器向根服务器查询，收到下一级域名字服务器后再向下一级服务器查询，直到查询到最终的IP地址，较多使用</p>
+<p><img alt="alt text" src="../image/class7/%7BDF2EA2F7-F4DD-4294-BA63-01E7BF2C854C%7D.png" /></p>
+<h4 id="724">7.2.4 域名系统查询和响应<a class="headerlink" href="#724" title="Permanent link">&para;</a></h4>
+<p>域名系统的资源（resouce）具备不同的类型，用于表示数据的内容类型。</p>
+<ul>
+<li>SOA：权威记录的起始，指定有关DNS区域的权威性信息，包含主要名字服务器、域名管理员的电邮地址、域名的流水式编号、和几个有关刷新区域的定时器</li>
+<li>A:IPv4地址记录，用于将域名映射到IPv4地址</li>
+<li>AAAA:IPv6地址记录，用于将域名映射到IPv6地址</li>
+<li>...</li>
+</ul>
+<p>DNS报文格式：</p>
+<ul>
+<li>分为三部分：基础结构(报文首部)、问题、资源记录(RR, Resource Record)</li>
+<li>报文类型分为查询请求(query)和查询响应(reply)两类，请求和响应的报文结构基本相同</li>
+</ul>
+<p><img alt="alt text" src="../image/class7/%7B4392A4D7-8F38-4C77-8069-C646B2F5134B%7D.png" /></p>
+<p>其中，资源记录的格式（RR）由下面组成：</p>
+<ul>
+<li>域名：DNS请求的域名</li>
+<li>类型：资源记录的类型</li>
+<li>类：地址类型（一般为IN）</li>
+<li>生存时间：以秒为单位，表示资源记录的生命周期，一般用于当地址解析程序取出资源记录后决定保存及使用缓存数据的时间。它同时也可以表明该资源记录的稳定程度，稳定的信息会被分配一个很大的值</li>
+<li>资源数据长度</li>
+<li>资源数据：表示按查询段要求返回的相关资源记录的数据</li>
+</ul>
+<h4 id="725">7.2.5 域名系统的安全性<a class="headerlink" href="#725" title="Permanent link">&para;</a></h4>
+<p>DNSSEC：依靠 <strong>数字签名</strong> 保证DNS应答报文的真实性和完整性。</p>
+<h4 id="726">7.2.6 域名系统高速缓存<a class="headerlink" href="#726" title="Permanent link">&para;</a></h4>
+<p>域名服务器广泛使用高速缓存，用来存放最近查询过的域名以及从何处获得域名映射信息的记录</p>
+<p>好处：</p>
+<ul>
+<li>减轻根域名服务器的负荷</li>
+<li>减少DNS相关报文的数量</li>
+</ul>
+<blockquote>
+<p>主机一般也缓存域名有关信息</p>
+</blockquote>
+<h4 id="727">7.2.7 域名系统的隐私<a class="headerlink" href="#727" title="Permanent link">&para;</a></h4>
+<p>DNS几乎都基于UDP明文传输，同时资源记录没有加上任何认证和加密措施</p>
+<ul>
+<li>通信链路窃听</li>
+<li>服务器收集用户信息</li>
+</ul>
+<h3 id="73">7.3 电子邮件<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<h4 id="731">7.3.1 电子邮件系统体系结构<a class="headerlink" href="#731" title="Permanent link">&para;</a></h4>
+<ul>
+<li>用户代理（user agent）：邮件客户端<ul>
+<li>编辑/发送邮件</li>
+<li>接收/读取/管理文件</li>
+<li>无统一标准</li>
+</ul>
+</li>
+<li>传输代理（message transfer agent）：邮件服务器<ul>
+<li>邮箱：保存用户收到的邮件<ul>
+<li>邮箱是邮件服务器中的一块内存区域，其标识即为电子邮件地址（邮箱名）</li>
+</ul>
+</li>
+<li>邮件输出队列：存储等待发送的邮件</li>
+<li>运行电子邮件协议</li>
+</ul>
+</li>
+<li>简单邮件传输协议SMTP（Simple Mail Transfer Protocol）：邮件服务器之间传递邮件使用的协议<ul>
+<li>smtp客户: 发送邮件端</li>
+<li>smtp服务器: 接收邮件端</li>
+</ul>
+</li>
+</ul>
+<h4 id="732-smtp">7.3.2 SMTP<a class="headerlink" href="#732-smtp" title="Permanent link">&para;</a></h4>
+<p>SMTP利用TCP传递邮件， <strong>端口为25</strong> 。</p>
+<p>SMTP采用直接投递的方式，直接从发送端到接收段。</p>
+<p>SMTP的三个阶段：</p>
+<ul>
+<li>连接建立</li>
+<li>邮件传送</li>
+<li>连接关闭</li>
+<li>命令/响应（以HTTP为例）<ul>
+<li>命令: ASCII字符串</li>
+<li>响应: 状态码+短语</li>
+</ul>
+</li>
+<li>SMTP是一个简单的ASCII协议，邮件必须为7位ASCII</li>
+</ul>
+<p>SMTP的不足</p>
+<ul>
+<li>不包括认证（可以发邮件到任何人）</li>
+<li>传输ASCII而不是二进制数据</li>
+<li>邮件以明文形式出现（无加密功能）</li>
+</ul>
+<h4 id="733">7.3.3 邮件格式<a class="headerlink" href="#733" title="Permanent link">&para;</a></h4>
+<p>邮件格式为：</p>
+<ul>
+<li>RFC 5322</li>
+<li>
+<p>MIME</p>
+</li>
+<li>
+<p>Header：包含一个From和一个To</p>
+<ul>
+<li>可选：包含Subject（主题）</li>
+</ul>
+</li>
+<li>body：邮件正文</li>
+</ul>
+<p>MIME加入了消息体结构，采用更多的编码方案，从而不再局限于7位ASCII码的限制。</p>
+<h4 id="734">7.3.4 最后传递<a class="headerlink" href="#734" title="Permanent link">&para;</a></h4>
+<p>在邮件发送到邮箱后，需要将邮件的一个副本传送到Bob的用户代理来显示。</p>
+<p>最终交付协议：</p>
+<ul>
+<li>POP3</li>
+<li>IMAP</li>
+<li>webmail（HTTP）</li>
+</ul>
+<p>注：不能使用SMTP协议进行邮件的读取（因为SMTP是一个推协议，不负责对其中的内容进行反解）</p>
+<ol>
+<li>
+<p>POP3： <strong>端口为110</strong> </p>
+</li>
+<li>
+<p>认证（authorization）：用户登录</p>
+</li>
+<li>事务处理（transaction processing）：用户对邮件进行操作</li>
+<li>
+<p>更新（update）：实际更新邮箱的状态</p>
+</li>
+<li>
+<p>IMAP：</p>
+</li>
+</ol>
+<p>是POP3的改进版，运行在 <strong>端口为143</strong> 的IMAP服务器</p>
+<p>通过将每个邮件与一个文件夹进行联系，从而增加更多的使用功能（例如远程文件夹查询邮件等）</p>
+<ol>
+<li>webmail</li>
+</ol>
+<p>提供电子邮件服务的IMAP和SMTP替代方案</p>
+<p>使用web作为界面，直接通过HTTP进行用户和远程邮箱的通信</p>
+<h3 id="74-www">7.4 WWW<a class="headerlink" href="#74-www" title="Permanent link">&para;</a></h3>
+<h4 id="741-www">7.4.1 WWW体系结构与协议<a class="headerlink" href="#741-www" title="Permanent link">&para;</a></h4>
+<p>主要通过HTTP协议进行传输</p>
+<p>服务器：</p>
+<ul>
+<li>Web页面（HTML文档）：包含到多种对象或连接</li>
+<li>Web对象（包括静态对象和动态对象）：可以是HTML文档、图像文件、视频文件、声音文件、脚本文件等<ul>
+<li>对象用URL（统一资源定位符）来编址（协议类型://主机名:端口//路径和文件名）</li>
+</ul>
+</li>
+</ul>
+<p>客户端：</p>
+<ul>
+<li>发出请求、接收响应、解释HTML文档并显示</li>
+<li>有些对象需要浏览器安装插件</li>
+</ul>
+<p>URL（uniform resource locators）：统一资源定位符</p>
+<p>协议类型：</p>
+<ul>
+<li>http：超文本传输协议</li>
+<li>https：安全超文本传输协议</li>
+<li>ftp：文件传输协议</li>
+<li>file：本地文件系统协议</li>
+<li>mailto：电子邮件地址</li>
+<li>rtsp：流媒体</li>
+<li>sip：多媒体呼叫</li>
+</ul>
+<p>URI（uniform resource identifier）：统一资源标识符</p>
+<p>所有的URL都是URI，但有的时候并不需要完整的URL，因此通过URI来刻画。</p>
+<h4 id="742-web">7.4.2 静态Web<a class="headerlink" href="#742-web" title="Permanent link">&para;</a></h4>
+<p>Web对象分为：</p>
+<ul>
+<li>静态对象与静态网页：<ul>
+<li>文本，表格，图片，图像和视频等多媒体类型的信息（实现语言：标记语言，如：HTML，XML，PHP等）</li>
+<li>字体、颜色和布局等风格类型的信息（实现语言：层叠样式表CSS）</li>
+</ul>
+</li>
+<li>动态对象与动态网页：<ul>
+<li>交互信息，比如，用户注册信息、登录信息等（实现：PHP/JSP等语言+MySQL等数据库）</li>
+</ul>
+</li>
+<li>连接：<ul>
+<li>超链接（HyperLinks）</li>
+</ul>
+</li>
+</ul>
+<p>HTML与XML：</p>
+<p><img alt="alt text" src="../image/class7/%7B554F026A-D04D-4F7D-A325-F303569553EF%7D.png" /></p>
+<p>CSS(cascading style sheets): 层叠样式表，通过对标签设置样式，实现网页的美化。</p>
+<h4 id="743-web">7.4.3 动态Web<a class="headerlink" href="#743-web" title="Permanent link">&para;</a></h4>
+<p>动态Web的目的：实现网络交互</p>
+<p>动态Web的举例：</p>
+<ul>
+<li>通用网关接口CGI（*.cgi）</li>
+<li>脚本语言+数据库技术（*.php, *.jsp, *.asp等）</li>
+<li>
+<p>客户端动态网页（*.js）</p>
+</li>
+<li>
+<p>CGI（common gateway interface）：一种标准</p>
+</li>
+</ul>
+<p>它是一种直接运行在服务器端的程序</p>
+<p><img alt="alt text" src="../image/class7/%7B626DA1DB-E490-4328-B93A-FC380A2AAF76%7D.png" /></p>
+<ol>
+<li>脚本语言+数据库技术：</li>
+</ol>
+<p>脚本指的是一个程序，它被另一个程序（即解释程序，如Web浏览器）解释执行，而不是由计算机的处理器来解释或执行</p>
+<ul>
+<li>PHP</li>
+<li>JSP: 动态部分用java语言编写</li>
+<li>ASP.NET: Microsoft's version of PHP and JSP.</li>
+</ul>
+<p>PHP（hypertext preprocessor）：</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;html&gt;</span>
+<span class="x">&lt;body&gt;</span>
+<span class="x">&lt;form action=&quot;process.php&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+
+<span class="x">---</span>
+
+<span class="x">// process.php:</span>
+
+<span class="x">&lt;html&gt;</span>
+<span class="x">&lt;body&gt;</span>
+<span class="x">&lt;h1&gt;Reply: &lt;/h1&gt;</span>
+<span class="x">Hello </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$name</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x">.</span>
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<p>这样，调用action时，通过PHP就可以转到目标的HTML页面。</p>
+<ol>
+<li>客户端动态网页：</li>
+</ol>
+<p>某些验证（例如邮箱合法性验证、简单的加减乘除运算等）可以直接由客户端进行处理，而无需向服务器发送请求。</p>
+<p>这就是一种客户端动态网页（client-side dynamic web page）</p>
+<p>Javascript：</p>
+<p>通过在\&lt;head&gt;标签中进行script编写（例如函数等），再在body中进行调用。</p>
+<p><strong>对比：PHP在服务器端，JS在客户端</strong> </p>
+<p>典型的动态web技术：AJAX（asynchronous javascript and XML）</p>
+<blockquote>
+<p>AJAX不是一种新的编程语言，而是一种使用现有标准的新方法</p>
+</blockquote>
+<ul>
+<li>HTML+CSS</li>
+<li>文档对象模型 DOM(Document Object Model): 是页面的API，允许程序读取和操作页面的内容、结构和样式， <strong>采用树形结构组织</strong> 。</li>
+<li>扩展标记语言 XML（extensible markup language）：用于程序与服务器交换应用数据</li>
+<li>异步工作方式</li>
+<li>JS：将以上功能进行组合，并协同工作</li>
+</ul>
+<p>总结：</p>
+<p><img alt="alt text" src="../image/class7/%7BFD8E5E11-C1F0-40C2-9F2B-1FF79220D196%7D.png" /></p>
+<h4 id="744-http">7.4.4 HTTP<a class="headerlink" href="#744-http" title="Permanent link">&para;</a></h4>
+<p>HTTP(hypertext transfer protocol): 超文本传输协议，通常使用TCP协议，缺省使用TCP的 <strong>80</strong> 端口。</p>
+<p>HTTP为 <strong>无状态协议</strong> （stateless protocol），服务器不保留之前的请求状态信息</p>
+<ul>
+<li>无状态协议：效率低、但简单</li>
+<li>有状态协议：维护状态相对复杂，需要维护历史信息，在客户端或服务器出现故障时，需要保持状态的一致性等</li>
+</ul>
+<p>HTTP标准：</p>
+<ul>
+<li>HTTP/1.0: 无状态，非持久连接</li>
+<li>HTTP/1.1: 支持长连接和流水线机制；缓存策略优化，部分资源请求及断点续传</li>
+<li>HTTPS: HTTP+TLS, 增加SSL/TLS层，在TCP之上提供安全机制</li>
+<li>HTTP/2: 提高带宽利用率，降低延迟；增加二进制格式，TCP多路复用、头压缩、服务端推送等功能</li>
+</ul>
+<p><img alt="alt text" src="../image/class7/%7BE3DCA1CA-520D-4F8A-8AE8-AFDB3E12F266%7D.png" /></p>
+<ol>
+<li>HTTP/1.0:缺省为非持久连接</li>
+</ol>
+<p>假设用户输入一个URL：</p>
+<p>如果该页面包含2幅jpg图像（注意：页面中嵌入的图像、视频等事实上是一个超链接）</p>
+<ul>
+<li>
+<p>客户端需要执行三次完整的连接过程（包含三次TCP过程）来进行jpg图像的逐一请求与拉取。</p>
+</li>
+<li>
+<p>HTTP/1.1:缺省为持久连接</p>
+</li>
+</ul>
+<p>如果某些jpg图像事实上在同一个服务器上，那么可以通过保持TCP连接来避免多次建立连接的问题。</p>
+<p>同时，HTTP/1.1加入流水线机制</p>
+<p><img alt="alt text" src="../image/class7/%7B26ABEFA0-2BF2-4431-B900-529FEC7C0905%7D.png" /></p>
+<p>举例：假设一个HTML中有三个小的对象，在同一个服务器上。假设服务器端和客户端间的往返时延（RTT）为RTT：</p>
+<ul>
+<li>非持久连接，串行请求<ul>
+<li>2 + 2 + 2 + 2 = 8RTT</li>
+</ul>
+</li>
+<li>持久连接，串行请求<ul>
+<li>2 + 1 + 1 + 1 = 5RTT</li>
+</ul>
+</li>
+<li>持久连接，流水线请求<ul>
+<li>2 + 1 = 3RTT</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>第一个2代表第一次获取index.html的过程，包括TCP建立连接。<br />
+暂时不考虑关闭连接占用的时间（在非持久连接中）</p>
+</blockquote>
+<p>HTTP报文结构：</p>
+<ol>
+<li>请求报文</li>
+</ol>
+<p><img alt="alt text" src="../image/class7/%7BF564B0BD-EBB9-41FD-9BCA-3526DBB28C68%7D.png" /></p>
+<p>常见的方法：</p>
+<p><img alt="alt text" src="../image/class7/%7B8689F109-8D6C-4D7F-8C47-86AD2185C1D5%7D.png" /></p>
+<ol>
+<li>响应报文</li>
+</ol>
+<p><img alt="alt text" src="../image/class7/%7B817338C7-CB90-446A-9757-181EC0B1D867%7D.png" /></p>
+<p>状态码：</p>
+<ul>
+<li>1xx: 正在处理</li>
+<li>2xx: 成功</li>
+<li>3xx: 重定向</li>
+<li>4xx: 客户端错误</li>
+<li>5xx: 服务器错误</li>
+</ul>
+<h4 id="745-webweb">7.4.5 Web缓存技术与Web代理<a class="headerlink" href="#745-webweb" title="Permanent link">&para;</a></h4>
+<ol>
+<li>浏览器缓存：</li>
+</ol>
+<p>在浏览器主机保存用户访问过的服务器web页副本；那么在再次访问时不必从服务器再次传输，提高访问效率</p>
+<p>问题：如何检查缓存是否过期？</p>
+<ul>
+<li>
+<p>向服务器发送一个条件GET：</p>
+<ul>
+<li>如果内容过期，那么返回最新的页面</li>
+<li>如果内容未过期，则返回未改变的信号</li>
+</ul>
+</li>
+<li>
+<p>Web代理服务器缓存：</p>
+</li>
+</ul>
+<p>ISP安装web代理缓存服务器，保存ISP客户访问过的服务器web页副本</p>
+<p>副本可以供ISP的所有客户进行访问，提高访问服务器的web页效率</p>
+<p>出现服务器请求时延的主要问题在于：虽然机构网络的传输速度很快，但是接入公共互联网的链路带宽和公共互联网的传输速度是有限的。</p>
+<p><img alt="alt text" src="../image/class7/%7BFCD3950B-796D-4FEE-A9B0-0F1E9AD1E4A9%7D.png" /></p>
+<p>因此，通过在机构网络内部部署一个本地web缓存代理，那么在缓存命中的情况下，只需要在机构网络中进行快速的传输就可以实现请求的处理。</p>
+<p>仍然存在的问题：难以判断缓存web的一致性。</p>
+<ul>
+<li>
+<ol>
+<li>启发式策略：采用last-modified和expires头，主动判断是否可能过期（但很少使用）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>询问式策略：通过特殊的关键字头询问原始服务器是否更新了web（利用if-modified-since头；服务器会根据情况返回：304 not modified或更新的页面）</li>
+</ol>
+</li>
+</ul>
+<p>在询问式策略中，使用HEAD请求头，这样就避免了当不需要更新内容时，服务器传输所有的内容，只需要返回头（304状态码）即可完成数据同步。</p>
+<h4 id="746-web">7.4.6 Web安全与隐私<a class="headerlink" href="#746-web" title="Permanent link">&para;</a></h4>
+<p>某些web只希望提供给某些特定用户访问：</p>
+<ul>
+<li>常规HTTP请求方法：包含关键字authorization进行身份验证，如果请求头中没有authorization，则服务器拒绝访问并在响应头包含<code>WWW authenticate:</code></li>
+<li>cookie</li>
+</ul>
+<p>cookie:</p>
+<ul>
+<li>HTTP在响应的首部行中加入关键字头<code>set-cookie</code>，其中cookie号具有唯一性</li>
+<li>后续用户在发送HTTP请求时，必须携带服务器响应分配的cookie</li>
+<li>Cookie文件保存在用户的主机中，内容是服务器返回的一些附加信息，由用户主机中的浏览器管理</li>
+<li>Web服务器建立后端数据库，记录用户信息，cookie作为关键字</li>
+</ul>
+<p><img alt="alt text" src="../image/class7/%7B7823B9C1-3E6B-4640-96F2-F17573B89881%7D.png" /></p>
+<p>cookie一般包含5个字段：</p>
+<ul>
+<li>域：指明cookie来自哪里，每个域为每个客户分配cookie有数量限制</li>
+<li>路径：服务器的文件树中哪些部分可以使用cookie</li>
+<li>内容：采用 <strong>名字=值</strong> 的形式</li>
+<li>过期时间</li>
+<li>安全：如果cookie设置了安全属性（secure），那么它只能够在HTTPS连接中使用</li>
+</ul>
+<blockquote>
+<p>HTTPS就是安全传输连接</p>
+</blockquote>
+<p><img alt="alt text" src="../image/class7/%7B24A8678D-A5B2-4935-9628-6E481C9B99FE%7D.png" /></p>
+<p>然而，基于cookie的内容字段，会产生很多安全隐患问题（例如可以通过cookie的内容字段分析用户在不同网站中的查询信息等）</p>
+<ul>
+<li>但是，内容字段只作为一个字符串进行保存，而不存在可执行程序。因此cookie不会从 <strong>植入程序</strong> 方面带来安全隐患。</li>
+</ul>
+<h3 id="75">7.5 流式音频和视频<a class="headerlink" href="#75" title="Permanent link">&para;</a></h3>
+<h4 id="751">7.5.1 流媒体概述<a class="headerlink" href="#751" title="Permanent link">&para;</a></h4>
+<p>常见的流媒体：</p>
+<ul>
+<li>点播：提前录制好，边下载边播放</li>
+<li>直播：边录制边上传，边下载边播放</li>
+<li>实时交互：双方或多方实时交互式通信</li>
+</ul>
+<p>流媒体概念：连续媒体（音视频）经压缩编码、数据打包后，经过网络发送给接收方；接收方对数据进行重组、解码和播放</p>
+<p>流媒体的特性：</p>
+<ul>
+<li>端到端时延约束</li>
+<li>时序性约束：流媒体数</li>
+<li>据必须按照一定的顺序连续播放</li>
+<li>具有一定程度的容错性：丢失部分数据包也可完成基本功能</li>
+</ul>
+<p>流媒体面临的挑战：</p>
+<ul>
+<li>约束条件：网络特性（带宽有限、动态变化、延迟与抖动、丢失、异构性）</li>
+<li>目标：流媒体服务质量要素（画质、启动延迟、平滑、交互性）</li>
+<li>如何在“尽力服务”的网络传输条件下获得良好的视频质量？</li>
+</ul>
+<h4 id="752">7.5.2 数字音视频与编码<a class="headerlink" href="#752" title="Permanent link">&para;</a></h4>
+<p>MPEG视频压缩方法：</p>
+<ul>
+<li>摄像机固定不变，演员慢慢走来走去：通过从前一帧减去后一帧得到差分帧，再对差分帧进行编码得到编码帧</li>
+</ul>
+<p>MPEG的输出：</p>
+<ul>
+<li>帧内编码帧（I帧）：包含了压缩的静止图片（帧内编码，用JPEG来压缩静止图像）</li>
+<li>预测帧（P帧）：是与前一帧的逐块差值（帧间编码，消除跨帧的冗余度）</li>
+<li>双向帧（B帧）：是与前一帧和后一帧的逐块差值（帧间编码）</li>
+</ul>
+<p><img alt="alt text" src="../image/class7/%7B4057301A-B828-4280-BD8F-74EDE6E117BD%7D.png" /></p>
+<p>I帧必须周期性地出现在媒体流中</p>
+<ul>
+<li>流媒体直播中，后加入的观众需要收到I帧才能成功解码</li>
+<li>如果任意一帧发生了接收错误，则后续非I帧无法解码（由于B/P帧依赖损坏的帧）</li>
+<li>快进或者回退到某位置时，解码器需要从该位置前面的I帧开始计算</li>
+</ul>
+<h4 id="753">7.5.3 流式存储媒体<a class="headerlink" href="#753" title="Permanent link">&para;</a></h4>
+<p>问题：由于网络传输是通过分组传输，以及网络传输的抖动特性，因此会出现传输到达的帧并不能够完全以恒定速率播放的问题。</p>
+<p>因此，设计客户端缓冲区的方法：</p>
+<ul>
+<li>客户端播放的是本地缓冲区的内容，而不是立即播放来自网络的实时内容</li>
+<li>缓冲区内容小于低阈值标记：数据即将播完，容易出现卡顿；需要加速传输</li>
+<li>缓冲区内容大于高阈值标记：增大播放时延，占用存储空间；可以减慢传输</li>
+<li>需要的决策：需要多大缓存，服务器以多快速率发送，才能在不稳定的网络中，尽量满足
+用户期望：高清、低延迟、不卡顿</li>
+<li>上述决策需要特定网络协议支持</li>
+</ul>
+<h4 id="754">7.5.4 直播与实时音视频<a class="headerlink" href="#754" title="Permanent link">&para;</a></h4>
+<p>实时音频/视频所需要的几种应用协议
+- 一种是信令协议，对建立的连接起控制作用，如RTSP
+- 一种是数据分组传送协议，使音/视频能够以时延敏感属性传送，如RTP/RTCP</p>
+<p>实时流式协议RTSP (Real-Time Streaming Protocol)</p>
+<ul>
+<li>RTSP本身并不传送数据，是一个多媒体播放控制协议</li>
+<li>RTSP对用户下载的实时数据的播放情况进行控制，如：暂停/继续、后退、前进等。又称为“互联网录像机遥控协议”</li>
+<li>RTSP 是有状态的协议，它记录用户所处于的状态（初始化状态、播放状态或暂停状态）</li>
+<li>RTSP 控制分组既可在TCP 上传送，也可在UDP 上传送</li>
+<li>RTSP 没有定义音频/视频的压缩方案，也没有规定音频/视频在网络中传送时应如何封装在分组中</li>
+<li>RTSP 协议本身没有规定音频/视频流在媒体播放器中应如何缓存，由协议的具体实现（和算法）负责</li>
+</ul>
+<p>实时传输协议RTP (Real-time Transport Protocol)</p>
+<ul>
+<li>RTP 为实时应用提供端到端的数据传输，但不提供任何服务质量的保证</li>
+<li>RTP 是一个协议框架，只包含了实时应用的一些共同的功能</li>
+<li>RTP 不对多媒体数据块做任何处理，而只是向应用层提供一些附加的信息，让应用层知道
+应当如何进行处理</li>
+</ul>
+<p>实时传输控制协议RTCP (RTP Control Protocol)</p>
+<ul>
+<li>RTCP 是与RTP 配合使用的控制协议</li>
+<li>RTCP 的主要功能：服务质量的监视与反馈、媒体间的同步、播组中成员的标识</li>
+<li>RTCP 分组也使用UDP 传送，但RTCP 并不对声音或视像分组进行封装</li>
+<li>可将多个RTCP 分组封装在一个UDP 用户数据报中</li>
+<li>RTCP 分组周期性地在网上传送，它带有发送端和接收端对服务质量的统计信息报告</li>
+</ul>
+<p>WebRTC协议栈</p>
+<ul>
+<li>为了满足实时性需求，其核心协议是在右侧基于UDP 基础上搭建起来的</li>
+<li>Secure RTP（SRTP）与Secure RTCP（SRTCP） 是对媒体数据的封装与传输控制协议</li>
+<li>RTCPeerConnection 用来建立和维护端到端连接，提供高效的音视频流传输</li>
+<li>RTCDataChannel 用来支持端到端的任意二进制数据传输</li>
+<li>流控制传输协议SCTP，提供类似TCP 的特性</li>
+<li>DTLS 对传输内容进行加密，是UDP 版TLS</li>
+<li>ICE、STUN、TURN 用于内网穿透，应对NAT等私有地址转换的问题</li>
+</ul>
+<h4 id="755">7.5.5 流媒体动态自适应传输<a class="headerlink" href="#755" title="Permanent link">&para;</a></h4>
+<p>问题：客户端可以基于当前网络状况的优劣，向服务器请求视频块，希望视频块的码率能够尽可能靠近可用带宽。</p>
+<p>方法：DASH (Dynamic Adaptive Streaming over HTTP)</p>
+<ul>
+<li>动态自适应流媒体传输协议DASH，由MPEG组织制定的标准</li>
+<li>类似协议：苹果HTTP Live Streaming（HLS）； Adobe的HTTP Dynamic Streaming（HDS）；微软的Microsoft Smooth Streaming</li>
+</ul>
+<p>基本思想：</p>
+<ul>
+<li>完整视频被拆分为固定时长(2s-10s) 的视频片段(segment)， 每段提供不同码率</li>
+<li>视频片段与其对应的元文件（URL）一同存放于DASH服务器</li>
+<li>客户端基于网络条件、缓冲大小等，对每个视频片段，自适应选择合适的视频码率来下载</li>
+</ul>
+<p>DASH普遍使用自适应码率ABR（adaptive bitrate）</p>
+<h3 id="76">7.6 内容分发<a class="headerlink" href="#76" title="Permanent link">&para;</a></h3>
+<h4 id="761-internet">7.6.1 内容和Internet流量<a class="headerlink" href="#761-internet" title="Permanent link">&para;</a></h4>
+<p>当前Internet流量的特点为：</p>
+<ul>
+<li>震撼般地转变(email-FTP-Web-P2P-video)</li>
+<li>大量站点有很少的流量</li>
+</ul>
+<p>问题：如何将大量的、分散的视频内容分发给不同的用户</p>
+<p>方法：服务器群和web代理</p>
+<p><img alt="alt text" src="../image/class7/%7B1994389C-3960-4F3F-8BF1-48261EA24A10%7D.png" /></p>
+<p>对于这样的方式，使用单个、大型的“服务器”，可能出现的问题：</p>
+<ul>
+<li>单点故障</li>
+<li>网络拥塞</li>
+<li>远程用户的长路径</li>
+</ul>
+<p>因此，它的可扩展性较差</p>
+<p>CDN（Content Delivery Network）：将内容进行副本复制，将服务器分布在不同的区域，用户请求时只需要访问最近的服务器即可。</p>
+<p>优点：</p>
+<ul>
+<li>降低响应时延，避免网络拥塞</li>
+<li>避免原始服务器过载及防止DDoS攻击</li>
+<li>分布式架构，具有良好的可扩展性</li>
+<li>对用户透明，无需用户感知</li>
+</ul>
+<p>CDN服务提供</p>
+<ul>
+<li>CDN服务提供商：Akamai、蓝讯、世纪互联、网宿等</li>
+<li>互联网内容提供商（ICP）：腾讯、百度等</li>
+<li>互联网服务提供商（ISP）：移动、联通、电信等</li>
+</ul>
+<p>关键问题</p>
+<ul>
+<li>CDN服务器如何布局</li>
+<li>在哪里缓存、缓存哪些内容</li>
+<li>如何进行重定向，将请求调度到较近或负载较轻的CDN服务器</li>
+</ul>
+<p>可以通过DNS辅助实现CDN</p>
+<hr />
+<p>P2P网络实现内容分发</p>
+<p>协议：BitTorrent</p>
+<ul>
+<li>文件被划分为256Kb大小的块</li>
+<li>具有种子(torrents)的节点发送或接收文件</li>
+</ul>
+<p>核心技术：分布式哈希表（distributed hash table, DHT）</p>
+<h3 id="77">7.7 其他应用层协议<a class="headerlink" href="#77" title="Permanent link">&para;</a></h3>
+<h4 id="771-telnet">7.7.1 Telnet<a class="headerlink" href="#771-telnet" title="Permanent link">&para;</a></h4>
+<p>Telnet的目的为远程登录。</p>
+<ul>
+<li>使用C/S方式</li>
+<li>使用TCP通信，默认监听 <strong>23</strong> 端口</li>
+</ul>
+<p>Telnet引入网络虚拟终端NVT（network virtual terminal）；NVT是Telnet协议定义的一组通用字符集，通过这种统一的数据表示方式，来保证不同硬件、软件与数据格式的终端与主机之间通信的兼容性</p>
+<h4 id="772-ftp">7.7.2 文件传输协议FTP<a class="headerlink" href="#772-ftp" title="Permanent link">&para;</a></h4>
+<p>FTP的目的为传输文件。</p>
+<ul>
+<li>使用C/S方式</li>
+<li>使用TCP通信，默认监听 <strong>21</strong> 端口</li>
+<li>数据传输进程监听 <strong>20</strong> 端口</li>
+</ul>
+<p>FTP在客户请求到来时，服务器主进程会启动 <strong>从属进程</strong> 来处理客户进程发来的请求。</p>
+<p>FTP的两个端口与两个连接</p>
+<ul>
+<li>控制连接在整个会话期间一直保持，客户进程发出的文件传输请求通过控制连接发送给服务器控制进程（工作在TCP21端口），但控制连接不用来传输文件</li>
+<li>服务器控制进程在接收到客户进程发送来的文件传输请求后就创建数据传输进程（工作在TCP20端口）和数据连接</li>
+<li>数据连接用来连接客户进程和服务器数据传输进程，实际完成文件的传输。服务器数据传输进程在文件传输完毕后关闭数据连接并结束运行</li>
+</ul>
+<p>简单文件传输协议TFTP（trivial file transfer protocol）</p>
+<ul>
+<li>使用C/S方式和UDP协议实现，监听 <strong>69</strong> 端口</li>
+<li>只支持文件传输而不支持交互</li>
+<li>没有庞大的命令集，没有列目录的功能，
+也不能对用户进行身份鉴别</li>
+<li>支持ASCII 码或二进制传送</li>
+<li>支持对文件进行读或写</li>
+<li>使用很简单的首部</li>
+<li>工作方式类似停等式协议</li>
+</ul>
+<h4 id="773-snmp">7.7.3 SNMP<a class="headerlink" href="#773-snmp" title="Permanent link">&para;</a></h4>
+<p>SNMP的目的为：网络管理</p>
+<ul>
+<li>配置管理（Configuration Management）</li>
+<li>故障管理（Fault Management）</li>
+<li>性能管理（Performance Management）</li>
+<li>计费管理（Accounting Management）</li>
+<li>安全管理（Security Management）</li>
+</ul>
+<p>SNMP使用UDP协议，简化设计并降低通信开销</p>
+<ul>
+<li>代理运行服务器在UDP <strong>161</strong> 端口</li>
+<li>管理器运行客户端进程在UDP <strong>162</strong> 端口</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

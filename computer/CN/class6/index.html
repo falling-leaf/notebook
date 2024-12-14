@@ -823,9 +823,84 @@
           <li class="md-nav__item">
   <a href="#68" class="md-nav__link">
     <span class="md-ellipsis">
-      6.8 传输层协议的发展
+      6.8 拥塞控制的发展
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="6.8 拥塞控制的发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-tcp-cubic" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8.1 TCP CUBIC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-google-bbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8.2 Google BBR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-data-center-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8.3 Data Center TCP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#684-dctcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8.4 DCTCP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9 传输层协议的发展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.9 传输层协议的发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#691-mptcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9.1 MPTCP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#692-quic" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9.2 QUIC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1593,7 +1668,90 @@ Timeout = EstimatedRTT + 4 * DevRTT
 <p>可以看到，AIMD算法（图中A-B-C）逐渐在逼近等带宽共享的情况。</p>
 <p>因此，AIMD恰好解决了TCP的公平性问题。</p>
 <p>但是，对于更复杂的情形（例如一个用户与服务器建立了多个TCP连接），那么就无法保证带宽的公平分配。</p>
-<h3 id="68">6.8 传输层协议的发展<a class="headerlink" href="#68" title="Permanent link">&para;</a></h3>
+<h3 id="68">6.8 拥塞控制的发展<a class="headerlink" href="#68" title="Permanent link">&para;</a></h3>
+<h4 id="681-tcp-cubic">6.8.1 TCP CUBIC<a class="headerlink" href="#681-tcp-cubic" title="Permanent link">&para;</a></h4>
+<p>问题：在探测满载窗口的过程中，如何增加拥塞窗口来尽可能利用网络带宽？</p>
+<ul>
+<li>在TCP Reno中，由于是通过线性增大的方法，因此导致拥塞窗口增速较慢，信道无法满载</li>
+</ul>
+<p>BIC：通过二分查找的方法进行计算：</p>
+<ul>
+<li>发生丢包时窗口大小为<span class="arithmatex"><span class="MathJax_Preview">W_1</span><script type="math/tex">W_1</script></span></li>
+<li>如果检测到丢包并且窗口乘性减小为<span class="arithmatex"><span class="MathJax_Preview">W_2</span><script type="math/tex">W_2</script></span></li>
+<li>则曼在窗口更新为<span class="arithmatex"><span class="MathJax_Preview">\frac{W_1 + W_2}{2}</span><script type="math/tex">\frac{W_1 + W_2}{2}</script></span></li>
+</ul>
+<p>问题：不公平性的问题：</p>
+<ul>
+<li>由于采用二分查找，使用ACK时钟驱动窗口的更新，因此RTT较短的信道将占用更多的带宽。</li>
+</ul>
+<p>TCP CUBIC：用三次函数拟合BIC函数的曲线；用测窗口变为上次丢包时间t的函数，不再根据RTT间隔来确定调整窗口的时机。</p>
+<h4 id="682-google-bbr">6.8.2 Google BBR<a class="headerlink" href="#682-google-bbr" title="Permanent link">&para;</a></h4>
+<p>在整条链路中，存在一个 <strong>瓶颈链路</strong> （某一段链路的带宽最小），那么此时总体的最大的数据传输速率取决于瓶颈链路的带宽（BtlBw）。</p>
+<blockquote>
+<p>如果拥塞窗口大于BtlBw，那么在瓶颈链路处会形成排队，导致RTT延长（直至超时）</p>
+</blockquote>
+<p>在正常协议中，会在超时之后才开始控制拥塞窗口；BBR协议的目的是在拥塞窗口达到BtlBw时，立即开始控制拥塞窗口。</p>
+<p>方法：用过去10秒内的最小RTT与最大投递率，分别近似RTprop（往返时间）和BtlBw，以此估算当前的BDP</p>
+<ul>
+<li>问题：最大的BW与最小的RTT无法被同时测得：<ul>
+<li>如果测量最大BW，需要将瓶颈链路填满，但此时buffer中存在排队分组，延迟会更大</li>
+<li>如果测量最小的RTT，就要保证网络中分组越少越好，因此cwnd较小</li>
+</ul>
+</li>
+</ul>
+<p>解决方法：</p>
+<ul>
+<li>
+<ol>
+<li>启动阶段（START_UP）：当连接建立时类似慢启动的方式尽可能快地占满管道；若经过三次发现投递率不再增长，说明已经到达了BtlBw，瓶颈链路处已经开始排队（此时占的是三倍BDP）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>排空阶段（DRAIN）：指数降低发送速率，将多占的两倍buffer慢慢排空</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>瓶颈带宽探测（PROBE_BW）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>时延探测（PROBE_RTT）</li>
+</ol>
+</li>
+</ul>
+<h4 id="683-data-center-tcp">6.8.3 Data Center TCP<a class="headerlink" href="#683-data-center-tcp" title="Permanent link">&para;</a></h4>
+<p>在数据中心式的架构下，数据中心需要处理大量的任务，因此其通信方式会以 <strong>Partition/Aggregate</strong> 的方式实现。</p>
+<ul>
+<li>一个Aggregate将任务分为多个子任务，通过长/短流的划分进行数据传输。</li>
+</ul>
+<h4 id="684-dctcp">6.8.4 DCTCP<a class="headerlink" href="#684-dctcp" title="Permanent link">&para;</a></h4>
+<p>DCTCP的核心思想为：精细地减小发送窗口。（计算公式改变为<span class="arithmatex"><span class="MathJax_Preview">(1 - \alpha / 2) \times cwnd</span><script type="math/tex">(1 - \alpha / 2) \times cwnd</script></span>，在TCP中<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>恒为1）</p>
+<p>这种方法更适用于现代数据中心。</p>
+<h3 id="69">6.9 传输层协议的发展<a class="headerlink" href="#69" title="Permanent link">&para;</a></h3>
+<h4 id="691-mptcp">6.9.1 MPTCP<a class="headerlink" href="#691-mptcp" title="Permanent link">&para;</a></h4>
+<p>传统TCP只支持单路径传输（只能利用终端主机上的一个网络接口传输数据）</p>
+<ul>
+<li>例如：对于多个网卡的设备，传统TCP并不能实现不同网络接口的复用（例如不能在WiFi和流量间进行方便地切换）</li>
+</ul>
+<p>MPTCP（multi-path TCP）：通过聚合不同路径上的可用带宽，以获得更高的网络带宽。</p>
+<p><img alt="alt text" src="../image/class6/%7BBB3A51CD-2FCE-4A9F-B4E3-9CE9ABBBCEED%7D.png" /></p>
+<p>MPTCP位于套接字和TCP之间，向应用程序提供单条链接的抽象。</p>
+<p>出现的问题：</p>
+<ul>
+<li>公平性</li>
+<li>兼容性</li>
+<li>数据调度问题（例如同时使用低速链路与高速链路，此时低速链路将会制约整体的数据传输效率）</li>
+</ul>
+<h4 id="692-quic">6.9.2 QUIC<a class="headerlink" href="#692-quic" title="Permanent link">&para;</a></h4>
+<ul>
+<li>由于TCP实现在操作系统内核中，因此操作系统的更新往往跟不上应用的需求和节奏</li>
+<li>TCP体系握手的时延较大，而低时延需求越来越强烈</li>
+</ul>
+<p>QUIC的原理是，替代TLS、TCP和部分HTTP，让传输层以UDP的方式进行工作，而传输的可靠性在用户态中利用QUIC实现。通过这种方式实现与操作系统的解耦，能够快速迭代。</p>
+<p><img alt="alt text" src="../image/class6/%7B3B1ABCD2-6B57-4449-A9AE-CE392DEB724E%7D.png" /></p>
 
 
 

@@ -1,0 +1,1035 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="why的个人网站">
+      
+      
+        <meta name="author" content="王昊元">
+      
+      
+        <link rel="canonical" href="https://falling-leaf.github.io/notebook/computer/OS/class11/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Class11 - why的个人网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75M8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.5 4.5 0 0 1-.563-1.191 3.84 3.84 0 0 1-.05-2.063 4.65 4.65 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4 2.4 0 0 1-.507-.441 3.1 3.1 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19.01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.7 3.7 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-11-file-system-implementation" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="why的个人网站" class="md-header__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            why的个人网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class11
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme:light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="yellow"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../music/" class="md-tabs__link">
+          
+  
+    
+  
+  音乐
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="why的个人网站" class="md-nav__button md-logo" aria-label="why的个人网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    why的个人网站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../music/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    音乐
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-11-file-system-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      chapter 11: File System implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chapter 11: File System implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-file-system-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 file system structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-file-system-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 file system implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 file system implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1121-fcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2.1 FCB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1122-open-file-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2.2 open file table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1123-vfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2.3 VFS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-directory-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 directory implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-allocation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 allocation methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 allocation methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1141-contiguous-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.1 contiguous allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1142-linked-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.2 linked allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1143-indexed-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.3 indexed allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1144-combined-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.4 combined scheme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-free-space-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 free-space management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116-efficiency-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 efficiency and performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Class11</h1>
+
+<h2 id="chapter-11-file-system-implementation">chapter 11: File System implementation<a class="headerlink" href="#chapter-11-file-system-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="111-file-system-structure">11.1 file system structure<a class="headerlink" href="#111-file-system-structure" title="Permanent link">&para;</a></h3>
+<p>有很多文件系统：</p>
+<ul>
+<li>tmpfs: 一般用在嵌入式系统中，读写很快但是易失，是一个临时的文件系统</li>
+<li>ext4: 目前Linux主流的文件系统，具备可靠性（因为通过日志进行管理）但性能较低</li>
+<li>ceph: 开源的、弹性的、分布式的文件系统</li>
+<li>FAT: 具备高兼容性的，简单的文件系统</li>
+</ul>
+<p>其中，有一些共性的、通用的数据结构。</p>
+<ul>
+<li>逻辑存储单元（logical storage unit）</li>
+<li>相关信息的分类存储（collection of related information）</li>
+<li>文件系统依赖于二级存储（磁盘）</li>
+<li>文件系统以分层的方式进行管理<ul>
+<li>分层的好处：进行模块化管理</li>
+</ul>
+</li>
+</ul>
+<p>文件系统的分层架构（从上往下）：</p>
+<ul>
+<li>application program</li>
+<li>logical file system(管理文件的元数据，进行安全与权限保护)</li>
+<li>file-organization module(将逻辑地址转化为物理地址，对空闲空间进行管理)</li>
+<li>basic file system: block I/O subsystem(进行对物理块的读写命令，对I/O操作进行管理，缓冲)</li>
+<li>I/O control: device drivers(将读写命令转化成磁盘设备进行实际操作的低级指令)</li>
+<li>devices(磁盘设备)</li>
+</ul>
+<p><img alt="alt text" src="../image/class11/%7B5B6CA889-EA26-4AC7-BCB1-5C0A3703DB67%7D.png" /></p>
+<p>disk structures: 在每个卷的实际数据前，有一些管理信息</p>
+<ul>
+<li>boot control block(per volume)(BCB): volumn的启动信息，通常放在第一个扇区内</li>
+<li>volume control block per volumn(superblock in Unix): 这个卷本身的一些元信息</li>
+<li>directory structure per file system: 一个卷可以包含多个文件系统</li>
+<li>per-file FCB(inode in Unix)</li>
+</ul>
+<p>in-memory structures: 内存中存储的一些数据</p>
+<ul>
+<li>in-memory mount table about each mounted volumn: 记录当前挂载的卷</li>
+<li>directory cache(dentry in Unix): 目录的高速缓存</li>
+<li>system-wide open-file table</li>
+<li>per-process open-file table</li>
+</ul>
+<h3 id="112-file-system-implementation">11.2 file system implementation<a class="headerlink" href="#112-file-system-implementation" title="Permanent link">&para;</a></h3>
+<h4 id="1121-fcb">11.2.1 FCB<a class="headerlink" href="#1121-fcb" title="Permanent link">&para;</a></h4>
+<p>典型的file control block(FCB)的结构如下：</p>
+<ul>
+<li>file permissions</li>
+<li>file dates(create, access, write)</li>
+<li>file owner, group, ACL</li>
+<li>file size</li>
+<li>file data blocks or pointers to file data blocks</li>
+</ul>
+<p><strong>inode并不存储文件名，它是直接存在于目录项中。</strong></p>
+<p>一般FCB：目录项就是FCB本身</p>
+<p>inode: 目录项存文件名和索引节点编号的映射关系；inode中存放其他信息，包括到物理块的路径</p>
+<h4 id="1122-open-file-table">11.2.2 open file table<a class="headerlink" href="#1122-open-file-table" title="Permanent link">&para;</a></h4>
+<p>内存中的文件系统结构：</p>
+<ul>
+<li>a为打开文件</li>
+<li>b为读取文件</li>
+</ul>
+<p><img alt="alt text" src="../image/class11/%7BFDFA8B52-EA2C-4C8E-AB22-AEDC5521D5BA%7D.png" /></p>
+<p><strong>打开文件时，并不会将具体的文件内容进行加载或映射到内存中，而只是将FCB读入内存。</strong> </p>
+<p>而在读文件后，通过per-process, system-wide的两级打开文件表，借助FCB可以直接访问到对应的数据块。</p>
+<p>具体的打开文件方法可见下图：</p>
+<p><img alt="alt text" src="../image/class11/%7BB9020569-C801-459A-8F89-D41CBC140976%7D.png" /></p>
+<ul>
+<li>
+<ol>
+<li>在执行open()后，确认两级打开文件表中没有相关记录，就从目录中开始根据open()传入的路径一级一级进行读取（读入的目录会在内存的directory cache中进行缓存）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>找到对应的FCB后，将FCB复制到系统的打开文件表</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>系统生成新的打开文件表的对应索引后，传回进程的打开文件表，让其与系统的打开文件表对应</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>进程打开文件表新建一个条目，并将文件描述符进行返回（fd）（一般基于进程打开文件表的索引）</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>用户可以直接根据fd进行读写操作。</li>
+</ol>
+</li>
+</ul>
+<h4 id="1123-vfs">11.2.3 VFS<a class="headerlink" href="#1123-vfs" title="Permanent link">&para;</a></h4>
+<p>virtual file system(VFS): 提供了一个面向对象的文件系统实现方式。</p>
+<ul>
+<li>定义了一个网络的结构：vnode</li>
+</ul>
+<blockquote>
+<p>它介于file system接口与各个子文件系统之间</p>
+</blockquote>
+<p><img alt="alt text" src="../image/class11/%7BFA68E9A5-E783-4293-8726-8414BC1EC10F%7D.png" /></p>
+<p>对于不同的文件系统类型，它可以将不同的read()/write()操作进行抽象，并向上层（file-system interface）提供统一的接口。</p>
+<p>VFS的四个基本对象类型：</p>
+<ul>
+<li>superblock object: 一个特定的挂载了的文件，对应disk structure中的superblock</li>
+<li>inode object: 已给特定的文件，对应disk structure中的FCB</li>
+<li>dentry object: 一个目录入口</li>
+<li>file object: 一个进程打开的文件，在文件被打开时存在。</li>
+</ul>
+<h3 id="113-directory-implementation">11.3 directory implementation<a class="headerlink" href="#113-directory-implementation" title="Permanent link">&para;</a></h3>
+<p>可以通过两种方式实现目录：</p>
+<ul>
+<li>线性列表（linear list）：通过将文件名和对应的数据块一一对应<ul>
+<li>实现简单</li>
+<li>执行需要时间（在遍历或搜索时）</li>
+</ul>
+</li>
+<li>哈希表（hash table）：加入哈希数据结构<ul>
+<li>降低了目录的搜索时间</li>
+<li>碰撞：可能出现两个文件名哈希到同一个位置</li>
+<li>固定大小（哈希函数的输出域是一定的）<ul>
+<li>可能出现overflow</li>
+<li>可以将哈希表再哈希到更大的哈希表中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="114-allocation-methods">11.4 allocation methods<a class="headerlink" href="#114-allocation-methods" title="Permanent link">&para;</a></h3>
+<p>给定了一个文件，将这个文件存放在哪里是一个问题。</p>
+<p>常见的分配方法有：</p>
+<ul>
+<li>连续分配（contiguous allocation）</li>
+<li>链接分配（linked allocation）</li>
+<li>索引分配（indexed allocation）</li>
+</ul>
+<h4 id="1141-contiguous-allocation">11.4.1 contiguous allocation<a class="headerlink" href="#1141-contiguous-allocation" title="Permanent link">&para;</a></h4>
+<p>每个文件占据磁盘中的一系列连续的块</p>
+<p>特点：</p>
+<ul>
+<li>简单：只需要获取文件的起始位置和文件长度即可对文件进行读写</li>
+<li>支持随机访问</li>
+<li>会造成空间的浪费，产生碎片（动态内存分配问题，dynamic storage allocation problem）</li>
+<li>文件无法增长</li>
+</ul>
+<p><img alt="alt text" src="../image/class11/%7B7BF71912-6923-4A2B-85A3-284E0A218778%7D.png" /></p>
+<p>映射的方式（假设块为512KB）：</p>
+<p>则逻辑地址LA对512取模，结果为块内偏移（R）；商为Q，则访问的块为<span class="arithmatex"><span class="MathJax_Preview">startno + Q</span><script type="math/tex">startno + Q</script></span>。</p>
+<p>改进手段：extent-based system</p>
+<p>将多个block组成一个extent，extent之间通过链表相互连接。</p>
+<ul>
+<li>一个extent包含了多个block</li>
+<li>在分配时，直接以extent为单位进行分配</li>
+<li>一个文件可以包含一个或多个extent</li>
+</ul>
+<p>改进后的方法仍然保持文件在一个extent内部保持连续，但是由于不同extent通过链表连接，这让文件可以增长。</p>
+<p>问题：对于过小的文件，会出现内部碎片</p>
+<h4 id="1142-linked-allocation">11.4.2 linked allocation<a class="headerlink" href="#1142-linked-allocation" title="Permanent link">&para;</a></h4>
+<p>linked allocation可以理解为以block为单位的extent-based system。</p>
+<p>这样的特点为：</p>
+<ul>
+<li>简单：只需要知道起始地址，即可通过链表找到整个文件</li>
+<li>没有任何空间的浪费</li>
+</ul>
+<p><img alt="alt text" src="../image/class11/%7B25466B3A-30AD-4DBE-AD1D-7D5E8D512497%7D.png" /></p>
+<p>在映射中需要注意：LA是针对 <strong>一个文件</strong> 的。</p>
+<p>因此，假如LA指向的是<span class="arithmatex"><span class="MathJax_Preview">2 \times 511 + 255</span><script type="math/tex">2 \times 511 + 255</script></span>（即：第二块的255位置），那么：</p>
+<ul>
+<li>文件描述符提取出start block</li>
+<li>start block往下找到链表第3个block（即跳转两次）</li>
+<li>在第3个block中，找到255位置，就是对应的逻辑地址。</li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>不能够进行随机访问（因为需要遍历链表才能找到文件的某个位置），较差的可靠性（poor reliability）</li>
+</ul>
+<p>改进：FAT（file-allocation table）:</p>
+<p>在内存中维护一个FAT，将disk中的block对应的链表的下一项进行存储（例如217的下一个为618，那么FAT中217的位置为618）。</p>
+<p>这样，当需要访问某个block时，只需要查询FAT即可找到对应的链表的下一项，避免了更多的磁盘I/O。</p>
+<p><img alt="alt text" src="../image/class11/%7B8C4C1653-43CA-41D7-AC27-362B276099CE%7D.png" /></p>
+<blockquote>
+<p>常规linked allocation为隐式链接，FAT为显式链接。</p>
+</blockquote>
+<p>问题：存储FAT表会出现overhead</p>
+<ul>
+<li>解决方法：加一个备份（backup）的FAT表，当主FAT表损坏时，可以从备份表中恢复。</li>
+</ul>
+<h4 id="1143-indexed-allocation">11.4.3 indexed allocation<a class="headerlink" href="#1143-indexed-allocation" title="Permanent link">&para;</a></h4>
+<p>将pointer相关的内容都放在一个index block中，在访问时先加载index block，然后通过计算得到对应随机访问的块的位置。</p>
+<p><img alt="alt text" src="../image/class11/%7B41BCC3F6-1334-4BF8-96B5-DCD613C46FF1%7D.png" /></p>
+<p>特点为：</p>
+<ul>
+<li>可以随机访问</li>
+<li>需要维护index table(可以类比page table)</li>
+<li>在动态分配过程中不会产生外部碎片，但index block本身会产生overhead</li>
+</ul>
+<p>映射：</p>
+<p>When mapping from logical to physical in a file of maximum size of 256K words and block size of 512 words.  We need only 1 block for index table.</p>
+<p><img alt="alt text" src="../image/class11/%7BAA8E620A-3360-4E5A-9E2D-AE9CDE3E0620%7D.png" /></p>
+<p>特别的，如果一个link block不足以存放所有的块号，那么在分配多个link block的同时，link block之间通过链表存储（ <strong>注意：此时link block内部需要保留一个word用于存放下一个link block的位置</strong> ）。</p>
+<p><img alt="alt text" src="../image/class11/%7BBB4FDF38-3647-4243-97E2-6A1C2EEB235B%7D.png" /></p>
+<p><img alt="alt text" src="../image/class11/%7BCF929579-B5A4-47C6-83AA-6405A6268908%7D.png" /></p>
+<hr />
+<p>除了上述方法，也可以为index block设置index，从而组成多级index：</p>
+<p><img alt="alt text" src="../image/class11/%7BCBC6E41C-9000-4CC4-9034-5118C081507E%7D.png" /></p>
+<p><img alt="alt text" src="../image/class11/%7B192F0C4F-0FDF-446A-8565-2C4BC4740629%7D.png" /></p>
+<p><img alt="alt text" src="../image/class11/%7B4263597B-BA28-4CD4-B7AE-77F9469A4214%7D.png" /></p>
+<h4 id="1144-combined-scheme">11.4.4 combined scheme<a class="headerlink" href="#1144-combined-scheme" title="Permanent link">&para;</a></h4>
+<p>对于UNIX，它同时使用了上述的几种方法，对文件进行分配管理：</p>
+<ul>
+<li>direct blocks: 直接存储一部分data的实际地址的指针</li>
+<li>single indirect: 指向一级index的指针</li>
+<li>double indirect: 指向二级index的指针</li>
+<li>triple indirect: 指向三级index的指针</li>
+</ul>
+<p><img alt="alt text" src="../image/class11/%7B3B779D37-7C76-4F3A-85A6-4AE352E9F56B%7D.png" /></p>
+<p>这种方式是为了避免为了创建一个小文件而设置了多级index表。</p>
+<p><img alt="alt text" src="../image/class11/%7B15DDF85D-FDC8-43DA-B5ED-43FAE3372087%7D.png" /></p>
+<h3 id="115-free-space-management">11.5 free-space management<a class="headerlink" href="#115-free-space-management" title="Permanent link">&para;</a></h3>
+<h3 id="116-efficiency-and-performance">11.6 efficiency and performance<a class="headerlink" href="#116-efficiency-and-performance" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
